@@ -117,4 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFLSURBVEhL7ZY9
+        joMwFISpETWk4ecAFDSRchiuAxUdNYgSRTRwHW5AahCdd+cpGyVm0GYVoNonfbEyM/aDYBEb6l5Jkqgg
+        CJRhGJuB9bDuT0kz13VpeCuwvjRDZxbYGunj+z41t+beh5s7QcW9oOIqYRiqy+UiI/N/gYoLTqeTGoZB
+        dtU0TTLebjfRWX4FKr7gOI4snmWZMk1TNIz4jrJtezFnBSq+0Pe9yvOcetDhM49AxQe4apRlWdSHjnrz
+        7qgo4Hn8pd54flQUmqZRbdtST6frOskz7wkqCnVdq6IoFnocxwsNOeR1XYOKAiZXVbXQUbqG3H8zCiaX
+        ZbnQ2d8Sch81w+66Xq/U00Huo90YRZH8ZOM4qnmeV4GPQp6t8wQVH3ieJ2/58/m8Cnzk2HwNKu4FFffh
+        0DPIoacr7KLDzo3y+V1pmu58IlbqC+P/wBNZEWdBAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGGSURBVEhLvZYx
+        rgFRGIWnUGmnkSi0RkJpA9ZAYRoaevbAFlQ0VFOwBCsgGXtQS2jleOe+S8zMud4rZpzkM7nn/Pf/Jzcj
+        uR6sZrMZqtUqPM/LDfZj36fMMN/3ZXFesL8ZxsmqIG/MnLyPzoWdo8OCkGZRSFPSbDZxOBxwv99xPB7R
+        arVk3QekmWEwGJgvaj6fo9PpmCc1HA5lvQNpZqBqtVrC45p69/5AmgnG4zHO57PM6I9GI5kJpJlgOp0i
+        jmOZnU4nTCYTmQmkmaBSqTiPi2KuMoE0M2w2G9M4CAKzrtfrZr1erzO1H5Bmhm63a5qn1ev1ZL0Dab4o
+        lUq2LRCGIcrlsvH55Pop1qX3CqT5glosFjJ7wpxSWQppGi6XC6Ioklka1rFeZW9IE+12+79v+4LiPpVZ
+        pIndboflcikzF6vVCtvtVmYWaeJ2u6Hf78vMBT+Y6/UqM4s0sd/v0Wg0ZOaC9dynMos0i0KaxfDVO8hX
+        b1f8b3zt3mh+f8TJeR8p+7Hvr4AHvh2VlSdmfjcAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

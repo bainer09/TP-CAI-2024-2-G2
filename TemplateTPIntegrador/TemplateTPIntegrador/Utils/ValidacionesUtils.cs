@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TemplateTPIntegrador
 {
-    public internal class ValidacionesUtils
+    public class ValidacionesUtils
     {
         public bool ValidarStringVacio (string dato)
         {
