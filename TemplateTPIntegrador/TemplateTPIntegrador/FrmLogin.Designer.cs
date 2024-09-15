@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.btnLogin = new System.Windows.Forms.Button();
             this.textPassword = new System.Windows.Forms.TextBox();
             this.textUsername = new System.Windows.Forms.TextBox();
@@ -113,7 +112,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Image = global::TemplateTPIntegrador.Properties.Resources.password_icon;
             this.pictureBox2.Location = new System.Drawing.Point(79, 142);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 27);
@@ -123,7 +122,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::TemplateTPIntegrador.Properties.Resources.user_icon;
             this.pictureBox1.Location = new System.Drawing.Point(79, 89);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(27, 27);
