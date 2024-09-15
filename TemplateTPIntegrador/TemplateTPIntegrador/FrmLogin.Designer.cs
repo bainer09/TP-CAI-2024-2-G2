@@ -72,7 +72,6 @@
             this.textUsername.Name = "textUsername";
             this.textUsername.Size = new System.Drawing.Size(150, 27);
             this.textUsername.TabIndex = 3;
-            this.textUsername.TextChanged += new System.EventHandler(this.textUsername_TextChanged);
             // 
             // lblUsername
             // 

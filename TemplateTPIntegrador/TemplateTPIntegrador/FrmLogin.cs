@@ -31,11 +31,5 @@ namespace TemplateTPIntegrador
             ln.Login(usuario, contrasena);
 
         }
-
-        private void textUsername_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
