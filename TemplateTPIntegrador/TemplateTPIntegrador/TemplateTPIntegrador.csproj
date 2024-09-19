@@ -91,12 +91,20 @@
       <Name>Negocio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\LogoElectroHogar.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\password_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

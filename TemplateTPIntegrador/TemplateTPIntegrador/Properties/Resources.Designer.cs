@@ -63,9 +63,9 @@ namespace TemplateTPIntegrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap password_icon {
+        public static System.Drawing.Bitmap LogoElectroHogar {
             get {
-                object obj = ResourceManager.GetObject("password_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("LogoElectroHogar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,19 @@ namespace TemplateTPIntegrador.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap user_icon {
+        public static System.Drawing.Bitmap padlock {
             get {
-                object obj = ResourceManager.GetObject("user_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("padlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
