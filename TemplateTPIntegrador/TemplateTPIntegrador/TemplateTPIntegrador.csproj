@@ -95,12 +95,6 @@
     <None Include="Resources\LogoElectroHogar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\password_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\user_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
