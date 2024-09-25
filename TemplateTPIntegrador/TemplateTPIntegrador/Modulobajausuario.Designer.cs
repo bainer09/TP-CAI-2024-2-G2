@@ -37,7 +37,9 @@
             this.IngreseID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Buscarusuarioboton = new System.Windows.Forms.Button();
+            this.LogoElectroHogar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoElectroHogar)).BeginInit();
             this.SuspendLayout();
             // 
             // Botondardebaja
@@ -52,7 +54,7 @@
             this.Botondardebaja.TabIndex = 0;
             this.Botondardebaja.Text = "Dar de baja";
             this.Botondardebaja.UseVisualStyleBackColor = false;
-            this.Botondardebaja.Click += new System.EventHandler(this.button1_Click);
+            this.Botondardebaja.Click += new System.EventHandler(this.Botondardebaja_Click);
             // 
             // Botonreactivarusuario
             // 
@@ -65,6 +67,7 @@
             this.Botonreactivarusuario.TabIndex = 1;
             this.Botonreactivarusuario.Text = "Reactivar usuario";
             this.Botonreactivarusuario.UseVisualStyleBackColor = false;
+            this.Botonreactivarusuario.Click += new System.EventHandler(this.Botonreactivarusuario_Click);
             // 
             // dataGridView1
             // 
@@ -85,7 +88,6 @@
             this.Listadeusuarios.Size = new System.Drawing.Size(246, 32);
             this.Listadeusuarios.TabIndex = 3;
             this.Listadeusuarios.Text = "Lista de usuarios";
-            this.Listadeusuarios.Click += new System.EventHandler(this.label1_Click);
             // 
             // Iddeusuariotexto
             // 
@@ -109,7 +111,6 @@
             this.IngreseID.Size = new System.Drawing.Size(162, 20);
             this.IngreseID.TabIndex = 6;
             this.IngreseID.Text = "Ingrese ID de usuario";
-            this.IngreseID.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label1
             // 
@@ -131,12 +132,24 @@
             this.Buscarusuarioboton.TabIndex = 8;
             this.Buscarusuarioboton.Text = "Buscar Usuario";
             this.Buscarusuarioboton.UseVisualStyleBackColor = false;
+            this.Buscarusuarioboton.Click += new System.EventHandler(this.Buscarusuarioboton_Click);
+            // 
+            // LogoElectroHogar
+            // 
+            this.LogoElectroHogar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.LogoElectroHogar.Image = global::TemplateTPIntegrador.Properties.Resources.LogoElectroHogar1;
+            this.LogoElectroHogar.Location = new System.Drawing.Point(0, 0);
+            this.LogoElectroHogar.Name = "LogoElectroHogar";
+            this.LogoElectroHogar.Size = new System.Drawing.Size(134, 147);
+            this.LogoElectroHogar.TabIndex = 9;
+            this.LogoElectroHogar.TabStop = false;
             // 
             // Modulobajausuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1651, 769);
+            this.Controls.Add(this.LogoElectroHogar);
             this.Controls.Add(this.Buscarusuarioboton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.IngreseID);
@@ -147,9 +160,10 @@
             this.Controls.Add(this.Botonreactivarusuario);
             this.Controls.Add(this.Botondardebaja);
             this.Name = "Modulobajausuario";
-            this.Text = "Form1";
+            this.Text = "Baja de usuarios";
             this.Load += new System.EventHandler(this.Modulobajausuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoElectroHogar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +180,6 @@
         private System.Windows.Forms.Label IngreseID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Buscarusuarioboton;
+        private System.Windows.Forms.PictureBox LogoElectroHogar;
     }
 }
