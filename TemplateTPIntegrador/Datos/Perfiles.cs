@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistencia
+namespace Datos
 {
-    public class Class1
+    public enum Perfiles
     {
+        Vendedor = 1,
+        Supervisor = 2,
+        Administrador = 3
     }
 }

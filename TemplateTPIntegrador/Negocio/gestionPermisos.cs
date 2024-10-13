@@ -7,18 +7,15 @@ using Datos;
 
 namespace Negocio
 {
-    public class gestionPermisos
+    public class PermisosPerfiles
     {
-        // Setea los permisos de cada perfil
-        private static readonly Dictionary<PerfilUsuario, List<int>> permisosPerfiles = new Dictionary<PerfilUsuario, List<int>>
+        private static readonly Dictionary<Perfiles, List<int>> permisosPerfiles = new Dictionary<Perfiles, List<int>>
         {
-            {PerfilUsuario.Administrador, new List<int> {1,2,3,4,5,6,7,8,9,10,11,12,15,16,17}},
-            {PerfilUsuario.Supervisor, new List<int> {10,11,12,14,15,16,17}},
-            {PerfilUsuario.Vendedor, new List<int>{13,16}}
+            {Perfiles.Administrador, new List<int> {1,2,3,4,5,6,7,8,9,10,11,12,15,16,17}},
+            {Perfiles.Supervisor, new List<int> {10,11,12,14,15,16,17}},
+            {Perfiles.Vendedor, new List<int>{13,16}}
         };
-
-        // Lista las descripciones de los permisos de un perfil
-        public static List<string> ListarPermisos (PerfilUsuario perfil)
+        public static List<string> ListarPermisos (Perfiles perfil)
         {
             List<string> permisos = new List<string>();
             if(permisosPerfiles.TryGetValue(perfil, out List<int> IDs))
