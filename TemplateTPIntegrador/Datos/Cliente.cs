@@ -62,7 +62,7 @@ namespace Datos
             _Host = host;
         }
     }
-    public class  ModificarCliente
+    public class ModificarCliente
     {
         public string _id { get => _id; set => _id = value; }
         public string _Direccion { get => _Direccion; set => _Direccion = value; }
@@ -80,10 +80,10 @@ namespace Datos
     public class BajaCliente
     {
         public string _id { get => _id; set => _id = value; }
-        public BajaCliente (string id)
+        public BajaCliente(string id)
         {
             _id = id;
-        }   
+        }
     }
     public class ReactivarCliente
     {
@@ -93,5 +93,4 @@ namespace Datos
             _id = id;
         }
     }
-
 }
