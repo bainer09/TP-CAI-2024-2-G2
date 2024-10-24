@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,8 +20,10 @@ namespace TemplateTPIntegrador
 
         private void Modulobajausuario_Load(object sender, EventArgs e)
         {
-
+            
+           
         }
+   
 
         private void Botondardebaja_Click(object sender, EventArgs e)
         {
@@ -41,6 +44,11 @@ namespace TemplateTPIntegrador
         }
 
         private void Botonreactivarusuario_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void listausuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -37,12 +37,13 @@
             this.IngreseID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Buscarusuarioboton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.contrafondologo = new System.Windows.Forms.Panel();
             this.electrohogarlbl = new System.Windows.Forms.Label();
             this.sistemalbl = new System.Windows.Forms.Label();
+            this.Alertabotones = new System.Windows.Forms.Label();
             this.LogoElectroHogar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.listausuarios)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.contrafondologo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoElectroHogar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +84,7 @@
             this.listausuarios.RowTemplate.Height = 28;
             this.listausuarios.Size = new System.Drawing.Size(778, 355);
             this.listausuarios.TabIndex = 2;
+            this.listausuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listausuarios_CellContentClick);
             // 
             // Listadeusuarios
             // 
@@ -139,18 +141,18 @@
             this.Buscarusuarioboton.UseVisualStyleBackColor = false;
             this.Buscarusuarioboton.Click += new System.EventHandler(this.Buscarusuarioboton_Click);
             // 
-            // panel1
+            // contrafondologo
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkCyan;
-            this.panel1.Controls.Add(this.electrohogarlbl);
-            this.panel1.Controls.Add(this.sistemalbl);
-            this.panel1.Controls.Add(this.LogoElectroHogar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(397, 786);
-            this.panel1.TabIndex = 11;
+            this.contrafondologo.BackColor = System.Drawing.Color.DarkCyan;
+            this.contrafondologo.Controls.Add(this.electrohogarlbl);
+            this.contrafondologo.Controls.Add(this.sistemalbl);
+            this.contrafondologo.Controls.Add(this.LogoElectroHogar);
+            this.contrafondologo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.contrafondologo.Location = new System.Drawing.Point(0, 0);
+            this.contrafondologo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.contrafondologo.Name = "contrafondologo";
+            this.contrafondologo.Size = new System.Drawing.Size(397, 786);
+            this.contrafondologo.TabIndex = 11;
             // 
             // electrohogarlbl
             // 
@@ -178,13 +180,23 @@
             this.sistemalbl.TabIndex = 10;
             this.sistemalbl.Text = "Sistema de gestión";
             // 
+            // Alertabotones
+            // 
+            this.Alertabotones.AutoSize = true;
+            this.Alertabotones.Location = new System.Drawing.Point(1196, 701);
+            this.Alertabotones.Name = "Alertabotones";
+            this.Alertabotones.Size = new System.Drawing.Size(51, 20);
+            this.Alertabotones.TabIndex = 12;
+            this.Alertabotones.Text = "Alerta";
+            this.Alertabotones.Visible = false;
+            // 
             // LogoElectroHogar
             // 
             this.LogoElectroHogar.Image = global::TemplateTPIntegrador.Properties.Resources.LogoElectroHogar;
-            this.LogoElectroHogar.Location = new System.Drawing.Point(94, 49);
+            this.LogoElectroHogar.Location = new System.Drawing.Point(109, 75);
             this.LogoElectroHogar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LogoElectroHogar.Name = "LogoElectroHogar";
-            this.LogoElectroHogar.Size = new System.Drawing.Size(192, 197);
+            this.LogoElectroHogar.Size = new System.Drawing.Size(132, 138);
             this.LogoElectroHogar.TabIndex = 0;
             this.LogoElectroHogar.TabStop = false;
             // 
@@ -193,7 +205,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1305, 786);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Alertabotones);
+            this.Controls.Add(this.contrafondologo);
             this.Controls.Add(this.Buscarusuarioboton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.IngreseID);
@@ -207,8 +220,8 @@
             this.Text = "Baja de usuarios";
             this.Load += new System.EventHandler(this.Modulobajausuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listausuarios)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.contrafondologo.ResumeLayout(false);
+            this.contrafondologo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoElectroHogar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -226,9 +239,10 @@
         private System.Windows.Forms.Label IngreseID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Buscarusuarioboton;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel contrafondologo;
         private System.Windows.Forms.Label electrohogarlbl;
         private System.Windows.Forms.Label sistemalbl;
         private System.Windows.Forms.PictureBox LogoElectroHogar;
+        private System.Windows.Forms.Label Alertabotones;
     }
 }
