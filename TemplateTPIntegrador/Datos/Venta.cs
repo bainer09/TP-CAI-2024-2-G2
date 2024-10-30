@@ -26,6 +26,7 @@ namespace Datos
             _Estado = estado;
             _idUsuario = idUsuario;
         }
+        public Venta() {}
     }
     public class AgregarVenta
     {
