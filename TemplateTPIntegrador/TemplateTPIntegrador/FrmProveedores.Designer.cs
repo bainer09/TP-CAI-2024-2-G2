@@ -66,10 +66,15 @@
             // 
             // dataGridProveedores
             // 
+            this.dataGridProveedores.AllowUserToAddRows = false;
+            this.dataGridProveedores.AllowUserToDeleteRows = false;
+            this.dataGridProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProveedores.Location = new System.Drawing.Point(665, 69);
             this.dataGridProveedores.Name = "dataGridProveedores";
-            this.dataGridProveedores.Size = new System.Drawing.Size(700, 369);
+            this.dataGridProveedores.ReadOnly = true;
+            this.dataGridProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridProveedores.Size = new System.Drawing.Size(672, 369);
             this.dataGridProveedores.TabIndex = 0;
             // 
             // groupBoxCategorias
@@ -323,6 +328,7 @@
             this.btnEliminarProveedor.TabIndex = 14;
             this.btnEliminarProveedor.Text = "ELIMINAR";
             this.btnEliminarProveedor.UseVisualStyleBackColor = false;
+            this.btnEliminarProveedor.Click += new System.EventHandler(this.btnEliminarProveedor_Click);
             // 
             // btnReactivarProveedor
             // 
@@ -336,6 +342,7 @@
             this.btnReactivarProveedor.TabIndex = 15;
             this.btnReactivarProveedor.Text = "REACTIVAR";
             this.btnReactivarProveedor.UseVisualStyleBackColor = false;
+            this.btnReactivarProveedor.Click += new System.EventHandler(this.btnReactivarProveedor_Click);
             // 
             // lblValidaciones
             // 
@@ -405,9 +412,11 @@
             this.Controls.Add(this.labelAltaProveedor);
             this.Controls.Add(this.groupBoxCategorias);
             this.Controls.Add(this.dataGridProveedores);
-            this.MinimizeBox = false;
             this.Name = "FrmProveedores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proveedores";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmProveedores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProveedores)).EndInit();
             this.groupBoxCategorias.ResumeLayout(false);
             this.groupBoxCategorias.PerformLayout();
