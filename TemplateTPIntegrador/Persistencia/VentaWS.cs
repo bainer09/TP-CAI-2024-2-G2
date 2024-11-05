@@ -80,16 +80,16 @@ namespace Persistencia
 
         public void AgregarVentaLocal(AgregarVenta venta)
         {
-            List<Venta> ventas;
+            List<AgregarVenta> ventas;
 
             if (File.Exists(ventasPath))
             {
                 string json = File.ReadAllText(ventasPath);
-                ventas = JsonConvert.DeserializeObject<List<Venta>>(json);
+                ventas = JsonConvert.DeserializeObject<List<AgregarVenta>>(json);
             }
             else
             {
-                ventas = new List<Venta>();
+                ventas = new List<AgregarVenta>();
             }
             ventas.Add(venta);
 
@@ -99,7 +99,13 @@ namespace Persistencia
                 File.WriteAllText(ventasPath, nuevaData);
             } catch (Exception e) { throw new Exception("Error al agregar la venta en forma local.\n", e); }
         }
+        public List<AgregarVenta> LeerVentasLocal()
+        {
+            if (!File.Exists(ventasPath)) { throw new FileNotFoundException("Archivo no encontrado."); }
+            string json = File.ReadAllText(ventasPath);
+            List<AgregarVenta> ventas = JsonConvert.DeserializeObject<List<AgregarVenta>>(json);
 
-
+            return ventas;
+        }
     }
 }

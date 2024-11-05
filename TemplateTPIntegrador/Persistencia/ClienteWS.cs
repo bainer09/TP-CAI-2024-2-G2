@@ -120,4 +120,32 @@ namespace Persistencia
             catch (Exception e) { throw new Exception("Error: ", e); }
         }
     }
+    public class ClientePersistente
+    {
+        private const string clientesPath = @"/TemplateTPIntegrador/Persistencia/Data/Clientes.json";
+        public void AltaClienteLocal(Cliente cliente)
+        {
+            List<Cliente> clientes;
+
+            if (File.Exists(clientesPath))
+            {
+                string json = File.ReadAllText(clientesPath);
+                clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
+            }
+            else
+            {
+                clientes = new List<Cliente>();
+            }
+            clientes.Add(cliente);
+
+            try
+            {
+                string nuevaData = JsonConvert.SerializeObject(clientes, Formatting.Indented);
+                File.WriteAllText(clientesPath, nuevaData);
+            }
+            catch (Exception e) { throw new Exception("Error al dar de alta al cliente en forma local.\n", e); }
+
+        }
+
+    }
 }

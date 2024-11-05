@@ -12,18 +12,23 @@ namespace Negocio
     public class ClienteNegocio
     {
         private ClienteWS ClienteWS = new ClienteWS();
-
-        public void AltaCliente(string idUsuario, string nombre, string apellido, int DNI, string direccion, string telefono, string email, DateTime fechaNacimiento, string host)
+        private ClientePersistente ClienteP = new ClientePersistente();
+        public void AltaCliente(AltaCliente cliente)
         {
-            AltaCliente cliente = new AltaCliente(idUsuario, nombre, apellido, DNI, direccion, telefono, email, fechaNacimiento, "Grupo 2");
-
-            try { ClienteWS.AltaCliente(cliente); }
-            catch (Exception e) { throw new Exception("Error: ", e); }
+            ClienteWS.AltaCliente(cliente);
+            Cliente nuevoCliente = new Cliente
+            {
+                _DNI = cliente._DNI,
+                _Telefono = cliente._Telefono,
+                _FechaAlta = DateTime.Now,
+                _FechaBaja = null,
+                _Direccion = cliente._Direccion,
+                _Email = cliente._Email,
+            };
+            ClienteP.AltaClienteLocal(nuevoCliente);
         }
-        public void ModificarCliente(string idCliente, string direccion, string telefono, string email)
+        public void ModificarCliente(ModificarCliente cliente)
         {
-            ModificarCliente cliente = new ModificarCliente(idCliente, direccion, telefono, email);
-
             try { ClienteWS.ModificarCliente(cliente); }
             catch (Exception e) { throw new Exception("Error: ", e); }
         }
@@ -31,17 +36,13 @@ namespace Negocio
         {
             return ClienteWS.GetClientes();
         }
-        public void BajaCliente(string idCliente)
+        public void BajaCliente(BajaCliente cliente)
         {
-            BajaCliente cliente = new BajaCliente(idCliente);
-
             try { ClienteWS.BajaCliente(cliente); }
             catch (Exception e) { throw new Exception("Error: ", e); }
         }
-        public void ReactivarCliente(string idCliente)
+        public void ReactivarCliente(ReactivarCliente cliente)
         {
-            ReactivarCliente cliente = new ReactivarCliente(idCliente);
-
             try { ClienteWS.ReactivarCiente(cliente); }
             catch (Exception e) { throw new Exception("Error: ", e); }
         }

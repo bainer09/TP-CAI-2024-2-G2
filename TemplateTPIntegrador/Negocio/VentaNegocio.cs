@@ -51,7 +51,14 @@ namespace Negocio
         public void AgregarVenta(AgregarVenta venta)
         {
             VentaWS.AgregarVenta(venta);
-            VentaP.AgregarVentaLocal(venta);
+            AgregarVenta nuevaVenta = new AgregarVenta(
+                venta._idCliente,
+                venta._idProducto,
+                venta._Cantidad,
+                venta._idUsuario,
+                DateTime.Now
+            );
+            VentaP.AgregarVentaLocal(nuevaVenta);
         }
         public List<GetVenta> ObtenerVentasPorCliente(string idCliente)
         {
