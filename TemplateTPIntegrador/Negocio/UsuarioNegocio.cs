@@ -7,22 +7,22 @@ using Newtonsoft.Json;
 using Datos;
 using Persistencia;
 using static Datos.Usuario;
-using System.Xml;
+//using System.Xml;
 
 namespace Negocio
 {
     public class UsuarioNegocio
     {
-        private readonly UsuarioService usuarioService = new UsuarioService();
+        private readonly UsuarioWS usuarioService = new UsuarioWS();
         private const string IdAdministrador = "70b37dc1-8fde-4840-be47-9ababd0ee7e5";
         private const string PathDB = @"C:\ElectroHogarDB\usuarios_baja.json";
 
-        public void AgregarUsuario(string guidUsuarioString, int valorPerfil, string nombre, string apellido, int dni, string direccion, string telefono, string email, DateTime fechaNacimiento, string nombreUsuario, string contraseña)
+        public void AgregarUsuario(string guidUsuarioString, string nombre, string apellido, int dni, string direccion, string telefono, string email, DateTime fechaNacimiento, string nombreUsuario, string contraseña, int host)
         {
-            var altaUsuario = new UsuarioAlta(guidUsuarioString, valorPerfil, nombre, apellido, dni, direccion, telefono, email, fechaNacimiento, nombreUsuario, contraseña, null);
+            var altaUsuario = new AltaUsuario(guidUsuarioString, nombre, apellido, dni, direccion, telefono, email, fechaNacimiento, nombreUsuario, contraseña, host);
             try
             {
-                usuarioService.AgregarUsuario(altaUsuario);
+                usuarioService.AltaUsuario(altaUsuario);
             }
             catch (Exception ex)
             {
@@ -30,15 +30,15 @@ namespace Negocio
             }
         }
 
-        public void AgregarUsuarioDBLocal(string nombreUsuario, string contraseña)
+        public void AgregarUsuarioLocal(string nombreUsuario, string contraseña)
         {
-            var altaUsuarioDBLocal = new UsuarioDBLocal(nombreUsuario, contraseña, false, null);
-            usuarioService.EscribirUsuarioDBLocal(altaUsuarioDBLocal);
+            var altaUsuarioLocal = new UsuarioPersistente(nombreUsuario, contraseña, null);
+            usuarioService.AltaUsuarioLocal(altaUsuarioLocal);
         }
 
         public void BorrarUsuario(string idUsuario, string guidUsuarioString, string nombreUsuario, string nombre, string apellido)
         {
-            var bajausuario = new UsuarioBaja(idUsuario, guidUsuarioString);
+            var bajausuario = new BajaUsuario(idUsuario, guidUsuarioString);
             try
             {
                 usuarioService.BajaUsuario(bajausuario);
@@ -50,24 +50,29 @@ namespace Negocio
             }
         }
 
-        public void BorrarUsuarioDBLocal(string nombreUsuario)
+        public void BorrarUsuarioLocal(string nombreUsuario)
         {
-            usuarioService.EliminarUsuarioDBLocal(nombreUsuario);
+            usuarioService.BajaUsuarioLocal(nombreUsuario);
         }
 
         private void GuardarUsuarioBajaLocal(string idUsuario, string nombreUsuario, string nombre, string apellido)
         {
             var usuariosBaja = CargarUsuariosBajaDesdeJson();
-
-            usuariosBaja.Add(new UsuarioBajaDBLocal(idUsuario, nombreUsuario, nombre, apellido, false, DateTime.Now));
+            usuariosBaja.Add(new UsuarioPersistenteBaja(idUsuario, nombreUsuario, nombre, apellido, false, DateTime.Now));
             EscribirUsuariosBajaEnJson(usuariosBaja);
         }
 
         public void EliminarUsuarioDeBajasJson(string idUsuario)
         {
-            var usuariosBaja = CargarUsuariosBajaDesdeJson();
-            var usuarioParaEliminar = usuariosBaja.FirstOrDefault(u => u.IdUsuario == idUsuario);
+            List<UsuarioPersistenteBaja> usuariosBaja = new List<UsuarioPersistenteBaja>();
 
+            if (File.Exists(PathDB))
+            {
+                var json = File.ReadAllText(PathDB);
+                usuariosBaja = JsonConvert.DeserializeObject<List<UsuarioPersistenteBaja>>(json) ?? new List<UsuarioPersistenteBaja>();
+            }
+
+            var usuarioParaEliminar = usuariosBaja.FirstOrDefault(u => u._IdUsuario == idUsuario);
             if (usuarioParaEliminar != null)
             {
                 usuariosBaja.Remove(usuarioParaEliminar);
@@ -75,17 +80,14 @@ namespace Negocio
             }
         }
 
-        private List<UsuarioBajaDBLocal> CargarUsuariosBajaDesdeJson()
+        private List<UsuarioPersistenteBaja> CargarUsuariosBajaDesdeJson()
         {
-            if (File.Exists(PathDB))
-            {
-                var json = File.ReadAllText(PathDB);
-                return JsonConvert.DeserializeObject<List<UsuarioBajaDBLocal>>(json) ?? new List<UsuarioBajaDBLocal>();
-            }
-            return new List<UsuarioBajaDBLocal>();
+            return File.Exists(PathDB)
+                ? JsonConvert.DeserializeObject<List<UsuarioPersistenteBaja>>(File.ReadAllText(PathDB)) ?? new List<UsuarioPersistenteBaja>()
+                : new List<UsuarioPersistenteBaja>();
         }
 
-        private void EscribirUsuariosBajaEnJson(List<UsuarioBajaDBLocal> usuariosBaja)
+        private void EscribirUsuariosBajaEnJson(List<UsuarioPersistenteBaja> usuariosBaja)
         {
             var serializedData = JsonConvert.SerializeObject(usuariosBaja, Formatting.Indented);
             File.WriteAllText(PathDB, serializedData);
@@ -95,7 +97,8 @@ namespace Negocio
         {
             try
             {
-                usuarioService.ReactivarUsuario(idUsuario, guidUsuario);
+                var usuario = new ReactivarUsuario(guidUsuario, idUsuario);
+                usuarioService.ReactivarUsuario(usuario);
                 EliminarUsuarioDeBajasJson(idUsuario);
             }
             catch (Exception ex)
@@ -104,19 +107,20 @@ namespace Negocio
             }
         }
 
-        public List<UsuarioBajaDBLocal> ObtenerUsuariosDadosDeBaja()
+        public List<UsuarioPersistenteBaja> ObtenerUsuariosDadosDeBaja()
         {
             return CargarUsuariosBajaDesdeJson();
         }
 
         public void BorrarUsuarioPorLoginFallido(string nombreUsuario)
         {
-            var usuarios = usuarioService.GetUsuarios(IdAdministrador);
-            var usuario = usuarios.FirstOrDefault(u => u.NombreUsuario == nombreUsuario);
+            List<Usuario> usuarios = usuarioService.GetUsuarios(IdAdministrador);
+            var usuario = usuarios.FirstOrDefault(u => u._Usuario == nombreUsuario); 
 
             if (usuario != null)
             {
-                BorrarUsuario(usuario.id.ToString(), IdAdministrador, usuario.NombreUsuario, usuario.Nombre, usuario.Apellido);
+                string idUsuario = usuario._id.ToString();
+                BorrarUsuario(idUsuario, IdAdministrador, usuario._Usuario, usuario._Nombre, usuario._Apellido);
             }
         }
 
@@ -139,7 +143,7 @@ namespace Negocio
 
         public bool VerificarPrimerLogin(string nombreUsuario)
         {
-            return usuarioService.VerificarPrimerLogin(nombreUsuario);
+            return usuarioService.esPrimerLogin(nombreUsuario);
         }
 
         public bool VerificarExpiracionContraseña(string usuario)
@@ -159,8 +163,11 @@ namespace Negocio
                     {
                         throw new Exception(validacionContraseña);
                     }
-                    usuarioService.CambiarContraseña(usuario, contraseñaActual, nuevaContraseña);
-                    usuarioService.ActualizarDBLocal(usuario, nuevaContraseña);
+                    // Crear un objeto de CambiarContraseña y pasar a la capa de persistencia
+                    var cambiarContraseña = new CambiarContraseña(usuario, contraseñaActual, nuevaContraseña);
+                    UsuarioWS usuarioWS = new UsuarioWS();
+                    usuarioWS.CambiarContraseña(cambiarContraseña);
+                    usuarioWS.CambiarContraseñaUsuarioLocal(usuario, nuevaContraseña);
                 }
                 else
                 {

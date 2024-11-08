@@ -21,19 +21,14 @@ namespace Presentacion
         private UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
         private int perfilUsuario;
         private Guid guidUsuario;
-        private string userLogueado = UsuarioLogueado.NombreUsuario;
+        string userLogueado = UsuarioLogueado.NombreUsuario;
 
         public FrmAltaUsuario(int perfilUsuario)
         {
             InitializeComponent();
             InitializeComboBox();
-            InitializeFormEvents();
-            this.perfilUsuario = perfilUsuario;
-        }
-
-        private void InitializeFormEvents()
-        {
             this.FormClosing += FrmAltaUsuario_FormClosing;
+            this.perfilUsuario = perfilUsuario;
         }
 
         private void FrmAltaUsuario_FormClosing(object sender, FormClosingEventArgs e)
@@ -46,184 +41,132 @@ namespace Presentacion
 
         private void btnVolverInicio_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new FrmMain(perfilUsuario));
+            FrmMain frmMain = new FrmMain(perfilUsuario, usuarioNegocio, productoNegocio);
+            frmMain.Show();
+            this.Hide();
         }
 
-/*        private void strpAltaUsuariosMenu_Click(object sender, EventArgs e)
+        /*private void strpAltaUsuariosMenu_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new FrmAltaUsuario(perfilUsuario));
+            FrmAltaUsuario frmAlta = new FrmAltaUsuario(perfilUsuario);
+            frmAlta.Show();
+            this.Hide();
         }
 
         private void strpBajaUsuariosMenu_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new FrmBajaModUsuario(perfilUsuario));
-        }
-*/
-        private void NavigateToForm(Form form)
-        {
-            form.Show();
+            FrmBajaModUsuario frmBaja = new FrmBajaModUsuario(perfilUsuario);
+            frmBaja.Show();
             this.Hide();
-        }
+        }*/
 
         private void btnAltaUsuario_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!ValidateFormInputs(out var datosUsuario)) return;
+                var controlEtiquetaMap = new Dictionary<Control, string>
+                {
+                    { txtNombre, "Nombre" },
+                    { txtApellido, "Apellido" },
+                    { txtDNI, "DNI" },
+                    { txtDireccion, "Dirección" },
+                    { txtTelefono, "Teléfono" },
+                    { txtEmail, "Email" },
+                    { txtUsuario, "Nombre de Usuario" }
+                };
+                if (cbPerfiles.SelectedIndex == -1)
+                {
+                    lblAlertaAltaUsuario.Visible = true;
+                    lblAlertaAltaUsuario.ForeColor = Color.Red;
+                    lblAlertaAltaUsuario.Text = "Debe seleccionar un perfil.";
+                    return;
+                }
 
-                string errorMensaje = ValidateUserDetails(datosUsuario);
+                string nombre = txtNombre.Text;
+                string apellido = txtApellido.Text;
+                int dni;
+                if (!Int32.TryParse(txtDNI.Text, out dni))
+                {
+                    lblAlertaAltaUsuario.Visible = true;
+                    lblAlertaAltaUsuario.ForeColor = Color.Red;
+                    lblAlertaAltaUsuario.Text = "Debe completar el campo DNI con numeros validos";
+                    return;
+                }
+                string direccion = txtDireccion.Text;
+                string telefono = txtTelefono.Text;
+                string email = txtEmail.Text;
+                if (!email.Contains("@"))
+                {
+                    lblAlertaAltaUsuario.Visible = true;
+                    lblAlertaAltaUsuario.ForeColor = Color.Red;
+                    lblAlertaAltaUsuario.Text = "El campo 'Email' debe contener un '@'.";
+                    return;
+                }
+                DateTime fechaNacimiento = dateTimeFechaNacimiento.Value;
+                string nombreUsuario = txtUsuario.Text;
+                string contraseña = "CAI20232";
+                int host = (int)cbPerfiles.SelectedValue;
+
+                DateTime fechaAlta = DateTime.Now;
+
+                ValidadorUtilis validador = new ValidadorUtilis();
+
+                string errorCamposIncompletos = validador.ValidarCamposCompletos(this, controlEtiquetaMap);
+
+                if (!string.IsNullOrEmpty(errorCamposIncompletos))
+                {
+                    lblAlertaAltaUsuario.ForeColor = Color.Red;
+                    lblAlertaAltaUsuario.Text = errorCamposIncompletos;
+                    return;
+                }
+
+                int edad = DateTime.Now.Year - fechaNacimiento.Year;
+                if (fechaNacimiento > DateTime.Now.AddYears(-edad)) edad--;
+                if (edad < 18)
+                {
+                    lblAlertaAltaUsuario.ForeColor = Color.Red;
+                    lblAlertaAltaUsuario.Text = "El usuario debe tener al menos 18 años.";
+                    return;
+                }
+
+                string errorMensaje = validador.ValidarDatosUsuario(nombreUsuario, contraseña, dni, nombre, apellido, fechaNacimiento);
 
                 if (string.IsNullOrEmpty(errorMensaje))
                 {
-                    CrearUsuario(datosUsuario);
-                    MostrarMensaje("Usuario creado correctamente", Color.Green);
-                    LimpiarFormulario();
+                    List<Usuario> usuarios = usuarioNegocio.ListarUsuarios();
+                    Usuario usuario = usuarios.FirstOrDefault(u => u._Usuario == userLogueado);
+                    guidUsuario = usuario._id;
+                    string guidUsuarioString = guidUsuario.ToString();
+
+                    usuarioNegocio.AgregarUsuario(guidUsuarioString, nombre, apellido, dni, direccion, telefono, email, fechaNacimiento, nombreUsuario, contraseña, host);
+                    usuarioNegocio.AgregarUsuarioLocal(nombreUsuario, contraseña);
+
+                    lblAlertaAltaUsuario.Visible = true;
+                    lblAlertaAltaUsuario.ForeColor = Color.Green;
+                    lblAlertaAltaUsuario.Text = "Usuario creado correctamente";
+
+                    txtNombre.Text = "";
+                    txtApellido.Text = "";
+                    txtDNI.Text = "";
+                    txtDireccion.Text = "";
+                    txtTelefono.Text = "";
+                    txtEmail.Text = "";
+                    dateTimeFechaNacimiento.Value = DateTime.Now;
+                    txtUsuario.Text = "";
                 }
                 else
                 {
-                    MostrarMensaje(errorMensaje, Color.Red);
+                    lblAlertaAltaUsuario.Visible = true;
+                    lblAlertaAltaUsuario.ForeColor = Color.Red;
+                    lblAlertaAltaUsuario.Text = errorMensaje;
                 }
             }
             catch (Exception ex)
             {
-                MostrarMensaje("Se ha producido un error. Vuelva a intentarlo, \nsi persiste contacte a su administrador del Sistema", Color.Red);
+                lblAlertaAltaUsuario.Visible = true;
+                lblAlertaAltaUsuario.ForeColor = Color.Red;
+                lblAlertaAltaUsuario.Text = "Se ha producido un error. Vuelva a intentarlo, \nsi persiste contacte a su administrador del Sistema";
             }
-        }
-
-        private bool ValidateFormInputs(out UsuarioDatos datosUsuario)
-        {
-            datosUsuario = new UsuarioDatos();
-            var controlEtiquetaMap = CrearControlEtiquetaMap();
-
-            if (!VerificarCamposSeleccionados(controlEtiquetaMap)) return false;
-            if (!VerificarDNI(txtDNI.Text, out datosUsuario.Dni)) return false;
-            if (!VerificarEmail(txtEmail.Text)) return false;
-            if (!VerificarEdadMinima(dateTimeFechaNacimiento.Value)) return false;
-
-            datosUsuario = CrearDatosUsuario();
-            return true;
-        }
-
-        private Dictionary<Control, string> CrearControlEtiquetaMap()
-        {
-            return new Dictionary<Control, string>
-            {
-                { txtNombre, "Nombre" },
-                { txtApellido, "Apellido" },
-                { txtDNI, "DNI" },
-                { txtDireccion, "Dirección" },
-                { txtTelefono, "Teléfono" },
-                { txtEmail, "Email" },
-                { txtUsuario, "Nombre de Usuario" }
-            };
-        }
-
-        private bool VerificarCamposSeleccionados(Dictionary<Control, string> controlEtiquetaMap)
-        {
-            if (cbPerfiles.SelectedIndex == -1)
-            {
-                MostrarMensaje("Debe seleccionar un perfil.", Color.Red);
-                return false;
-            }
-
-            string errorCamposIncompletos = new ValidadorUtilis().ValidarCamposCompletos(this, controlEtiquetaMap);
-
-            if (!string.IsNullOrEmpty(errorCamposIncompletos))
-            {
-                MostrarMensaje(errorCamposIncompletos, Color.Red);
-                return false;
-            }
-
-            return true;
-        }
-
-        private bool VerificarDNI(string dniText, out int dni)
-        {
-            if (!int.TryParse(dniText, out dni))
-            {
-                MostrarMensaje("Debe completar el campo DNI con numeros validos", Color.Red);
-                return false;
-            }
-            return true;
-        }
-
-        private bool VerificarEmail(string email)
-        {
-            if (!email.Contains("@"))
-            {
-                MostrarMensaje("El campo 'Email' debe contener un '@'.", Color.Red);
-                return false;
-            }
-            return true;
-        }
-
-        private bool VerificarEdadMinima(DateTime fechaNacimiento)
-        {
-            int edad = DateTime.Now.Year - fechaNacimiento.Year;
-            if (fechaNacimiento > DateTime.Now.AddYears(-edad)) edad--;
-
-            if (edad < 18)
-            {
-                MostrarMensaje("El usuario debe tener al menos 18 años.", Color.Red);
-                return false;
-            }
-            return true;
-        }
-
-        private UsuarioDatos CrearDatosUsuario()
-        {
-            return new UsuarioDatos
-            {
-                Nombre = txtNombre.Text,
-                Apellido = txtApellido.Text,
-                Direccion = txtDireccion.Text,
-                Telefono = txtTelefono.Text,
-                Email = txtEmail.Text,
-                FechaNacimiento = dateTimeFechaNacimiento.Value,
-                NombreUsuario = txtUsuario.Text,
-                Contraseña = "CAI20232",
-                ValorPerfil = (int)cbPerfiles.SelectedValue,
-                FechaAlta = DateTime.Now
-            };
-        }
-
-        private string ValidateUserDetails(UsuarioDatos datosUsuario)
-        {
-            var validador = new ValidadorUtilis();
-            return validador.ValidarDatosUsuario(datosUsuario.NombreUsuario, datosUsuario.Contraseña, datosUsuario.Dni,
-                                                 datosUsuario.Nombre, datosUsuario.Apellido, datosUsuario.FechaNacimiento);
-        }
-
-        private void CrearUsuario(UsuarioDatos datosUsuario)
-        {
-            List<Usuario> usuarios = usuarioNegocio.listarUsuarios();
-            Usuario usuario = usuarios.FirstOrDefault(u => u.NombreUsuario == userLogueado);
-            guidUsuario = usuario.id;
-
-            usuarioNegocio.agregarUsuario(guidUsuario.ToString(), datosUsuario.ValorPerfil, datosUsuario.Nombre, datosUsuario.Apellido, datosUsuario.Dni,
-                                          datosUsuario.Direccion, datosUsuario.Telefono, datosUsuario.Email, datosUsuario.FechaNacimiento,
-                                          datosUsuario.NombreUsuario, datosUsuario.Contraseña);
-
-            usuarioNegocio.agregarUsuarioDBLocal(datosUsuario.NombreUsuario, datosUsuario.Contraseña);
-        }
-
-        private void MostrarMensaje(string mensaje, Color color)
-        {
-            lblAlertaAltaUsuario.Visible = true;
-            lblAlertaAltaUsuario.ForeColor = color;
-            lblAlertaAltaUsuario.Text = mensaje;
-        }
-
-        private void LimpiarFormulario()
-        {
-            txtNombre.Clear();
-            txtApellido.Clear();
-            txtDNI.Clear();
-            txtDireccion.Clear();
-            txtTelefono.Clear();
-            txtEmail.Clear();
-            dateTimeFechaNacimiento.Value = DateTime.Now;
-            txtUsuario.Clear();
         }
 
         private void InitializeComboBox()
@@ -247,20 +190,5 @@ namespace Presentacion
         {
             lblAlertaAltaUsuario.Visible = false;
         }
-    }
-
-    public class UsuarioDatos
-    {
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public int Dni { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
-        public string Email { get; set; }
-        public DateTime FechaNacimiento { get; set; }
-        public string NombreUsuario { get; set; }
-        public string Contraseña { get; set; }
-        public int ValorPerfil { get; set; }
-        public DateTime FechaAlta { get; set; }
     }
 }

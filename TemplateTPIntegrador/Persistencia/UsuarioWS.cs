@@ -92,7 +92,7 @@ namespace Persistencia
                 {
                     string nombreUsuario = usuario._Usuario;
                     string contraseña = usuario._Contrasenia;
-                    DateTime fechaCambioClave = usuario._FechaContrasenia;
+                    DateTime? fechaCambioClave = usuario._FechaContrasenia;
                 }
             }
 
@@ -170,12 +170,10 @@ namespace Persistencia
 
                 UsuarioPersistente usuarioEncontrado = usuarios.Find(u => u._Usuario == usuario);
 
-                if (usuarioEncontrado != null)
+                if (usuarioEncontrado._FechaContrasenia.HasValue &&
+                    (DateTime.Now - usuarioEncontrado._FechaContrasenia.Value).TotalDays > 30)
                 {
-                    if ((DateTime.Now - usuarioEncontrado._FechaContrasenia).TotalDays > 30)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
             return false;
