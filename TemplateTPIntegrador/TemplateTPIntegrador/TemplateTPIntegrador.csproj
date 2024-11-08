@@ -52,11 +52,23 @@
     <Compile Include="FrmAltaUsuario.Designer.cs">
       <DependentUpon>FrmAltaUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmContraseña.Designer.cs">
+      <DependentUpon>FrmContraseña.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +82,14 @@
     <EmbeddedResource Include="FrmAltaUsuario.resx">
       <DependentUpon>FrmAltaUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmContraseña.resx">
+      <DependentUpon>FrmContraseña.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -96,6 +114,14 @@
       <Project>{6e0d8fe3-7eaa-45b0-a363-d14d2cb1fce9}</Project>
       <Name>Datos</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{c45177fe-6854-49e9-aa70-13fd2cde1f69}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistencia\Persistencia.csproj">
+      <Project>{d70d39da-312d-45da-a378-fd222ec9672f}</Project>
+      <Name>Persistencia</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LogoElectroHogar.png" />
@@ -105,6 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\LogoElectroHogar2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
