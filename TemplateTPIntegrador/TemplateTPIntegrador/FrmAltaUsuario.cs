@@ -2,17 +2,12 @@
 using Presentacion;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using static Datos.Usuario;
 using Negocio;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using System.Net;
 
 namespace Presentacion
 {
@@ -48,73 +43,45 @@ namespace Presentacion
 
         private void btnAltaUsuario_Click(object sender, EventArgs e)
         {
+            OcultarAlertas();
+
+            if (!ValidarCamposObligatorios())
+            {
+                return;
+            }
+
             try
             {
-                var controlEtiquetaMap = new Dictionary<Control, string>
-                {
-                    { txtNombre, "Nombre" },
-                    { txtApellido, "Apellido" },
-                    { txtDNI, "DNI" },
-                    { txtDireccion, "Dirección" },
-                    { txtTelefono, "Teléfono" },
-                    { txtEmail, "Email" },
-                    { txtUsuario, "Nombre de Usuario" }
-                };
-                if (cbPerfiles.SelectedIndex == -1)
-                {
-                    lblAlertaAltaUsuario.Visible = true;
-                    lblAlertaAltaUsuario.ForeColor = Color.Red;
-                    lblAlertaAltaUsuario.Text = "Debe seleccionar un perfil.";
-                    return;
-                }
-
                 string nombre = txtNombre.Text;
                 string apellido = txtApellido.Text;
                 int dni;
-                if (!Int32.TryParse(txtDNI.Text, out dni))
+                if (!int.TryParse(txtDNI.Text, out dni))
                 {
-                    lblAlertaAltaUsuario.Visible = true;
-                    lblAlertaAltaUsuario.ForeColor = Color.Red;
-                    lblAlertaAltaUsuario.Text = "Debe completar el campo DNI con numeros validos";
+                    MostrarError(lblAlertaDni, "Debe completar el campo DNI con números válidos.");
                     return;
                 }
+
                 string direccion = txtDireccion.Text;
                 string telefono = txtTelefono.Text;
                 string email = txtEmail.Text;
-                if (!email.Contains("@"))
+                if (!EsCorreoValido(email))
                 {
-                    lblAlertaAltaUsuario.Visible = true;
-                    lblAlertaAltaUsuario.ForeColor = Color.Red;
-                    lblAlertaAltaUsuario.Text = "El campo 'Email' debe contener un '@'.";
+                    MostrarError(lblAlertaEmail, "El formato de email es inválido.");
                     return;
                 }
+
                 DateTime fechaNacimiento = dateTimeFechaNacimiento.Value;
+                if (!EsMayorDeEdad(fechaNacimiento))
+                {
+                    MostrarError(lblAlertaFecha, "El usuario debe tener al menos 18 años.");
+                    return;
+                }
+
                 string nombreUsuario = txtUsuario.Text;
                 string contraseña = "CAI20232";
-                int host = (int)cbPerfiles.SelectedValue;
-
-                DateTime fechaAlta = DateTime.Now;
+                int perfilSeleccionado = (int)cbPerfiles.SelectedValue;
 
                 ValidadorUtilis validador = new ValidadorUtilis();
-
-                string errorCamposIncompletos = validador.ValidarCamposCompletos(this, controlEtiquetaMap);
-
-                if (!string.IsNullOrEmpty(errorCamposIncompletos))
-                {
-                    lblAlertaAltaUsuario.ForeColor = Color.Red;
-                    lblAlertaAltaUsuario.Text = errorCamposIncompletos;
-                    return;
-                }
-
-                int edad = DateTime.Now.Year - fechaNacimiento.Year;
-                if (fechaNacimiento > DateTime.Now.AddYears(-edad)) edad--;
-                if (edad < 18)
-                {
-                    lblAlertaAltaUsuario.ForeColor = Color.Red;
-                    lblAlertaAltaUsuario.Text = "El usuario debe tener al menos 18 años.";
-                    return;
-                }
-
                 string errorMensaje = validador.ValidarDatosUsuario(nombreUsuario, contraseña, dni, nombre, apellido, fechaNacimiento);
 
                 if (string.IsNullOrEmpty(errorMensaje))
@@ -124,34 +91,20 @@ namespace Presentacion
                     guidUsuario = usuario._id;
                     string guidUsuarioString = guidUsuario.ToString();
 
-                    usuarioNegocio.AgregarUsuario(guidUsuarioString, nombre, apellido, dni, direccion, telefono, email, fechaNacimiento, nombreUsuario, contraseña, host);
+                    usuarioNegocio.AgregarUsuario(guidUsuarioString, nombre, apellido, dni, direccion, telefono, email, fechaNacimiento, nombreUsuario, contraseña, perfilSeleccionado);
                     usuarioNegocio.AgregarUsuarioLocal(nombreUsuario, contraseña);
 
-                    lblAlertaAltaUsuario.Visible = true;
-                    lblAlertaAltaUsuario.ForeColor = Color.Green;
-                    lblAlertaAltaUsuario.Text = "Usuario creado correctamente";
-
-                    txtNombre.Text = "";
-                    txtApellido.Text = "";
-                    txtDNI.Text = "";
-                    txtDireccion.Text = "";
-                    txtTelefono.Text = "";
-                    txtEmail.Text = "";
-                    dateTimeFechaNacimiento.Value = DateTime.Now;
-                    txtUsuario.Text = "";
+                    MostrarExito("Usuario creado correctamente");
+                    LimpiarCampos();
                 }
                 else
                 {
-                    lblAlertaAltaUsuario.Visible = true;
-                    lblAlertaAltaUsuario.ForeColor = Color.Red;
-                    lblAlertaAltaUsuario.Text = errorMensaje;
+                    MostrarError(lblAlertaAltaUsuario, errorMensaje);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                lblAlertaAltaUsuario.Visible = true;
-                lblAlertaAltaUsuario.ForeColor = Color.Red;
-                lblAlertaAltaUsuario.Text = "Se ha producido un error. Vuelva a intentarlo, \nsi persiste contacte a su administrador del Sistema";
+                MostrarError(lblAlertaAltaUsuario, "Se ha producido un error. Vuelva a intentarlo, si persiste contacte a su administrador del sistema.");
             }
         }
 
@@ -174,7 +127,115 @@ namespace Presentacion
 
         private void FrmAltaUsuario_Load(object sender, EventArgs e)
         {
+            OcultarAlertas();
+        }
+
+        private void OcultarAlertas()
+        {
             lblAlertaAltaUsuario.Visible = false;
+            lblAlertaNombre.Visible = false;
+            lblAlertaApellido.Visible = false;
+            lblAlertaDni.Visible = false;
+            lblAlertaDireccion.Visible = false;
+            lblAlertaTelefono.Visible = false;
+            lblAlertaEmail.Visible = false;
+            lblAlertaFecha.Visible = false;
+            lblAlertaUsuario.Visible = false;
+            lblAlertaPerfil.Visible = false;
+        }
+
+        private void LimpiarCampos()
+        {
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtDNI.Clear();
+            txtDireccion.Clear();
+            txtTelefono.Clear();
+            txtEmail.Clear();
+            dateTimeFechaNacimiento.Value = DateTime.Now;
+            txtUsuario.Clear();
+            cbPerfiles.SelectedIndex = -1;
+        }
+
+        private bool ValidarCamposObligatorios()
+        {
+            bool esValido = true;
+
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MostrarError(lblAlertaNombre, "El nombre es obligatorio.");
+                esValido = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtApellido.Text))
+            {
+                MostrarError(lblAlertaApellido, "El apellido es obligatorio.");
+                esValido = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDNI.Text))
+            {
+                MostrarError(lblAlertaDni, "El DNI es obligatorio.");
+                esValido = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+            {
+                MostrarError(lblAlertaDireccion, "La dirección es obligatoria.");
+                esValido = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtTelefono.Text))
+            {
+                MostrarError(lblAlertaTelefono, "El teléfono es obligatorio.");
+                esValido = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                MostrarError(lblAlertaEmail, "El email es obligatorio.");
+                esValido = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
+            {
+                MostrarError(lblAlertaUsuario, "El usuario es obligatorio.");
+                esValido = false;
+            }
+
+            if (cbPerfiles.SelectedIndex == -1)
+            {
+                MostrarError(lblAlertaPerfil, "Debe seleccionar un perfil.");
+                esValido = false;
+            }
+
+            return esValido;
+        }
+
+        private void MostrarError(Label label, string mensaje)
+        {
+            label.Text = mensaje;
+            label.ForeColor = Color.Red;
+            label.Visible = true;
+        }
+
+        private void MostrarExito(string mensaje)
+        {
+            lblAlertaAltaUsuario.Text = mensaje;
+            lblAlertaAltaUsuario.ForeColor = Color.Green;
+            lblAlertaAltaUsuario.Visible = true;
+        }
+
+        private bool EsCorreoValido(string email)
+        {
+            return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+        }
+
+        private bool EsMayorDeEdad(DateTime fechaNacimiento)
+        {
+            int edad = DateTime.Now.Year - fechaNacimiento.Year;
+            if (fechaNacimiento > DateTime.Now.AddYears(-edad)) edad--;
+            return edad >= 18;
         }
     }
 }

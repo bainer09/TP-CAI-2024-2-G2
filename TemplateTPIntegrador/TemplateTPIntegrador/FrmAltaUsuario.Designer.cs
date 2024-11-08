@@ -53,6 +53,15 @@ namespace Presentacion
             this.cbPerfiles = new System.Windows.Forms.ComboBox();
             this.lblAltaUsuarios = new System.Windows.Forms.Label();
             this.lblAlertaAltaUsuario = new System.Windows.Forms.Label();
+            this.lblAlertaNombre = new System.Windows.Forms.Label();
+            this.lblAlertaApellido = new System.Windows.Forms.Label();
+            this.lblAlertaDni = new System.Windows.Forms.Label();
+            this.lblAlertaDireccion = new System.Windows.Forms.Label();
+            this.lblAlertaTelefono = new System.Windows.Forms.Label();
+            this.lblAlertaEmail = new System.Windows.Forms.Label();
+            this.lblAlertaFecha = new System.Windows.Forms.Label();
+            this.lblAlertaUsuario = new System.Windows.Forms.Label();
+            this.lblAlertaPerfil = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -310,9 +319,117 @@ namespace Presentacion
             this.lblAlertaAltaUsuario.ForeColor = System.Drawing.Color.Green;
             this.lblAlertaAltaUsuario.Location = new System.Drawing.Point(788, 449);
             this.lblAlertaAltaUsuario.Name = "lblAlertaAltaUsuario";
-            this.lblAlertaAltaUsuario.Size = new System.Drawing.Size(65, 22);
+            this.lblAlertaAltaUsuario.Size = new System.Drawing.Size(188, 22);
             this.lblAlertaAltaUsuario.TabIndex = 50;
-            this.lblAlertaAltaUsuario.Text = "label1";
+            this.lblAlertaAltaUsuario.Text = "lblAlertaAltaUsuario";
+            // 
+            // lblAlertaNombre
+            // 
+            this.lblAlertaNombre.AutoSize = true;
+            this.lblAlertaNombre.BackColor = System.Drawing.Color.Transparent;
+            this.lblAlertaNombre.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlertaNombre.ForeColor = System.Drawing.Color.Red;
+            this.lblAlertaNombre.Location = new System.Drawing.Point(219, 126);
+            this.lblAlertaNombre.Name = "lblAlertaNombre";
+            this.lblAlertaNombre.Size = new System.Drawing.Size(159, 22);
+            this.lblAlertaNombre.TabIndex = 51;
+            this.lblAlertaNombre.Text = "lblAlertaNombre";
+            // 
+            // lblAlertaApellido
+            // 
+            this.lblAlertaApellido.AutoSize = true;
+            this.lblAlertaApellido.BackColor = System.Drawing.Color.Transparent;
+            this.lblAlertaApellido.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlertaApellido.ForeColor = System.Drawing.Color.Red;
+            this.lblAlertaApellido.Location = new System.Drawing.Point(736, 126);
+            this.lblAlertaApellido.Name = "lblAlertaApellido";
+            this.lblAlertaApellido.Size = new System.Drawing.Size(159, 22);
+            this.lblAlertaApellido.TabIndex = 52;
+            this.lblAlertaApellido.Text = "lblAlertaApellido";
+            // 
+            // lblAlertaDni
+            // 
+            this.lblAlertaDni.AutoSize = true;
+            this.lblAlertaDni.BackColor = System.Drawing.Color.Transparent;
+            this.lblAlertaDni.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlertaDni.ForeColor = System.Drawing.Color.Red;
+            this.lblAlertaDni.Location = new System.Drawing.Point(1167, 126);
+            this.lblAlertaDni.Name = "lblAlertaDni";
+            this.lblAlertaDni.Size = new System.Drawing.Size(114, 22);
+            this.lblAlertaDni.TabIndex = 53;
+            this.lblAlertaDni.Text = "lblAlertaDni";
+            // 
+            // lblAlertaDireccion
+            // 
+            this.lblAlertaDireccion.AutoSize = true;
+            this.lblAlertaDireccion.BackColor = System.Drawing.Color.Transparent;
+            this.lblAlertaDireccion.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlertaDireccion.ForeColor = System.Drawing.Color.Red;
+            this.lblAlertaDireccion.Location = new System.Drawing.Point(219, 199);
+            this.lblAlertaDireccion.Name = "lblAlertaDireccion";
+            this.lblAlertaDireccion.Size = new System.Drawing.Size(171, 22);
+            this.lblAlertaDireccion.TabIndex = 54;
+            this.lblAlertaDireccion.Text = "lblAlertaDireccion";
+            // 
+            // lblAlertaTelefono
+            // 
+            this.lblAlertaTelefono.AutoSize = true;
+            this.lblAlertaTelefono.BackColor = System.Drawing.Color.Transparent;
+            this.lblAlertaTelefono.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlertaTelefono.ForeColor = System.Drawing.Color.Red;
+            this.lblAlertaTelefono.Location = new System.Drawing.Point(736, 199);
+            this.lblAlertaTelefono.Name = "lblAlertaTelefono";
+            this.lblAlertaTelefono.Size = new System.Drawing.Size(162, 22);
+            this.lblAlertaTelefono.TabIndex = 55;
+            this.lblAlertaTelefono.Text = "lblAlertaTelefono";
+            // 
+            // lblAlertaEmail
+            // 
+            this.lblAlertaEmail.AutoSize = true;
+            this.lblAlertaEmail.BackColor = System.Drawing.Color.Transparent;
+            this.lblAlertaEmail.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlertaEmail.ForeColor = System.Drawing.Color.Red;
+            this.lblAlertaEmail.Location = new System.Drawing.Point(1167, 199);
+            this.lblAlertaEmail.Name = "lblAlertaEmail";
+            this.lblAlertaEmail.Size = new System.Drawing.Size(131, 22);
+            this.lblAlertaEmail.TabIndex = 56;
+            this.lblAlertaEmail.Text = "lblAlertaEmail";
+            // 
+            // lblAlertaFecha
+            // 
+            this.lblAlertaFecha.AutoSize = true;
+            this.lblAlertaFecha.BackColor = System.Drawing.Color.Transparent;
+            this.lblAlertaFecha.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlertaFecha.ForeColor = System.Drawing.Color.Red;
+            this.lblAlertaFecha.Location = new System.Drawing.Point(219, 267);
+            this.lblAlertaFecha.Name = "lblAlertaFecha";
+            this.lblAlertaFecha.Size = new System.Drawing.Size(143, 22);
+            this.lblAlertaFecha.TabIndex = 57;
+            this.lblAlertaFecha.Text = "lblAlertaFecha";
+            // 
+            // lblAlertaUsuario
+            // 
+            this.lblAlertaUsuario.AutoSize = true;
+            this.lblAlertaUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblAlertaUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlertaUsuario.ForeColor = System.Drawing.Color.Red;
+            this.lblAlertaUsuario.Location = new System.Drawing.Point(736, 267);
+            this.lblAlertaUsuario.Name = "lblAlertaUsuario";
+            this.lblAlertaUsuario.Size = new System.Drawing.Size(150, 22);
+            this.lblAlertaUsuario.TabIndex = 58;
+            this.lblAlertaUsuario.Text = "lblAlertaUsuario";
+            // 
+            // lblAlertaPerfil
+            // 
+            this.lblAlertaPerfil.AutoSize = true;
+            this.lblAlertaPerfil.BackColor = System.Drawing.Color.Transparent;
+            this.lblAlertaPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlertaPerfil.ForeColor = System.Drawing.Color.Red;
+            this.lblAlertaPerfil.Location = new System.Drawing.Point(1167, 265);
+            this.lblAlertaPerfil.Name = "lblAlertaPerfil";
+            this.lblAlertaPerfil.Size = new System.Drawing.Size(65, 22);
+            this.lblAlertaPerfil.TabIndex = 59;
+            this.lblAlertaPerfil.Text = "lblAlertaPerfil";
             // 
             // FrmAltaUsuario
             // 
@@ -320,6 +437,15 @@ namespace Presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1535, 564);
+            this.Controls.Add(this.lblAlertaPerfil);
+            this.Controls.Add(this.lblAlertaUsuario);
+            this.Controls.Add(this.lblAlertaFecha);
+            this.Controls.Add(this.lblAlertaEmail);
+            this.Controls.Add(this.lblAlertaTelefono);
+            this.Controls.Add(this.lblAlertaDireccion);
+            this.Controls.Add(this.lblAlertaDni);
+            this.Controls.Add(this.lblAlertaApellido);
+            this.Controls.Add(this.lblAlertaNombre);
             this.Controls.Add(this.lblAlertaAltaUsuario);
             this.Controls.Add(this.lblAltaUsuarios);
             this.Controls.Add(this.cbPerfiles);
@@ -379,5 +505,14 @@ namespace Presentacion
         private ComboBox cbPerfiles;
         private Label lblAltaUsuarios;
         private Label lblAlertaAltaUsuario;
+        private Label lblAlertaNombre;
+        private Label lblAlertaApellido;
+        private Label lblAlertaDni;
+        private Label lblAlertaDireccion;
+        private Label lblAlertaTelefono;
+        private Label lblAlertaEmail;
+        private Label lblAlertaFecha;
+        private Label lblAlertaUsuario;
+        private Label lblAlertaPerfil;
     }
 }
