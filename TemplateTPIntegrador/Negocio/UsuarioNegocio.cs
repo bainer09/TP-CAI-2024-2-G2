@@ -33,7 +33,7 @@ namespace Negocio
         public void AgregarUsuarioLocal(string nombreUsuario, string contraseña)
         {
             var altaUsuarioLocal = new UsuarioPersistente(nombreUsuario, contraseña, null);
-            usuarioService.AltaUsuarioLocal(altaUsuarioLocal);
+            usuarioService.AltaUsuarioPersistente(altaUsuarioLocal);
         }
 
         public void BorrarUsuario(string idUsuario, string guidUsuarioString, string nombreUsuario, string nombre, string apellido)
@@ -52,7 +52,7 @@ namespace Negocio
 
         public void BorrarUsuarioLocal(string nombreUsuario)
         {
-            usuarioService.BajaUsuarioLocal(nombreUsuario);
+            usuarioService.BajaUsuarioPersistente(nombreUsuario);
         }
 
         private void GuardarUsuarioBajaLocal(string idUsuario, string nombreUsuario, string nombre, string apellido)
@@ -167,7 +167,7 @@ namespace Negocio
                     var cambiarContraseña = new CambiarContraseña(usuario, contraseñaActual, nuevaContraseña);
                     UsuarioWS usuarioWS = new UsuarioWS();
                     usuarioWS.CambiarContraseña(cambiarContraseña);
-                    usuarioWS.CambiarContraseñaUsuarioLocal(usuario, nuevaContraseña);
+                    usuarioWS.CambiarContraseñaUsuarioPersistente(usuario, nuevaContraseña);
                 }
                 else
                 {

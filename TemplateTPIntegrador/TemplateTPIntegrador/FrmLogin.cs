@@ -119,7 +119,7 @@ namespace PresentacionLayer
         private void linklblCambioClave_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
-            FrmContraseña frmContraseña = new FrmContraseña(usuarioNegocio);
+            FrmContrasenia frmContraseña = new FrmContrasenia(usuarioNegocio);
             frmContraseña.Show();
             this.Hide();
         }

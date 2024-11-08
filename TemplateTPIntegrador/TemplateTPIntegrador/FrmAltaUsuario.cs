@@ -46,20 +46,6 @@ namespace Presentacion
             this.Hide();
         }
 
-        /*private void strpAltaUsuariosMenu_Click(object sender, EventArgs e)
-        {
-            FrmAltaUsuario frmAlta = new FrmAltaUsuario(perfilUsuario);
-            frmAlta.Show();
-            this.Hide();
-        }
-
-        private void strpBajaUsuariosMenu_Click(object sender, EventArgs e)
-        {
-            FrmBajaModUsuario frmBaja = new FrmBajaModUsuario(perfilUsuario);
-            frmBaja.Show();
-            this.Hide();
-        }*/
-
         private void btnAltaUsuario_Click(object sender, EventArgs e)
         {
             try

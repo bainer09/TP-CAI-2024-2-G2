@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class FrmContraseña
+    partial class FrmContrasenia
     {
         /// <summary>
         /// Variable del diseñador necesaria.

@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class FrmContraseña : Form
+    public partial class FrmContrasenia : Form
     {
         private readonly UsuarioNegocio usuarioNegocio;
 
-        public FrmContraseña(UsuarioNegocio usuarioNegocio)
+        public FrmContrasenia(UsuarioNegocio usuarioNegocio)
         {
             InitializeComponent();
             this.usuarioNegocio = usuarioNegocio ?? throw new ArgumentNullException(nameof(usuarioNegocio));

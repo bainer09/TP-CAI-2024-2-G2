@@ -62,7 +62,7 @@ namespace Persistencia
             }
             catch (Exception e) { Console.WriteLine(e.Message); }
         }
-        public void AltaUsuarioLocal(UsuarioPersistente usuario)
+        public void AltaUsuarioPersistente(UsuarioPersistente usuario)
         {
             List<UsuarioPersistente> usuarios;
 
@@ -80,7 +80,7 @@ namespace Persistencia
             string nuevoJson = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
             File.WriteAllText(usuariosPath, nuevoJson);
         }
-        public void LeerUsuarioLocal()
+        public void LeerUsuarioPersistente()
         {
             if (!File.Exists(usuariosPath)) { throw new FileNotFoundException("Archivo no encontrado."); }
             string json = File.ReadAllText(usuariosPath);
@@ -97,7 +97,7 @@ namespace Persistencia
             }
 
         }
-        public void CambiarContraseñaUsuarioLocal(string usuario, string nuevaClave)
+        public void CambiarContraseñaUsuarioPersistente(string usuario, string nuevaClave)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace Persistencia
             catch (Exception e) { throw new Exception("Error: ", e); }
 
         }
-        public void BajaUsuarioLocal(string usuario)
+        public void BajaUsuarioPersistente(string usuario)
         {
             try
             {

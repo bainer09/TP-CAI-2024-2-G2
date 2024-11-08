@@ -52,11 +52,11 @@
     <Compile Include="FrmAltaUsuario.Designer.cs">
       <DependentUpon>FrmAltaUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmContraseña.cs">
+    <Compile Include="FrmContrasenia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmContraseña.Designer.cs">
-      <DependentUpon>FrmContraseña.cs</DependentUpon>
+    <Compile Include="FrmContrasenia.Designer.cs">
+      <DependentUpon>FrmContrasenia.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -82,8 +82,8 @@
     <EmbeddedResource Include="FrmAltaUsuario.resx">
       <DependentUpon>FrmAltaUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmContraseña.resx">
-      <DependentUpon>FrmContraseña.cs</DependentUpon>
+    <EmbeddedResource Include="FrmContrasenia.resx">
+      <DependentUpon>FrmContrasenia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
