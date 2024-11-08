@@ -8,7 +8,7 @@ namespace Datos
 {
     public class Usuario
     {
-        public string _id { get => _id; set => _id = value; }
+        public Guid _id { get => _id; set => _id = value; }
         public string _Nombre { get => _Nombre; set => _Nombre = value; }
         public string _Apellido { get => _Apellido; set => _Apellido = value; }
         public int _DNI { get => _DNI; set => _DNI = value; }
@@ -21,7 +21,7 @@ namespace Datos
         public string _Usuario { get => _Usuario; set => _Usuario = value; }
         public int _Host { get => _Host; set => _Host = value; }
 
-        public Usuario(string id, string nombre, string apellido, int dNI, string direccion, string telefono, string email, DateTime fechaNacimiento, DateTime fechaAlta, DateTime? fechaBaja, string usuario, int host)
+        public Usuario(Guid id, string nombre, string apellido, int dNI, string direccion, string telefono, string email, DateTime fechaNacimiento, DateTime fechaAlta, DateTime? fechaBaja, string usuario, int host)
         {
             _id = id;
             _Nombre = nombre;
@@ -105,13 +105,43 @@ namespace Datos
     {
         public string _Usuario { get => _Usuario; set => _Usuario = value; }
         public string _Contrasenia { get => _Contrasenia; set => _Contrasenia = value; }
-        public DateTime _FechaContrasenia { get => _FechaContrasenia; set => _FechaContrasenia = value; }
+        public DateTime? _FechaContrasenia { get => _FechaContrasenia; set => _FechaContrasenia = value; }
 
-        public UsuarioPersistente(string usuario, string contrasenia, DateTime fechaContrasenia)
+        public UsuarioPersistente(string usuario, string contrasenia, DateTime? fechaContrasenia)
         {
             _Usuario = usuario;
             _Contrasenia = contrasenia;
             _FechaContrasenia = fechaContrasenia;
         }
+    }
+
+    public class UsuarioLogueado
+    {
+        public static string NombreUsuario { get; private set; }
+
+        public static void SetNombreUsuario(string nombre)
+        {
+            NombreUsuario = nombre;
+        }
+
+    }
+}
+public class UsuarioPersistenteBaja
+{
+    public string _IdUsuario { get; set; }
+    public string _NombreUsuario { get; set; }
+    public string _Nombre { get; set; }
+    public string _Apellido { get; set; }
+    public bool _Estado { get; set; }
+    public DateTime _FechaBaja { get; set; }
+
+    public UsuarioPersistenteBaja(string idUsuario, string nombreUsuario, string nombre, string apellido, bool estado, DateTime fechaBaja)
+    {
+        _IdUsuario = idUsuario;
+        _NombreUsuario = nombreUsuario;
+        _Nombre = nombre;
+        _Apellido = apellido;
+        _Estado = estado;
+        _FechaBaja = fechaBaja;
     }
 }
