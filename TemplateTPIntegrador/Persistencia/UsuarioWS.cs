@@ -178,7 +178,7 @@ namespace Persistencia
             }
             return false;
         }
-        public int Login(string usuario, string clave, string admin)
+        public int Login(string usuario, string clave, string admin = "9ea1c0da-e541-4846-a9de-8478664a87bb")
         {
             string apiPath = "Usuario/Login";
             try

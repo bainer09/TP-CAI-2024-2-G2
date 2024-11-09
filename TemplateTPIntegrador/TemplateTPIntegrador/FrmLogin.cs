@@ -75,7 +75,7 @@ namespace PresentacionLayer
                     intentosFallidos = 0; // Resetear intentos fallidos solo si el login es exitoso
                     UsuarioLogueado.SetNombreUsuario(usuario);
                     var usuarioNegocio = new UsuarioNegocio();
-                    var productoNegocio = new ProductoNegocio(); //NOTAS: De Myrna o Belu!!!
+                    var productoNegocio = new ProductoNegocio();
                     FrmMain frmMain = new FrmMain(perfilUsuario, usuarioNegocio, productoNegocio);
                     frmMain.Show();
                     this.Hide();

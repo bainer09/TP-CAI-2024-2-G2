@@ -148,8 +148,6 @@
   <ItemGroup>
     <Content Include="Resources\LogoElectroHogar2.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
