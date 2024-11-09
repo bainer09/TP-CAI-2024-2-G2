@@ -18,7 +18,7 @@ namespace Datos
         public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
         public string _idProveedor { get => _idProveedor; set => _idProveedor = value; }
 
-        public Producto(string id, int idCategoria, string nombre, DateTime FechaAlta, DateTime? FechaBaja, double precio, int stock, string idUsuario, string idProveedor)
+        public Producto(string id, int idCategoria, string nombre, DateTime FechaAlta, DateTime? FechaBaja, double precio, int stock)
         {
             _id = id;
             _idCategoria = idCategoria;
@@ -27,9 +27,9 @@ namespace Datos
             _FechaBaja = FechaBaja;
             _Precio = precio;
             _Stock = stock;
-            _idUsuario = idUsuario;
-            _idProveedor = idProveedor;
         }
+
+        public Producto () {}
     }
     public class AltaProducto
     {

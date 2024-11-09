@@ -73,4 +73,39 @@ namespace Persistencia
             catch (Exception e) { throw new Exception($"Error: ", e); }
         }
     }
+
+    public class VentaPersistente
+    {
+        private const string ventasPath = @"/TemplateTPIntegrador/Persistencia/Data/Ventas.json";
+
+        public void AgregarVentaLocal(AgregarVenta venta)
+        {
+            List<AgregarVenta> ventas;
+
+            if (File.Exists(ventasPath))
+            {
+                string json = File.ReadAllText(ventasPath);
+                ventas = JsonConvert.DeserializeObject<List<AgregarVenta>>(json);
+            }
+            else
+            {
+                ventas = new List<AgregarVenta>();
+            }
+            ventas.Add(venta);
+
+            try
+            {
+                string nuevaData = JsonConvert.SerializeObject(ventas, Formatting.Indented);
+                File.WriteAllText(ventasPath, nuevaData);
+            } catch (Exception e) { throw new Exception("Error al agregar la venta en forma local.\n", e); }
+        }
+        public List<AgregarVenta> LeerVentasLocal()
+        {
+            if (!File.Exists(ventasPath)) { throw new FileNotFoundException("Archivo no encontrado."); }
+            string json = File.ReadAllText(ventasPath);
+            List<AgregarVenta> ventas = JsonConvert.DeserializeObject<List<AgregarVenta>>(json);
+
+            return ventas;
+        }
+    }
 }

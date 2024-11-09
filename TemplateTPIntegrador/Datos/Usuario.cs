@@ -36,6 +36,8 @@ namespace Datos
             _Usuario = usuario;
             _Host = host;
         }
+
+
     }
     public class AltaUsuario
     {
