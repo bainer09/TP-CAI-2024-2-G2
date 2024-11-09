@@ -5,6 +5,7 @@ using PresentacionLayer;
 using System.Windows.Forms;
 using System;
 using System.Collections.Generic;
+using TemplateTPIntegrador;
 
 
 namespace Presentacion
@@ -74,19 +75,19 @@ namespace Presentacion
             this.Hide();
         }
 
-        public void strpAltaUsuariosMenu_Click(object sender, EventArgs e) => AbrirFormulario(new FrmAltaUsuario(perfilUsuario));
-        public void strpBajaUsuariosMenu_Click(object sender, EventArgs e) => AbrirFormulario(new FrmBajaModUsuario(perfilUsuario));
-        public void strpClientesMenu_Click(object sender, EventArgs e) => AbrirFormulario(new FrmCliente(perfilUsuario));
-        public void strpProductosMenu_Click(object sender, EventArgs e) => AbrirFormulario(new FrmProducto(perfilUsuario));
-        public void strpProveedoresMenu_Click(object sender, EventArgs e) => AbrirFormulario(new FrmProveedores(perfilUsuario));
-        public void strpReportesMenu_Click(object sender, EventArgs e) => AbrirFormulario(new FrmReportes(perfilUsuario));
+        public void strpAltaUsuariosMenu_Click(object sender, EventArgs e) => AbrirFormulario(new FrmAltaUsuario());
+        public void strpBajaUsuariosMenu_Click(object sender, EventArgs e) => AbrirFormulario(new FrmBajaModUsuario());
+        public void strpClientesMenu_Click(object sender, EventArgs e) => AbrirFormulario(new FrmCliente());
+        public void strpProductosMenu_Click(object sender, EventArgs e) => AbrirFormulario(new FrmProducto());
+        public void strpProveedoresMenu_Click(object sender, EventArgs e) => AbrirFormulario(new FrmProveedores());
+        public void strpReportesMenu_Click(object sender, EventArgs e) => AbrirFormulario(new FrmReportes());
         public void btnLogOut_Click(object sender, EventArgs e) => AbrirFormulario(new FrmLogin());
         public void strpNuevaVenta_Click(object sender, EventArgs e)
         {
             FrmComprobante frmComprobante = new FrmComprobante();
-            AbrirFormulario(new FrmVenta(perfilUsuario, frmComprobante));
+            AbrirFormulario(new FrmVenta(frmComprobante));
         }
-        public void strpDevolucionVenta_Click(object sender, EventArgs e) => AbrirFormulario(new FrmDevolverVenta(perfilUsuario));
+        public void strpDevolucionVenta_Click(object sender, EventArgs e) => AbrirFormulario(new FrmDevolverVenta());
         private void FrmMain_Load(object sender, EventArgs e)
         {
 

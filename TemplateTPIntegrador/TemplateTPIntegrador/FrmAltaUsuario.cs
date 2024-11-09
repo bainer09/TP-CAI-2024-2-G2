@@ -18,12 +18,11 @@ namespace Presentacion
         private Guid guidUsuario;
         string userLogueado = UsuarioLogueado.NombreUsuario;
 
-        public FrmAltaUsuario(int perfilUsuario)
+        public FrmAltaUsuario()
         {
             InitializeComponent();
             InitializeComboBox();
             this.FormClosing += FrmAltaUsuario_FormClosing;
-            this.perfilUsuario = perfilUsuario;
         }
 
         private void FrmAltaUsuario_FormClosing(object sender, FormClosingEventArgs e)
