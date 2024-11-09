@@ -26,20 +26,23 @@ namespace Datos
             _Estado = estado;
             _idUsuario = idUsuario;
         }
+        public Venta() {}
     }
     public class AgregarVenta
     {
         public string _idCliente { get => _idCliente; set => _idCliente = value; }
+        public DateTime? _fechaVenta { get => _fechaVenta; set => _fechaVenta = value; }
         public string _idProducto { get => _idProducto; set => _idProducto = value; }
         public int _Cantidad { get => _Cantidad; set => _Cantidad = value; }
         public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
 
-        public AgregarVenta(string idCliente, string idProducto, int cantidad, string idUsuario)
+        public AgregarVenta(string idCliente, string idProducto, int cantidad, string idUsuario, DateTime? fechaVenta)
         {
             _idCliente = idCliente;
             _idProducto = idProducto;
             _Cantidad = cantidad;
             _idUsuario = idUsuario;
+            _fechaVenta = fechaVenta;
         }
     }
     public class DevolucionVenta
