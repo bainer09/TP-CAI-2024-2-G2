@@ -145,7 +145,38 @@ namespace Persistencia
             }
             catch (Exception e) { throw new Exception("Error al dar de alta al cliente en forma local.\n", e); }
 
-        }
+        }   
+        public void ModificarClienteLocal(ModificarCliente cliente, int DNI)
+        {
+            string json = File.ReadAllText(clientesPath);
+            List<Cliente> clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
+            Cliente clienteModificacion = clientes.Find(c => c._DNI == DNI);
 
+            if (clienteModificacion == null) { throw new Exception("Cliente no encontrado."); }
+
+            clienteModificacion._Direccion = cliente._Direccion;
+            clienteModificacion._Telefono = cliente._Telefono;
+            clienteModificacion._Email = cliente._Email;
+
+            try
+            {
+                string nuevaData = JsonConvert.SerializeObject(clientes, Formatting.Indented);
+                File.WriteAllText(clientesPath, nuevaData);
+            }
+            catch (Exception e) { throw new Exception("Error al modificar el cliente en forma local.\n", e); }
+        }
+        public void BajaClienteLocal(int DNI)
+        {
+            string json = File.ReadAllText(clientesPath);
+            List<Cliente> clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
+            List<Cliente> clientesFiltrados = clientes.FindAll(c => c._DNI != DNI);
+
+            try
+            {
+                string nuevaData = JsonConvert.SerializeObject(clientesFiltrados, Formatting.Indented);
+                File.WriteAllText(clientesPath, nuevaData);
+            }
+            catch (Exception e) { throw new Exception("Error al dar de baja al cliente en forma local.\n", e); }
+        }
     }
 }

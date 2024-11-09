@@ -27,9 +27,12 @@ namespace Negocio
             };
             ClienteP.AltaClienteLocal(nuevoCliente);
         }
-        public void ModificarCliente(ModificarCliente cliente)
+        public void ModificarCliente(ModificarCliente cliente, int DNI)
         {
-            try { ClienteWS.ModificarCliente(cliente); }
+            try {
+                ClienteWS.ModificarCliente(cliente);
+                ClienteP.ModificarClienteLocal(cliente, DNI);
+            }
             catch (Exception e) { throw new Exception("Error: ", e); }
         }
         public List<Cliente> ObtenerClientes()
