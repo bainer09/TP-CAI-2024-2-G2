@@ -21,5 +21,10 @@ namespace TemplateTPIntegrador
         {
 
         }
+
+        private void contrafondologo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

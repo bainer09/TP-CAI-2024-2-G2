@@ -48,11 +48,11 @@
             // titulo
             // 
             this.titulo.AutoSize = true;
-            this.titulo.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titulo.Font = new System.Drawing.Font("Century Gothic", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titulo.ForeColor = System.Drawing.Color.White;
-            this.titulo.Location = new System.Drawing.Point(478, 31);
+            this.titulo.Location = new System.Drawing.Point(324, 88);
             this.titulo.Name = "titulo";
-            this.titulo.Size = new System.Drawing.Size(406, 58);
+            this.titulo.Size = new System.Drawing.Size(677, 66);
             this.titulo.TabIndex = 0;
             this.titulo.Text = "Restablecer contraseña";
             this.titulo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -60,82 +60,87 @@
             // Email
             // 
             this.Email.AutoSize = true;
-            this.Email.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Email.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Email.ForeColor = System.Drawing.Color.White;
-            this.Email.Location = new System.Drawing.Point(169, 308);
+            this.Email.Location = new System.Drawing.Point(252, 318);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(127, 43);
+            this.Email.Size = new System.Drawing.Size(97, 34);
             this.Email.TabIndex = 2;
             this.Email.Text = "E-mail";
             // 
             // nombreusuario
             // 
             this.nombreusuario.AutoSize = true;
-            this.nombreusuario.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreusuario.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreusuario.ForeColor = System.Drawing.Color.White;
-            this.nombreusuario.Location = new System.Drawing.Point(169, 443);
+            this.nombreusuario.Location = new System.Drawing.Point(252, 453);
             this.nombreusuario.Name = "nombreusuario";
-            this.nombreusuario.Size = new System.Drawing.Size(329, 43);
+            this.nombreusuario.Size = new System.Drawing.Size(275, 34);
             this.nombreusuario.TabIndex = 3;
             this.nombreusuario.Text = "Nombre de usuario";
             // 
             // ingresarcontraseña
             // 
             this.ingresarcontraseña.AutoSize = true;
-            this.ingresarcontraseña.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ingresarcontraseña.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ingresarcontraseña.ForeColor = System.Drawing.Color.White;
-            this.ingresarcontraseña.Location = new System.Drawing.Point(169, 574);
+            this.ingresarcontraseña.Location = new System.Drawing.Point(251, 584);
             this.ingresarcontraseña.Name = "ingresarcontraseña";
-            this.ingresarcontraseña.Size = new System.Drawing.Size(478, 43);
+            this.ingresarcontraseña.Size = new System.Drawing.Size(398, 34);
             this.ingresarcontraseña.TabIndex = 4;
             this.ingresarcontraseña.Text = "Inserte su nueva contraseña";
             // 
             // repetircontraseña
             // 
             this.repetircontraseña.AutoSize = true;
-            this.repetircontraseña.Font = new System.Drawing.Font("Bahnschrift", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repetircontraseña.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.repetircontraseña.ForeColor = System.Drawing.Color.White;
-            this.repetircontraseña.Location = new System.Drawing.Point(169, 694);
+            this.repetircontraseña.Location = new System.Drawing.Point(252, 701);
             this.repetircontraseña.Name = "repetircontraseña";
-            this.repetircontraseña.Size = new System.Drawing.Size(465, 43);
+            this.repetircontraseña.Size = new System.Drawing.Size(400, 34);
             this.repetircontraseña.TabIndex = 5;
             this.repetircontraseña.Text = "Repita su nueva contraseña";
             // 
             // emailtex
             // 
+            this.emailtex.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailtex.Location = new System.Drawing.Point(749, 315);
             this.emailtex.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.emailtex.Name = "emailtex";
-            this.emailtex.Size = new System.Drawing.Size(377, 36);
+            this.emailtex.Size = new System.Drawing.Size(566, 48);
             this.emailtex.TabIndex = 6;
             // 
             // usuariotex
             // 
+            this.usuariotex.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usuariotex.Location = new System.Drawing.Point(749, 450);
             this.usuariotex.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.usuariotex.Name = "usuariotex";
-            this.usuariotex.Size = new System.Drawing.Size(377, 36);
+            this.usuariotex.Size = new System.Drawing.Size(566, 48);
             this.usuariotex.TabIndex = 7;
             // 
             // nuevacontratex
             // 
+            this.nuevacontratex.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nuevacontratex.Location = new System.Drawing.Point(749, 581);
             this.nuevacontratex.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nuevacontratex.Name = "nuevacontratex";
-            this.nuevacontratex.Size = new System.Drawing.Size(377, 36);
+            this.nuevacontratex.Size = new System.Drawing.Size(566, 48);
             this.nuevacontratex.TabIndex = 8;
             // 
             // repetircontratex
             // 
+            this.repetircontratex.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.repetircontratex.Location = new System.Drawing.Point(749, 703);
             this.repetircontratex.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.repetircontratex.Name = "repetircontratex";
-            this.repetircontratex.Size = new System.Drawing.Size(377, 36);
+            this.repetircontratex.Size = new System.Drawing.Size(566, 48);
             this.repetircontratex.TabIndex = 9;
             // 
             // Restablecerboton
             // 
             this.Restablecerboton.BackColor = System.Drawing.Color.Silver;
+            this.Restablecerboton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Restablecerboton.ForeColor = System.Drawing.Color.Black;
             this.Restablecerboton.Location = new System.Drawing.Point(577, 810);
             this.Restablecerboton.Name = "Restablecerboton";
@@ -148,6 +153,7 @@
             // Volverboton
             // 
             this.Volverboton.BackColor = System.Drawing.Color.Silver;
+            this.Volverboton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Volverboton.ForeColor = System.Drawing.Color.Black;
             this.Volverboton.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.Volverboton.Location = new System.Drawing.Point(1180, 31);
@@ -161,7 +167,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TemplateTPIntegrador.Properties.Resources.LogoElectroHogar;
-            this.pictureBox1.Location = new System.Drawing.Point(36, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(34, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(136, 141);
             this.pictureBox1.TabIndex = 12;
