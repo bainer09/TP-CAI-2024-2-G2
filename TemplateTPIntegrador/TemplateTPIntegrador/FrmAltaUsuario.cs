@@ -23,6 +23,7 @@ namespace Presentacion
         {
             InitializeComponent();
             InitializeComboBox();
+            OcultarAlertas();
             this.FormClosing += FrmAltaUsuario_FormClosing;
         }
 
@@ -87,8 +88,8 @@ namespace Presentacion
                 if (string.IsNullOrEmpty(errorMensaje))
                 {
                     List<Usuario> usuarios = usuarioNegocio.ListarUsuarios();
-                    Usuario usuario = usuarios.FirstOrDefault(u => u._Usuario == userLogueado);
-                    guidUsuario = usuario._id;
+                    Usuario usuario = usuarios.FirstOrDefault(u => u.NombreUsuario == userLogueado);
+                    guidUsuario = usuario.id;
                     string guidUsuarioString = guidUsuario.ToString();
 
                     usuarioNegocio.AgregarUsuario(guidUsuarioString, nombre, apellido, dni, direccion, telefono, email, fechaNacimiento, nombreUsuario, contraseña, perfilSeleccionado);

@@ -250,6 +250,7 @@ namespace Presentacion
             this.btnAltaUsuario.TabIndex = 18;
             this.btnAltaUsuario.Text = "DAR ALTA";
             this.btnAltaUsuario.UseVisualStyleBackColor = false;
+            this.btnAltaUsuario.Click += new System.EventHandler(this.btnAltaUsuario_Click);
             // 
             // btnVolverInicio
             // 
@@ -263,6 +264,7 @@ namespace Presentacion
             this.btnVolverInicio.TabIndex = 20;
             this.btnVolverInicio.Text = "MENU PRINCIPAL";
             this.btnVolverInicio.UseVisualStyleBackColor = false;
+            this.btnVolverInicio.Click += new System.EventHandler(this.btnVolverInicio_Click);
             // 
             // lblFechaNacimiento
             // 
@@ -427,7 +429,7 @@ namespace Presentacion
             this.lblAlertaPerfil.ForeColor = System.Drawing.Color.Red;
             this.lblAlertaPerfil.Location = new System.Drawing.Point(1167, 265);
             this.lblAlertaPerfil.Name = "lblAlertaPerfil";
-            this.lblAlertaPerfil.Size = new System.Drawing.Size(65, 22);
+            this.lblAlertaPerfil.Size = new System.Drawing.Size(126, 22);
             this.lblAlertaPerfil.TabIndex = 59;
             this.lblAlertaPerfil.Text = "lblAlertaPerfil";
             // 

@@ -55,7 +55,6 @@ namespace Presentacion
             this.strpBajaUsuariosMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblBienvenido = new System.Windows.Forms.Label();
-            this.lblStockCritico = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -97,12 +96,14 @@ namespace Presentacion
             this.strpNuevaVenta.Name = "strpNuevaVenta";
             this.strpNuevaVenta.Size = new System.Drawing.Size(185, 24);
             this.strpNuevaVenta.Text = "NUEVA VENTA";
+            this.strpNuevaVenta.Click += new System.EventHandler(this.strpNuevaVenta_Click);
             // 
             // strpDevolucionVenta
             // 
             this.strpDevolucionVenta.Name = "strpDevolucionVenta";
             this.strpDevolucionVenta.Size = new System.Drawing.Size(185, 24);
             this.strpDevolucionVenta.Text = "DEVOLUCION";
+            this.strpDevolucionVenta.Click += new System.EventHandler(this.strpDevolucionVenta_Click);
             // 
             // strpClientesMenu
             // 
@@ -111,6 +112,7 @@ namespace Presentacion
             this.strpClientesMenu.Name = "strpClientesMenu";
             this.strpClientesMenu.Size = new System.Drawing.Size(87, 23);
             this.strpClientesMenu.Text = "CLIENTES";
+            this.strpClientesMenu.Click += new System.EventHandler(this.strpClientesMenu_Click);
             // 
             // strpProductosMenu
             // 
@@ -120,6 +122,7 @@ namespace Presentacion
             this.strpProductosMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.strpProductosMenu.Size = new System.Drawing.Size(113, 23);
             this.strpProductosMenu.Text = "PRODUCTOS";
+            this.strpProductosMenu.Click += new System.EventHandler(this.strpProductosMenu_Click);
             // 
             // strpProveedoresMenu
             // 
@@ -129,6 +132,7 @@ namespace Presentacion
             this.strpProveedoresMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.strpProveedoresMenu.Size = new System.Drawing.Size(128, 23);
             this.strpProveedoresMenu.Text = "PROVEEDORES";
+            this.strpProveedoresMenu.Click += new System.EventHandler(this.strpProveedoresMenu_Click);
             // 
             // strpReportesMenu
             // 
@@ -138,6 +142,7 @@ namespace Presentacion
             this.strpReportesMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.strpReportesMenu.Size = new System.Drawing.Size(92, 23);
             this.strpReportesMenu.Text = "REPORTES";
+            this.strpReportesMenu.Click += new System.EventHandler(this.strpReportesMenu_Click);
             // 
             // strpUsuariosMenu
             // 
@@ -157,12 +162,14 @@ namespace Presentacion
             this.strpAltaUsuariosMenu.Name = "strpAltaUsuariosMenu";
             this.strpAltaUsuariosMenu.Size = new System.Drawing.Size(210, 24);
             this.strpAltaUsuariosMenu.Text = "ALTA";
+            this.strpAltaUsuariosMenu.Click += new System.EventHandler(this.strpAltaUsuariosMenu_Click);
             // 
             // strpBajaUsuariosMenu
             // 
             this.strpBajaUsuariosMenu.Name = "strpBajaUsuariosMenu";
             this.strpBajaUsuariosMenu.Size = new System.Drawing.Size(210, 24);
             this.strpBajaUsuariosMenu.Text = "BAJA-REACTIVAR";
+            this.strpBajaUsuariosMenu.Click += new System.EventHandler(this.strpBajaUsuariosMenu_Click);
             // 
             // btnLogOut
             // 
@@ -172,6 +179,7 @@ namespace Presentacion
             this.btnLogOut.TabIndex = 1;
             this.btnLogOut.Text = "Logout";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // lblBienvenido
             // 
@@ -185,18 +193,6 @@ namespace Presentacion
             this.lblBienvenido.TabIndex = 2;
             this.lblBienvenido.Text = "Sistema de Gestión ElectroHogar S.A.";
             this.lblBienvenido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblStockCritico
-            // 
-            this.lblStockCritico.AutoSize = true;
-            this.lblStockCritico.BackColor = System.Drawing.Color.Transparent;
-            this.lblStockCritico.Font = new System.Drawing.Font("Century Gothic", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockCritico.ForeColor = System.Drawing.Color.Red;
-            this.lblStockCritico.Location = new System.Drawing.Point(639, 365);
-            this.lblStockCritico.Name = "lblStockCritico";
-            this.lblStockCritico.Size = new System.Drawing.Size(82, 27);
-            this.lblStockCritico.TabIndex = 3;
-            this.lblStockCritico.Text = "label1";
             // 
             // pictureBox3
             // 
@@ -215,7 +211,6 @@ namespace Presentacion
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1386, 765);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.lblStockCritico);
             this.Controls.Add(this.lblBienvenido);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.menuStrip1);
@@ -252,7 +247,6 @@ namespace Presentacion
         private Label lblBienvenido;
         private ToolStripMenuItem strpNuevaVenta;
         private ToolStripMenuItem strpDevolucionVenta;
-        private Label lblStockCritico;
         private PictureBox pictureBox3;
     }
 }

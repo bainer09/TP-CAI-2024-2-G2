@@ -19,6 +19,8 @@ namespace Presentacion
         public FrmMain(int perfilUsuario, UsuarioNegocio usuarioNegocio, ProductoNegocio productoNegocio)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.WindowState = FormWindowState.Normal;
             this.usuarioNegocio = usuarioNegocio ?? throw new ArgumentNullException(nameof(usuarioNegocio));
             this.productoNegocio = productoNegocio ?? throw new ArgumentNullException(nameof(productoNegocio));
             this.FormClosing += FrmMain_FormClosing;
