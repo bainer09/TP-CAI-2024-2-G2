@@ -8,22 +8,22 @@ namespace Datos
 {
     public class Usuario
     {
-        public Guid _id { get => _id; set => _id = value; }
-        public string _Nombre { get => _Nombre; set => _Nombre = value; }
-        public string _Apellido { get => _Apellido; set => _Apellido = value; }
-        public int _DNI { get => _DNI; set => _DNI = value; }
-        public string _Direccion { get => _Direccion; set => _Direccion = value; }
-        public string _Telefono { get => _Telefono; set => _Telefono = value; }
-        public string _Email { get => _Email; set => _Email = value; }
-        public DateTime _FechaNacimiento { get => _FechaNacimiento; set => _FechaNacimiento = value; }
-        public DateTime _FechaAlta { get => _FechaAlta; set => _FechaAlta = value; }
-        public DateTime? _FechaBaja { get => _FechaBaja; set => _FechaBaja = value; }
-        public string _Usuario { get => _Usuario; set => _Usuario = value; }
-        public int _Host { get => _Host; set => _Host = value; }
+        public string id { get; set; }
+        public string _Nombre { get; set; }
+        public string _Apellido { get; set; }
+        public int _DNI { get; set; }
+        public string _Direccion { get; set; }
+        public string _Telefono { get; set; }
+        public string _Email { get; set; }
+        public DateTime _FechaNacimiento { get; set; }
+        public DateTime _FechaAlta { get; set; }
+        public DateTime? _FechaBaja { get; set; }
+        public string NombreUsuario { get; set; }
+        public int _Host { get; set; }
 
-        public Usuario(Guid id, string nombre, string apellido, int dNI, string direccion, string telefono, string email, DateTime fechaNacimiento, DateTime fechaAlta, DateTime? fechaBaja, string usuario, int host)
+        public Usuario(string Id, string nombre, string apellido, int dNI, string direccion, string telefono, string email, DateTime fechaNacimiento, DateTime fechaAlta, DateTime? fechaBaja, string usuario, int host)
         {
-            _id = id;
+            id = Id;
             _Nombre = nombre;
             _Apellido = apellido;
             _DNI = dNI;
@@ -33,12 +33,11 @@ namespace Datos
             _FechaNacimiento = fechaNacimiento;
             _FechaAlta = fechaAlta;
             _FechaBaja = fechaBaja;
-            _Usuario = usuario;
+            NombreUsuario = usuario;
             _Host = host;
         }
-
-
     }
+
     public class AltaUsuario
     {
         public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }

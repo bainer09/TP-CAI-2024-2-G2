@@ -24,7 +24,7 @@ namespace Presentacion
             this.FormClosing += FrmMain_FormClosing;
             this.perfilUsuario = perfilUsuario;
             ConfigurarMenu();
-            VerificarStockCritico();
+            //VerificarStockCritico();
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -57,7 +57,7 @@ namespace Presentacion
             }
         }
 
-        private void VerificarStockCritico()
+        /*private void VerificarStockCritico()
         {
             lblStockCritico.Visible = perfilUsuario == 2 || perfilUsuario == 3;
             if (lblStockCritico.Visible)
@@ -67,7 +67,7 @@ namespace Presentacion
                     ? $"{cantidadProductosCriticos} productos en stock crítico."
                     : string.Empty;
             }
-        }
+        }*/
 
         private void AbrirFormulario(Form formulario)
         {

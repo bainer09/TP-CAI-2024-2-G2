@@ -14,6 +14,7 @@ namespace Presentacion
     public partial class FrmAltaUsuario : Form
     {
         private UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+        private ProductoNegocio productoNegocio = new ProductoNegocio();
         private int perfilUsuario;
         private Guid guidUsuario;
         string userLogueado = UsuarioLogueado.NombreUsuario;

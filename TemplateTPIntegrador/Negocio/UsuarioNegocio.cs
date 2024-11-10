@@ -7,14 +7,13 @@ using Newtonsoft.Json;
 using Datos;
 using Persistencia;
 using static Datos.Usuario;
-//using System.Xml;
 
 namespace Negocio
 {
     public class UsuarioNegocio
     {
         private readonly UsuarioWS usuarioService = new UsuarioWS();
-        private const string IdAdministrador = "70b37dc1-8fde-4840-be47-9ababd0ee7e5";
+        private const string IdAdministrador = "9ea1c0da-e541-4846-a9de-8478664a87bb";
         private const string PathDB = @"C:\ElectroHogarDB\usuarios_baja.json";
 
         public void AgregarUsuario(string guidUsuarioString, string nombre, string apellido, int dni, string direccion, string telefono, string email, DateTime fechaNacimiento, string nombreUsuario, string contraseña, int host)
@@ -115,12 +114,12 @@ namespace Negocio
         public void BorrarUsuarioPorLoginFallido(string nombreUsuario)
         {
             List<Usuario> usuarios = usuarioService.GetUsuarios(IdAdministrador);
-            var usuario = usuarios.FirstOrDefault(u => u._Usuario == nombreUsuario); 
+            var usuario = usuarios.FirstOrDefault(u => u.NombreUsuario == nombreUsuario); 
 
             if (usuario != null)
             {
-                string idUsuario = usuario._id.ToString();
-                BorrarUsuario(idUsuario, IdAdministrador, usuario._Usuario, usuario._Nombre, usuario._Apellido);
+                string idUsuario = usuario.Id.ToString();
+                BorrarUsuario(idUsuario, IdAdministrador, usuario.NombreUsuario, usuario.Nombre, usuario.Apellido);
             }
         }
 
