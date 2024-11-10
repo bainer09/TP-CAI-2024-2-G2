@@ -201,7 +201,7 @@ namespace Persistencia
 
                 if (response.IsSuccessStatusCode)
                 {
-                    List<Usuario> usuarios = UsuarioWS.GetUsuarios(admin);
+                    List<Usuario> usuarios = GetUsuarios(admin);
                     Usuario usuarioLogueado = usuarios.FirstOrDefault(u => u.NombreUsuario == usuario);
 
                     int perfilUsuario = usuarioLogueado._Host;

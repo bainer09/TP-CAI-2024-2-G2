@@ -14,7 +14,7 @@ namespace Negocio
     {
         private readonly UsuarioWS usuarioService = new UsuarioWS();
         private const string IdAdministrador = "9ea1c0da-e541-4846-a9de-8478664a87bb";
-        private const string PathDB = @"C:\ElectroHogarDB\usuarios_baja.json";
+        private const string PathDB = @"/TemplateTPIntegrador/Persistencia/Data/Usuarios.json";
 
         public void AgregarUsuario(string guidUsuarioString, string nombre, string apellido, int dni, string direccion, string telefono, string email, DateTime fechaNacimiento, string nombreUsuario, string contraseña, int host)
         {
@@ -118,8 +118,8 @@ namespace Negocio
 
             if (usuario != null)
             {
-                string idUsuario = usuario.Id.ToString();
-                BorrarUsuario(idUsuario, IdAdministrador, usuario.NombreUsuario, usuario.Nombre, usuario.Apellido);
+                string idUsuario = usuario.id.ToString();
+                BorrarUsuario(idUsuario, IdAdministrador, usuario.NombreUsuario, usuario._Nombre, usuario._Apellido);
             }
         }
 

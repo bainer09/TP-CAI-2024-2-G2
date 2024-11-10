@@ -8,7 +8,7 @@ namespace Datos
 {
     public class Usuario
     {
-        public string id { get; set; }
+        public Guid id { get; set; }
         public string _Nombre { get; set; }
         public string _Apellido { get; set; }
         public int _DNI { get; set; }
@@ -21,7 +21,7 @@ namespace Datos
         public string NombreUsuario { get; set; }
         public int _Host { get; set; }
 
-        public Usuario(string Id, string nombre, string apellido, int dNI, string direccion, string telefono, string email, DateTime fechaNacimiento, DateTime fechaAlta, DateTime? fechaBaja, string usuario, int host)
+        public Usuario(Guid Id, string nombre, string apellido, int dNI, string direccion, string telefono, string email, DateTime fechaNacimiento, DateTime fechaAlta, DateTime? fechaBaja, string usuario, int host)
         {
             id = Id;
             _Nombre = nombre;

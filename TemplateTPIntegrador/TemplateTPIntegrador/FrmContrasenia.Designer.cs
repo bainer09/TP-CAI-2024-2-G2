@@ -136,6 +136,7 @@
             this.btnCambioContraseña.TabIndex = 0;
             this.btnCambioContraseña.Text = "Cambiar Contraseña";
             this.btnCambioContraseña.UseVisualStyleBackColor = false;
+            this.btnCambioContraseña.Click += new System.EventHandler(this.btnCambioContraseña_Click_1);
             // 
             // lblTitulo
             // 
@@ -286,7 +287,7 @@
             this.txtUsuario.Size = new System.Drawing.Size(370, 20);
             this.txtUsuario.TabIndex = 3;
             // 
-            // FrmContraseña
+            // FrmContrasenia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -295,7 +296,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.Name = "FrmContraseña";
+            this.Name = "FrmContrasenia";
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
