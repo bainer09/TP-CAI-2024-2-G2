@@ -54,13 +54,17 @@ namespace Negocio
         }
 
 
-        public void bajaUser(Usuario user)
+        public void bajaUser(Usuario user, Guid userlog)
         {
-            BajaUsuario userBaja = new BajaUsuario(user._id, IdAdministrador);
+            string Userguid = user.id.ToString();
+            string userLog = userlog.ToString();
+            BajaUsuario userBaja = new BajaUsuario(Userguid, userLog);
 
             try
             {
                 usuarioService.BajaUsuario(userBaja);
+
+
 
             }
             catch (Exception ex)
@@ -72,14 +76,15 @@ namespace Negocio
             }
         }
 
-        public void reactivarUser(Usuario user)
+        public void reactivarUser(Usuario user, Guid userlog)
         {
-
-            ReactivarUsuario userAReact = new ReactivarUsuario(user.id, IdAdministrador);
+            string Userguid = user.id.ToString();
+            string userLog = userlog.ToString() ;
+            ReactivarUsuario userAReact = new ReactivarUsuario(Userguid, userLog);
             try
             {
                 usuarioService.ReactivarUsuario(userAReact);
-
+                EliminarUsuarioDeBajasJson(Userguid);
             }
             catch (Exception ex)
             {
@@ -146,19 +151,6 @@ namespace Negocio
             File.WriteAllText(PathDB, serializedData);
         }
 
-        public void ReactivarUsuario(string idUsuario, string guidUsuario)
-        {
-            try
-            {
-                var usuario = new ReactivarUsuario(guidUsuario, idUsuario);
-                usuarioService.ReactivarUsuario(usuario);
-                EliminarUsuarioDeBajasJson(idUsuario);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al reactivar el usuario", ex);
-            }
-        }
 
         public List<UsuarioPersistenteBaja> ObtenerUsuariosDadosDeBaja()
         {

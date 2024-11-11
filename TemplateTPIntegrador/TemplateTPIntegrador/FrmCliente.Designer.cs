@@ -60,7 +60,7 @@
             this.Registrarusuarioboton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Registrarusuarioboton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Registrarusuarioboton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Registrarusuarioboton.Location = new System.Drawing.Point(957, 1352);
+            this.Registrarusuarioboton.Location = new System.Drawing.Point(330, 900);
             this.Registrarusuarioboton.Name = "Registrarusuarioboton";
             this.Registrarusuarioboton.Size = new System.Drawing.Size(267, 116);
             this.Registrarusuarioboton.TabIndex = 9;
@@ -71,7 +71,7 @@
             // 
             this.eticliente.AutoSize = true;
             this.eticliente.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eticliente.Location = new System.Drawing.Point(125, 539);
+            this.eticliente.Location = new System.Drawing.Point(79, 341);
             this.eticliente.Name = "eticliente";
             this.eticliente.Size = new System.Drawing.Size(73, 21);
             this.eticliente.TabIndex = 10;
@@ -81,7 +81,7 @@
             // 
             this.etiDireccion.AutoSize = true;
             this.etiDireccion.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.etiDireccion.Location = new System.Drawing.Point(125, 834);
+            this.etiDireccion.Location = new System.Drawing.Point(79, 636);
             this.etiDireccion.Name = "etiDireccion";
             this.etiDireccion.Size = new System.Drawing.Size(83, 21);
             this.etiDireccion.TabIndex = 11;
@@ -91,7 +91,7 @@
             // 
             this.Etitelefono.AutoSize = true;
             this.Etitelefono.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Etitelefono.Location = new System.Drawing.Point(125, 914);
+            this.Etitelefono.Location = new System.Drawing.Point(79, 716);
             this.Etitelefono.Name = "Etitelefono";
             this.Etitelefono.Size = new System.Drawing.Size(76, 21);
             this.Etitelefono.TabIndex = 12;
@@ -101,7 +101,7 @@
             // 
             this.etiEmail.AutoSize = true;
             this.etiEmail.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.etiEmail.Location = new System.Drawing.Point(125, 989);
+            this.etiEmail.Location = new System.Drawing.Point(79, 791);
             this.etiEmail.Name = "etiEmail";
             this.etiEmail.Size = new System.Drawing.Size(51, 21);
             this.etiEmail.TabIndex = 13;
@@ -109,44 +109,44 @@
             // 
             // textnombrecliente
             // 
-            this.textnombrecliente.Location = new System.Drawing.Point(463, 530);
+            this.textnombrecliente.Location = new System.Drawing.Point(330, 332);
             this.textnombrecliente.Name = "textnombrecliente";
-            this.textnombrecliente.Size = new System.Drawing.Size(783, 27);
+            this.textnombrecliente.Size = new System.Drawing.Size(358, 27);
             this.textnombrecliente.TabIndex = 16;
             // 
             // texdireccioncliente
             // 
-            this.texdireccioncliente.Location = new System.Drawing.Point(463, 834);
+            this.texdireccioncliente.Location = new System.Drawing.Point(330, 636);
             this.texdireccioncliente.Name = "texdireccioncliente";
-            this.texdireccioncliente.Size = new System.Drawing.Size(783, 27);
+            this.texdireccioncliente.Size = new System.Drawing.Size(358, 27);
             this.texdireccioncliente.TabIndex = 17;
             // 
             // textelcliente
             // 
-            this.textelcliente.Location = new System.Drawing.Point(463, 918);
+            this.textelcliente.Location = new System.Drawing.Point(330, 720);
             this.textelcliente.Name = "textelcliente";
-            this.textelcliente.Size = new System.Drawing.Size(783, 27);
+            this.textelcliente.Size = new System.Drawing.Size(358, 27);
             this.textelcliente.TabIndex = 18;
             // 
             // texemailcliente
             // 
-            this.texemailcliente.Location = new System.Drawing.Point(463, 993);
+            this.texemailcliente.Location = new System.Drawing.Point(330, 791);
             this.texemailcliente.Name = "texemailcliente";
-            this.texemailcliente.Size = new System.Drawing.Size(783, 27);
+            this.texemailcliente.Size = new System.Drawing.Size(358, 27);
             this.texemailcliente.TabIndex = 19;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(463, 603);
+            this.textBox1.Location = new System.Drawing.Point(330, 405);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(783, 27);
+            this.textBox1.Size = new System.Drawing.Size(358, 27);
             this.textBox1.TabIndex = 21;
             // 
             // etiapellido
             // 
             this.etiapellido.AutoSize = true;
             this.etiapellido.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.etiapellido.Location = new System.Drawing.Point(125, 609);
+            this.etiapellido.Location = new System.Drawing.Point(79, 411);
             this.etiapellido.Name = "etiapellido";
             this.etiapellido.Size = new System.Drawing.Size(74, 21);
             this.etiapellido.TabIndex = 20;
@@ -156,7 +156,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(125, 687);
+            this.label1.Location = new System.Drawing.Point(79, 489);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(177, 21);
             this.label1.TabIndex = 22;
@@ -166,7 +166,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(125, 759);
+            this.label2.Location = new System.Drawing.Point(79, 561);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 21);
             this.label2.TabIndex = 23;
@@ -174,9 +174,9 @@
             // 
             // texDNI
             // 
-            this.texDNI.Location = new System.Drawing.Point(463, 759);
+            this.texDNI.Location = new System.Drawing.Point(330, 561);
             this.texDNI.Name = "texDNI";
-            this.texDNI.Size = new System.Drawing.Size(783, 27);
+            this.texDNI.Size = new System.Drawing.Size(358, 27);
             this.texDNI.TabIndex = 24;
             // 
             // Botonmodificarcliente
@@ -185,7 +185,7 @@
             this.Botonmodificarcliente.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Botonmodificarcliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Botonmodificarcliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Botonmodificarcliente.Location = new System.Drawing.Point(1321, 1352);
+            this.Botonmodificarcliente.Location = new System.Drawing.Point(706, 900);
             this.Botonmodificarcliente.Name = "Botonmodificarcliente";
             this.Botonmodificarcliente.Size = new System.Drawing.Size(267, 116);
             this.Botonmodificarcliente.TabIndex = 25;
@@ -198,7 +198,7 @@
             this.botondardebajacliente.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botondardebajacliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.botondardebajacliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.botondardebajacliente.Location = new System.Drawing.Point(1695, 1352);
+            this.botondardebajacliente.Location = new System.Drawing.Point(1080, 900);
             this.botondardebajacliente.Name = "botondardebajacliente";
             this.botondardebajacliente.Size = new System.Drawing.Size(267, 116);
             this.botondardebajacliente.TabIndex = 26;
@@ -208,18 +208,18 @@
             // Basededatosclientes
             // 
             this.Basededatosclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Basededatosclientes.Location = new System.Drawing.Point(1456, 341);
+            this.Basededatosclientes.Location = new System.Drawing.Point(757, 311);
             this.Basededatosclientes.Name = "Basededatosclientes";
             this.Basededatosclientes.RowHeadersWidth = 62;
             this.Basededatosclientes.RowTemplate.Height = 28;
-            this.Basededatosclientes.Size = new System.Drawing.Size(1667, 920);
+            this.Basededatosclientes.Size = new System.Drawing.Size(822, 507);
             this.Basededatosclientes.TabIndex = 27;
             // 
             // Clientes
             // 
             this.Clientes.AutoSize = true;
             this.Clientes.Font = new System.Drawing.Font("Century Gothic", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clientes.Location = new System.Drawing.Point(1289, 238);
+            this.Clientes.Location = new System.Drawing.Point(647, 230);
             this.Clientes.Name = "Clientes";
             this.Clientes.Size = new System.Drawing.Size(246, 66);
             this.Clientes.TabIndex = 28;
@@ -262,7 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1603, 815);
+            this.ClientSize = new System.Drawing.Size(1603, 1050);
             this.Controls.Add(this.panelcyan);
             this.Controls.Add(this.Clientes);
             this.Controls.Add(this.Basededatosclientes);

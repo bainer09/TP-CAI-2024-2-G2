@@ -45,7 +45,23 @@ namespace TemplateTPIntegrador
         {
             try
             {
-                usuarionegocio.bajaUser(usuarioSeleccionado);
+                if (listausuarios.CurrentCell == null)
+                {
+                    Alertabotones.Visible = true;
+                    Alertabotones.ForeColor = Color.Red;
+                    Alertabotones.Text = "Seleccione un usuario para eliminar.";
+                    return;
+                }
+
+                Guid usuarioLogueado = Guid.Parse("9ea1c0da-e541-4846-a9de-8478664a87bb");
+                DataGridViewRow filaSeleccionada = listausuarios.SelectedRows[0];
+                
+                usuarionegocio.bajaUser(usuarioSeleccionado, usuarioLogueado);
+
+                Alertabotones.Visible = true;
+                Alertabotones.ForeColor = Color.Green;
+                Alertabotones.Text = $"{usuarioSeleccionado.NombreUsuario} dado de baja correctamente.";
+                cargarUsuarios();
             }
             catch (Exception ex)
             {
@@ -64,7 +80,8 @@ namespace TemplateTPIntegrador
             List<Usuario> allUsers = usuarionegocio.listarUsuarios();
             foreach (Usuario user in allUsers)
             {
-                   if(user._id == Iddeusuariotexto.Text || user._Nombre == Iddenombretexto.Text)
+                string userguid = user.id.ToString();
+                   if(userguid == Iddeusuariotexto.Text || user._Nombre == Iddenombretexto.Text)
                 {
                     usuarios.Add(user);
                 }
@@ -76,7 +93,14 @@ namespace TemplateTPIntegrador
         {
             try
             {
-                usuarionegocio.reactivarUser(usuarioSeleccionado);
+                Guid usuarioLogueado = Guid.Parse("9ea1c0da-e541-4846-a9de-8478664a87bb");
+                DataGridViewRow filaSeleccionada = listausuarios.SelectedRows[0];
+                usuarionegocio.reactivarUser(usuarioSeleccionado,usuarioLogueado);
+                Alertabotones.Visible = true;
+                Alertabotones.ForeColor = Color.Green;
+                Alertabotones.Text = "Usuario reactivado correctamente.";
+                cargarUsuarios();
+
             } catch (Exception ex) {
                 throw new Exception("Error Reactivando el Usuario", ex);
             }
