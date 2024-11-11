@@ -53,7 +53,7 @@
             this.Botondardebaja.CausesValidation = false;
             this.Botondardebaja.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Botondardebaja.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Botondardebaja.Location = new System.Drawing.Point(842, 1103);
+            this.Botondardebaja.Location = new System.Drawing.Point(874, 942);
             this.Botondardebaja.Name = "Botondardebaja";
             this.Botondardebaja.Size = new System.Drawing.Size(183, 96);
             this.Botondardebaja.TabIndex = 0;
@@ -66,7 +66,7 @@
             this.Botonreactivarusuario.BackColor = System.Drawing.Color.DarkCyan;
             this.Botonreactivarusuario.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Botonreactivarusuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Botonreactivarusuario.Location = new System.Drawing.Point(1221, 1103);
+            this.Botonreactivarusuario.Location = new System.Drawing.Point(1300, 942);
             this.Botonreactivarusuario.Name = "Botonreactivarusuario";
             this.Botonreactivarusuario.Size = new System.Drawing.Size(183, 96);
             this.Botonreactivarusuario.TabIndex = 1;
@@ -78,11 +78,11 @@
             // 
             this.listausuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listausuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listausuarios.Location = new System.Drawing.Point(554, 363);
+            this.listausuarios.Location = new System.Drawing.Point(575, 251);
             this.listausuarios.Name = "listausuarios";
             this.listausuarios.RowHeadersWidth = 62;
             this.listausuarios.RowTemplate.Height = 28;
-            this.listausuarios.Size = new System.Drawing.Size(1153, 708);
+            this.listausuarios.Size = new System.Drawing.Size(1153, 675);
             this.listausuarios.TabIndex = 2;
             this.listausuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listausuarios_CellContentClick);
             // 
@@ -90,7 +90,7 @@
             // 
             this.Listadeusuarios.AutoSize = true;
             this.Listadeusuarios.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Listadeusuarios.Location = new System.Drawing.Point(978, 299);
+            this.Listadeusuarios.Location = new System.Drawing.Point(978, 186);
             this.Listadeusuarios.Name = "Listadeusuarios";
             this.Listadeusuarios.Size = new System.Drawing.Size(337, 47);
             this.Listadeusuarios.TabIndex = 3;
@@ -99,7 +99,7 @@
             // Iddeusuariotexto
             // 
             this.Iddeusuariotexto.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Iddeusuariotexto.Location = new System.Drawing.Point(643, 119);
+            this.Iddeusuariotexto.Location = new System.Drawing.Point(636, 50);
             this.Iddeusuariotexto.Name = "Iddeusuariotexto";
             this.Iddeusuariotexto.Size = new System.Drawing.Size(438, 32);
             this.Iddeusuariotexto.TabIndex = 4;
@@ -107,7 +107,7 @@
             // Iddenombretexto
             // 
             this.Iddenombretexto.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Iddenombretexto.Location = new System.Drawing.Point(1221, 119);
+            this.Iddenombretexto.Location = new System.Drawing.Point(1221, 50);
             this.Iddenombretexto.Name = "Iddenombretexto";
             this.Iddenombretexto.Size = new System.Drawing.Size(438, 32);
             this.Iddenombretexto.TabIndex = 5;
@@ -116,7 +116,7 @@
             // 
             this.IngreseID.AutoSize = true;
             this.IngreseID.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IngreseID.Location = new System.Drawing.Point(744, 78);
+            this.IngreseID.Location = new System.Drawing.Point(735, 9);
             this.IngreseID.Name = "IngreseID";
             this.IngreseID.Size = new System.Drawing.Size(213, 23);
             this.IngreseID.TabIndex = 6;
@@ -126,7 +126,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1325, 78);
+            this.label1.Location = new System.Drawing.Point(1317, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(270, 23);
             this.label1.TabIndex = 7;
@@ -137,7 +137,7 @@
             this.Buscarusuarioboton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Buscarusuarioboton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Buscarusuarioboton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Buscarusuarioboton.Location = new System.Drawing.Point(1071, 223);
+            this.Buscarusuarioboton.Location = new System.Drawing.Point(1068, 110);
             this.Buscarusuarioboton.Name = "Buscarusuarioboton";
             this.Buscarusuarioboton.Size = new System.Drawing.Size(160, 73);
             this.Buscarusuarioboton.TabIndex = 8;
@@ -155,7 +155,7 @@
             this.contrafondologo.Location = new System.Drawing.Point(0, 0);
             this.contrafondologo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.contrafondologo.Name = "contrafondologo";
-            this.contrafondologo.Size = new System.Drawing.Size(397, 1249);
+            this.contrafondologo.Size = new System.Drawing.Size(397, 1050);
             this.contrafondologo.TabIndex = 11;
             // 
             // electrohogarlbl
@@ -209,7 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1891, 1249);
+            this.ClientSize = new System.Drawing.Size(1924, 1050);
             this.Controls.Add(this.Alertabotones);
             this.Controls.Add(this.contrafondologo);
             this.Controls.Add(this.Buscarusuarioboton);
