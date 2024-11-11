@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridProveedores = new System.Windows.Forms.DataGridView();
-            this.groupBoxCategorias = new System.Windows.Forms.GroupBox();
-            this.checkSmartTV = new System.Windows.Forms.CheckBox();
-            this.checkInformatica = new System.Windows.Forms.CheckBox();
-            this.checkElectroHogar = new System.Windows.Forms.CheckBox();
-            this.checkCelulares = new System.Windows.Forms.CheckBox();
-            this.checkAudio = new System.Windows.Forms.CheckBox();
             this.labelAltaProveedor = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -55,9 +49,8 @@
             this.lblValidaciones = new System.Windows.Forms.Label();
             this.lblValidacionMail = new System.Windows.Forms.Label();
             this.lblValidacionCuit = new System.Windows.Forms.Label();
-            this.lblValidacionCategoria = new System.Windows.Forms.Label();
+            this.btnVolverInicio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProveedores)).BeginInit();
-            this.groupBoxCategorias.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -70,93 +63,12 @@
             this.dataGridProveedores.AllowUserToDeleteRows = false;
             this.dataGridProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridProveedores.Location = new System.Drawing.Point(665, 69);
+            this.dataGridProveedores.Location = new System.Drawing.Point(479, 69);
             this.dataGridProveedores.Name = "dataGridProveedores";
             this.dataGridProveedores.ReadOnly = true;
             this.dataGridProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridProveedores.Size = new System.Drawing.Size(672, 369);
+            this.dataGridProveedores.Size = new System.Drawing.Size(858, 369);
             this.dataGridProveedores.TabIndex = 0;
-            // 
-            // groupBoxCategorias
-            // 
-            this.groupBoxCategorias.Controls.Add(this.checkSmartTV);
-            this.groupBoxCategorias.Controls.Add(this.checkInformatica);
-            this.groupBoxCategorias.Controls.Add(this.checkElectroHogar);
-            this.groupBoxCategorias.Controls.Add(this.checkCelulares);
-            this.groupBoxCategorias.Controls.Add(this.checkAudio);
-            this.groupBoxCategorias.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxCategorias.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxCategorias.Location = new System.Drawing.Point(445, 120);
-            this.groupBoxCategorias.Name = "groupBoxCategorias";
-            this.groupBoxCategorias.Size = new System.Drawing.Size(202, 143);
-            this.groupBoxCategorias.TabIndex = 1;
-            this.groupBoxCategorias.TabStop = false;
-            this.groupBoxCategorias.Text = "Categorías";
-            // 
-            // checkSmartTV
-            // 
-            this.checkSmartTV.AutoSize = true;
-            this.checkSmartTV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkSmartTV.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkSmartTV.ForeColor = System.Drawing.Color.DarkCyan;
-            this.checkSmartTV.Location = new System.Drawing.Point(6, 112);
-            this.checkSmartTV.Name = "checkSmartTV";
-            this.checkSmartTV.Size = new System.Drawing.Size(85, 24);
-            this.checkSmartTV.TabIndex = 4;
-            this.checkSmartTV.Text = "Smart TV";
-            this.checkSmartTV.UseVisualStyleBackColor = true;
-            // 
-            // checkInformatica
-            // 
-            this.checkInformatica.AutoSize = true;
-            this.checkInformatica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkInformatica.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkInformatica.ForeColor = System.Drawing.Color.DarkCyan;
-            this.checkInformatica.Location = new System.Drawing.Point(6, 89);
-            this.checkInformatica.Name = "checkInformatica";
-            this.checkInformatica.Size = new System.Drawing.Size(110, 24);
-            this.checkInformatica.TabIndex = 3;
-            this.checkInformatica.Text = "Informática";
-            this.checkInformatica.UseVisualStyleBackColor = true;
-            // 
-            // checkElectroHogar
-            // 
-            this.checkElectroHogar.AutoSize = true;
-            this.checkElectroHogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkElectroHogar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkElectroHogar.ForeColor = System.Drawing.Color.DarkCyan;
-            this.checkElectroHogar.Location = new System.Drawing.Point(6, 66);
-            this.checkElectroHogar.Name = "checkElectroHogar";
-            this.checkElectroHogar.Size = new System.Drawing.Size(125, 24);
-            this.checkElectroHogar.TabIndex = 2;
-            this.checkElectroHogar.Text = "Electro Hogar";
-            this.checkElectroHogar.UseVisualStyleBackColor = true;
-            // 
-            // checkCelulares
-            // 
-            this.checkCelulares.AutoSize = true;
-            this.checkCelulares.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkCelulares.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkCelulares.ForeColor = System.Drawing.Color.DarkCyan;
-            this.checkCelulares.Location = new System.Drawing.Point(6, 43);
-            this.checkCelulares.Name = "checkCelulares";
-            this.checkCelulares.Size = new System.Drawing.Size(93, 24);
-            this.checkCelulares.TabIndex = 1;
-            this.checkCelulares.Text = "Celulares";
-            this.checkCelulares.UseVisualStyleBackColor = true;
-            // 
-            // checkAudio
-            // 
-            this.checkAudio.AutoSize = true;
-            this.checkAudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkAudio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkAudio.ForeColor = System.Drawing.Color.DarkCyan;
-            this.checkAudio.Location = new System.Drawing.Point(7, 20);
-            this.checkAudio.Name = "checkAudio";
-            this.checkAudio.Size = new System.Drawing.Size(68, 24);
-            this.checkAudio.TabIndex = 0;
-            this.checkAudio.Text = "Audio";
-            this.checkAudio.UseVisualStyleBackColor = true;
             // 
             // labelAltaProveedor
             // 
@@ -308,7 +220,7 @@
             this.btnModificarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarProveedor.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnModificarProveedor.Location = new System.Drawing.Point(693, 466);
+            this.btnModificarProveedor.Location = new System.Drawing.Point(554, 465);
             this.btnModificarProveedor.Name = "btnModificarProveedor";
             this.btnModificarProveedor.Size = new System.Drawing.Size(148, 35);
             this.btnModificarProveedor.TabIndex = 13;
@@ -322,7 +234,7 @@
             this.btnEliminarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarProveedor.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarProveedor.Location = new System.Drawing.Point(941, 466);
+            this.btnEliminarProveedor.Location = new System.Drawing.Point(840, 465);
             this.btnEliminarProveedor.Name = "btnEliminarProveedor";
             this.btnEliminarProveedor.Size = new System.Drawing.Size(148, 35);
             this.btnEliminarProveedor.TabIndex = 14;
@@ -336,7 +248,7 @@
             this.btnReactivarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReactivarProveedor.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReactivarProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnReactivarProveedor.Location = new System.Drawing.Point(1189, 466);
+            this.btnReactivarProveedor.Location = new System.Drawing.Point(1125, 465);
             this.btnReactivarProveedor.Name = "btnReactivarProveedor";
             this.btnReactivarProveedor.Size = new System.Drawing.Size(148, 35);
             this.btnReactivarProveedor.TabIndex = 15;
@@ -377,23 +289,26 @@
             this.lblValidacionCuit.Text = "El CUIT debe tener 11 dígitos";
             this.lblValidacionCuit.Visible = false;
             // 
-            // lblValidacionCategoria
+            // btnVolverInicio
             // 
-            this.lblValidacionCategoria.AutoSize = true;
-            this.lblValidacionCategoria.ForeColor = System.Drawing.Color.Red;
-            this.lblValidacionCategoria.Location = new System.Drawing.Point(442, 270);
-            this.lblValidacionCategoria.Name = "lblValidacionCategoria";
-            this.lblValidacionCategoria.Size = new System.Drawing.Size(205, 13);
-            this.lblValidacionCategoria.TabIndex = 19;
-            this.lblValidacionCategoria.Text = "Debe seleccionar al menos una categoría";
-            this.lblValidacionCategoria.Visible = false;
+            this.btnVolverInicio.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVolverInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolverInicio.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnVolverInicio.Location = new System.Drawing.Point(787, 596);
+            this.btnVolverInicio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnVolverInicio.Name = "btnVolverInicio";
+            this.btnVolverInicio.Size = new System.Drawing.Size(267, 51);
+            this.btnVolverInicio.TabIndex = 21;
+            this.btnVolverInicio.Text = "MENU PRINCIPAL";
+            this.btnVolverInicio.UseVisualStyleBackColor = false;
+            this.btnVolverInicio.Click += new System.EventHandler(this.btnVolverInicio_Click);
             // 
             // FrmProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
-            this.Controls.Add(this.lblValidacionCategoria);
+            this.Controls.Add(this.btnVolverInicio);
             this.Controls.Add(this.lblValidacionCuit);
             this.Controls.Add(this.lblValidacionMail);
             this.Controls.Add(this.lblValidaciones);
@@ -410,7 +325,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelAltaProveedor);
-            this.Controls.Add(this.groupBoxCategorias);
             this.Controls.Add(this.dataGridProveedores);
             this.Name = "FrmProveedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -418,8 +332,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmProveedores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProveedores)).EndInit();
-            this.groupBoxCategorias.ResumeLayout(false);
-            this.groupBoxCategorias.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -436,12 +348,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridProveedores;
-        private System.Windows.Forms.GroupBox groupBoxCategorias;
-        private System.Windows.Forms.CheckBox checkSmartTV;
-        private System.Windows.Forms.CheckBox checkInformatica;
-        private System.Windows.Forms.CheckBox checkElectroHogar;
-        private System.Windows.Forms.CheckBox checkCelulares;
-        private System.Windows.Forms.CheckBox checkAudio;
         private System.Windows.Forms.Label labelAltaProveedor;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Panel panel1;
@@ -462,6 +368,6 @@
         private System.Windows.Forms.Label lblValidacionMail;
         private System.Windows.Forms.MaskedTextBox txtCuit;
         private System.Windows.Forms.Label lblValidacionCuit;
-        private System.Windows.Forms.Label lblValidacionCategoria;
+        private System.Windows.Forms.Button btnVolverInicio;
     }
 }
