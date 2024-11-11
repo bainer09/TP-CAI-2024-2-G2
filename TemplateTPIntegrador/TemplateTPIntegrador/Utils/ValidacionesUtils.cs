@@ -25,11 +25,6 @@ namespace TemplateTPIntegrador
             return campos.Any(campo => string.IsNullOrEmpty(campo));
         }
 
-        public bool ValidarCamposCheckbox(List<bool> campos)
-        {
-            return campos.All(campo => campo == false);
-        }
-
         public bool ValidarFormatoMail(string mail)
         {
 
