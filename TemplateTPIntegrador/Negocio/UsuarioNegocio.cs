@@ -35,6 +35,65 @@ namespace Negocio
             usuarioService.AltaUsuarioPersistente(altaUsuarioLocal);
         }
 
+        public void borrarUsuarioLocal(string Idusuario)
+        {
+            try
+            {
+                usuarioService.BajaUsuarioPersistente(Idusuario);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error dando de baja el usuario.", ex);
+            }
+        }
+
+        public List<Usuario> listarUsuarios()
+        {
+            return usuarioService.GetUsuarios(IdAdministrador);
+        }
+
+
+        public void bajaUser(Usuario user, Guid userlog)
+        {
+            string Userguid = user.id.ToString();
+            string userLog = userlog.ToString();
+            BajaUsuario userBaja = new BajaUsuario(Userguid, userLog);
+
+            try
+            {
+                usuarioService.BajaUsuario(userBaja);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                usuarioService.BajaUsuario(userBaja);
+
+                throw new Exception("Error al dar de baja el Usuario", ex);
+
+            }
+        }
+
+        public void reactivarUser(Usuario user, Guid userlog)
+        {
+            string Userguid = user.id.ToString();
+            string userLog = userlog.ToString() ;
+            ReactivarUsuario userAReact = new ReactivarUsuario(Userguid, userLog);
+            try
+            {
+                usuarioService.ReactivarUsuario(userAReact);
+                EliminarUsuarioDeBajasJson(Userguid);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al dar de baja el Usuario", ex);
+
+            }
+
+        }
+
         public void BorrarUsuario(string idUsuario, string guidUsuarioString, string nombreUsuario, string nombre, string apellido)
         {
             var bajausuario = new BajaUsuario(idUsuario, guidUsuarioString);
@@ -92,19 +151,6 @@ namespace Negocio
             File.WriteAllText(PathDB, serializedData);
         }
 
-        public void ReactivarUsuario(string idUsuario, string guidUsuario)
-        {
-            try
-            {
-                var usuario = new ReactivarUsuario(guidUsuario, idUsuario);
-                usuarioService.ReactivarUsuario(usuario);
-                EliminarUsuarioDeBajasJson(idUsuario);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al reactivar el usuario", ex);
-            }
-        }
 
         public List<UsuarioPersistenteBaja> ObtenerUsuariosDadosDeBaja()
         {
