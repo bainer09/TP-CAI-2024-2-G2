@@ -35,6 +35,60 @@ namespace Negocio
             usuarioService.AltaUsuarioPersistente(altaUsuarioLocal);
         }
 
+        public void borrarUsuarioLocal(string Idusuario)
+        {
+            try
+            {
+                usuarioService.BajaUsuarioPersistente(Idusuario);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error dando de baja el usuario.", ex);
+            }
+        }
+
+        public List<Usuario> listarUsuarios()
+        {
+            return usuarioService.GetUsuarios(IdAdministrador);
+        }
+
+
+        public void bajaUser(Usuario user)
+        {
+            BajaUsuario userBaja = new BajaUsuario(user._id, IdAdministrador);
+
+            try
+            {
+                usuarioService.BajaUsuario(userBaja);
+
+            }
+            catch (Exception ex)
+            {
+                usuarioService.BajaUsuario(userBaja);
+
+                throw new Exception("Error al dar de baja el Usuario", ex);
+
+            }
+        }
+
+        public void reactivarUser(Usuario user)
+        {
+
+            ReactivarUsuario userAReact = new ReactivarUsuario(user.id, IdAdministrador);
+            try
+            {
+                usuarioService.ReactivarUsuario(userAReact);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al dar de baja el Usuario", ex);
+
+            }
+
+        }
+
         public void BorrarUsuario(string idUsuario, string guidUsuarioString, string nombreUsuario, string nombre, string apellido)
         {
             var bajausuario = new BajaUsuario(idUsuario, guidUsuarioString);

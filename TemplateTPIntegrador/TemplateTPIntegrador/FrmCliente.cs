@@ -16,5 +16,15 @@ namespace TemplateTPIntegrador
         {
             InitializeComponent();
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contrafondologo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -49,11 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modulobajausuario.cs">
+    <Compile Include="FrmBajaModUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modulobajausuario.Designer.cs">
-      <DependentUpon>Modulobajausuario.cs</DependentUpon>
+    <Compile Include="FrmBajaModUsuario.Designer.cs">
+      <DependentUpon>FrmBajaModUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmComprobante.cs">
       <SubType>Form</SubType>
@@ -78,18 +78,6 @@
     </Compile>
     <Compile Include="FrmProducto.Designer.cs">
       <DependentUpon>FrmProducto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCliente.Designer.cs">
-      <DependentUpon>FrmCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmBajaModUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBajaModUsuario.Designer.cs">
-      <DependentUpon>FrmBajaModUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProveedores.cs">
       <SubType>Form</SubType>
@@ -134,17 +122,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Registrarclientes.cs">
+    <Compile Include="FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registrarclientes.Designer.cs">
-      <DependentUpon>Registrarclientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Restablecercontraseña.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Restablecercontraseña.Designer.cs">
-      <DependentUpon>Restablecercontraseña.cs</DependentUpon>
+    <Compile Include="FrmCliente.Designer.cs">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\ValidacionesUtils.cs" />
     <Compile Include="ValidadorUtilis.cs" />
@@ -163,19 +145,16 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modulobajausuario.resx">
-      <DependentUpon>Modulobajausuario.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBajaModUsuario.resx">
+      <DependentUpon>FrmBajaModUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registrarclientes.resx">
-      <DependentUpon>Registrarclientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Restablecercontraseña.resx">
-      <DependentUpon>Restablecercontraseña.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCliente.resx">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
