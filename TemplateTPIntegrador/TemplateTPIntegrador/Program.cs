@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PresentacionLayer;
 
 namespace TemplateTPIntegrador
 {
@@ -16,8 +17,7 @@ namespace TemplateTPIntegrador
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Modulobajausuario());
-
+            Application.Run(new FrmLogin());
         }
     }
 }

@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Datos;
+using System.IO;
 using Newtonsoft.Json;
 using Persistencia.Utils;
+using Datos;
 
 namespace Persistencia
 {
@@ -26,57 +23,61 @@ namespace Persistencia
                     List<Proveedor> listadoProveedores = JsonConvert.DeserializeObject<List<Proveedor>>(contentStream);
                     return listadoProveedores;
                 }
-                else { Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}"); }
+                else {
+                    throw new Exception($"Error: {response.StatusCode} - {response.ReasonPhrase}");
+                }
             }
-            catch (Exception e) { throw new Exception($"Error: ", e); }
+            catch (Exception e) {
+                throw new Exception("Error: ", e);
+            }
 
             return proveedores;
         }
-        public void AltaProveedor(AltaProveedor proveedor)
+        public void AltaProveedor(Proveedor altaProveedor)
         {
             string apiPath = "Proveedor/AgregarProveedor";
 
-            var request = JsonConvert.SerializeObject(proveedor);
+            var request = JsonConvert.SerializeObject(altaProveedor);
 
             try
             {
                 HttpResponseMessage response = WebHelper.Post(apiPath, request);
-                if (response.IsSuccessStatusCode)
+                if (!response.IsSuccessStatusCode)
                 {
-                    var reader = new StreamReader(response.Content.ReadAsStreamAsync().Result);
-                    string respuesta = reader.ReadToEnd();
+                   
+                throw new Exception($"Error: {response.StatusCode} - {response.ReasonPhrase}");
                 }
-                else
-                {
-                    var reader = new StreamReader(response.Content.ReadAsStreamAsync().Result);
-                    string respuesta = reader.ReadToEnd();
-                    Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}");
-                }
+            } catch (Exception e) {
+                throw new Exception("Error: ", e);
             }
-            catch (Exception e) { throw new Exception($"Error: ", e); }
         }
-        public void BajaProveedor(BajaProveedor proveedor)
+        public void BajaProveedor(Guid idProveedor, Guid idUsuario)
         {
             string apiPath = "Proveedor/BajaProveedor";
-            var request = JsonConvert.SerializeObject(proveedor);
+            Dictionary<string, string> map = new Dictionary<string, string>();
+            map.Add("id", idProveedor.ToString());
+            map.Add("idUsuario", idUsuario.ToString());
+
+            var jsonRequest = JsonConvert.SerializeObject(map);
 
             try
             {
-                HttpResponseMessage response = WebHelper.DeleteWithBody(apiPath, request);
-                if (response.IsSuccessStatusCode)
+                HttpResponseMessage response = WebHelper.DeleteWithBody(apiPath, jsonRequest);
+                if (!response.IsSuccessStatusCode)
                 {
-                    var reader = new StreamReader(response.Content.ReadAsStreamAsync().Result);
-                    string respuesta = reader.ReadToEnd();
+                    throw new Exception($"Error: {response.StatusCode} - {response.ReasonPhrase}");
                 }
-                else { Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}"); }
             }
-            catch (Exception e) { throw new Exception($"Error: ", e); }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al comunicarse con el servicio", ex);
+            }
 
         }
-        public void ModificarProveedor(ModificarProveedor proveedor)
+        public void ModificarProveedor(Proveedor proveedorModificado)
         {
             string apiPath = "Proveedor/ModificarProveedor";
-            var request = JsonConvert.SerializeObject(proveedor);
+            var request = JsonConvert.SerializeObject(proveedorModificado);
 
             try
             {
@@ -86,26 +87,31 @@ namespace Persistencia
                     var reader = new StreamReader(response.Content.ReadAsStreamAsync().Result);
                     string respuesta = reader.ReadToEnd();
                 }
-                else { Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}"); }
+                else { throw new Exception($"Error: {response.StatusCode} - {response.ReasonPhrase}"); }
             }
-            catch (Exception e) { throw new Exception($"Error: ", e); }
+            catch (Exception e) { throw new Exception("Error al comunicarse con el servicio", e); }
         }
-        public void ReactivarProveedor(ReactivarProveedor proveedor)
+        public void ReactivarProveedor(Guid idProveedor, Guid idUsuario)
         {
             string apiPath = "Proveedor/ReactivarProveedor";
-            var request = JsonConvert.SerializeObject(proveedor);
+            Dictionary<string, string> map = new Dictionary<string, string>();
+            map.Add("id", idProveedor.ToString());
+            map.Add("idUsuario", idUsuario.ToString());
+
+            var jsonRequest = JsonConvert.SerializeObject(map);
 
             try
             {
-                HttpResponseMessage response = WebHelper.Patch(apiPath, request);
-                if (response.IsSuccessStatusCode)
+                HttpResponseMessage response = WebHelper.Patch(apiPath, jsonRequest);
+                if (!response.IsSuccessStatusCode)
                 {
-                    var reader = new StreamReader(response.Content.ReadAsStreamAsync().Result);
-                    string respuesta = reader.ReadToEnd();
+                    throw new Exception($"Error: {response.StatusCode} - {response.ReasonPhrase}");
                 }
-                else { Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}"); }
             }
-            catch (Exception e) { throw new Exception($"Error: ", e); }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al comunicarse con el servicio", ex);
+            }
         }
     }
 }

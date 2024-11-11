@@ -21,7 +21,7 @@ namespace Datos
         public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
         public string _Host { get => _Host; set => _Host = value; }
 
-        public Cliente(string id, string nombre, string apellido, string direccion, string telefono, string email, int dNI, DateTime fechaNacimiento, DateTime fechaAlta, DateTime? fechaBaja, string idUsuario, string host)
+        public Cliente(string id, string nombre, string apellido, string direccion, string telefono, string email, int dNI, DateTime fechaNacimiento, DateTime fechaAlta, DateTime? fechaBaja, string idUsuario, string host = "Grupo 2")
         {
             _id = id;
             _Nombre = nombre;
@@ -36,29 +36,30 @@ namespace Datos
             _idUsuario = idUsuario;
             _Host = host;
         }
+        public Cliente() {}
     }
     public class AltaCliente
     {
+        public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
         public string _Nombre { get => _Nombre; set => _Nombre = value; }
         public string _Apellido { get => _Apellido; set => _Apellido = value; }
+        public int _DNI { get => _DNI; set => _DNI = value; }
         public string _Direccion { get => _Direccion; set => _Direccion = value; }
         public string _Telefono { get => _Telefono; set => _Telefono = value; }
         public string _Email { get => _Email; set => _Email = value; }
-        public int _DNI { get => _DNI; set => _DNI = value; }
         public DateTime _FechaNacimiento { get => _FechaNacimiento; set => _FechaNacimiento = value; }
-        public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
-        public string _Host { get => _Host; set => _Host = value; }
+        public string _Host { get => _Host ; set => _Host = value; }
 
-        public AltaCliente(string nombre, string apellido, string direccion, string telefono, string email, int dNI, DateTime fechaNacimiento, string idUsuario, string host)
+        public AltaCliente(string idUsuario, string nombre, string apellido, int DNI, string direccion, string telefono, string email, DateTime fechaNacimiento, string host = "Grupo 2")
         {
+            _idUsuario = idUsuario;
             _Nombre = nombre;
             _Apellido = apellido;
+            _DNI = DNI;
             _Direccion = direccion;
             _Telefono = telefono;
             _Email = email;
-            _DNI = dNI;
             _FechaNacimiento = fechaNacimiento;
-            _idUsuario = idUsuario;
             _Host = host;
         }
     }

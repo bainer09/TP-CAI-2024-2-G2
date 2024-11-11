@@ -120,4 +120,63 @@ namespace Persistencia
             catch (Exception e) { throw new Exception("Error: ", e); }
         }
     }
+    public class ClientePersistente
+    {
+        private const string clientesPath = @"/TemplateTPIntegrador/Persistencia/Data/Clientes.json";
+        public void AltaClienteLocal(Cliente cliente)
+        {
+            List<Cliente> clientes;
+
+            if (File.Exists(clientesPath))
+            {
+                string json = File.ReadAllText(clientesPath);
+                clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
+            }
+            else
+            {
+                clientes = new List<Cliente>();
+            }
+            clientes.Add(cliente);
+
+            try
+            {
+                string nuevaData = JsonConvert.SerializeObject(clientes, Formatting.Indented);
+                File.WriteAllText(clientesPath, nuevaData);
+            }
+            catch (Exception e) { throw new Exception("Error al dar de alta al cliente en forma local.\n", e); }
+
+        }   
+        public void ModificarClienteLocal(ModificarCliente cliente, int DNI)
+        {
+            string json = File.ReadAllText(clientesPath);
+            List<Cliente> clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
+            Cliente clienteModificacion = clientes.Find(c => c._DNI == DNI);
+
+            if (clienteModificacion == null) { throw new Exception("Cliente no encontrado."); }
+
+            clienteModificacion._Direccion = cliente._Direccion;
+            clienteModificacion._Telefono = cliente._Telefono;
+            clienteModificacion._Email = cliente._Email;
+
+            try
+            {
+                string nuevaData = JsonConvert.SerializeObject(clientes, Formatting.Indented);
+                File.WriteAllText(clientesPath, nuevaData);
+            }
+            catch (Exception e) { throw new Exception("Error al modificar el cliente en forma local.\n", e); }
+        }
+        public void BajaClienteLocal(int DNI)
+        {
+            string json = File.ReadAllText(clientesPath);
+            List<Cliente> clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
+            List<Cliente> clientesFiltrados = clientes.FindAll(c => c._DNI != DNI);
+
+            try
+            {
+                string nuevaData = JsonConvert.SerializeObject(clientesFiltrados, Formatting.Indented);
+                File.WriteAllText(clientesPath, nuevaData);
+            }
+            catch (Exception e) { throw new Exception("Error al dar de baja al cliente en forma local.\n", e); }
+        }
+    }
 }
