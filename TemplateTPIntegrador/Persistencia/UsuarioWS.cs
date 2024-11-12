@@ -13,8 +13,8 @@ namespace Persistencia
 {
     public class UsuarioWS
     {
-        private const string usuariosPath = @"/TemplateTPIntegrador/Persistencia/Data/Usuarios.json";
-
+        private const string usuariosPath = "C:/Users/oskie/OneDrive/DOCUMENTOS v2/FACULTAD/CONSTRUCCIÓN DE APLICACIONES INFORMÁTICAS/TP/ElectroHogar SA/TemplateTPIntegrador/Persistencia/Data/Usuarios.json";
+        //private const string usuariosPath = @"/TemplateTPIntegrador/Persistencia/Data/Usuarios.json";
         public List<Usuario> GetUsuarios(string admin)
         {
             string apiPath = $"Usuario/TraerUsuariosActivos?id={admin}";
@@ -38,7 +38,6 @@ namespace Persistencia
 
             return usuarios;
         }
-
         public void AltaUsuario(AltaUsuario usuario)
         {
             string apiPath = "Usuario/AgregarUsuario";
@@ -62,7 +61,6 @@ namespace Persistencia
             }
             catch (Exception e) { Console.WriteLine(e.Message); }
         }
-
         public void AltaUsuarioPersistente(UsuarioPersistente usuario)
         {
             List<UsuarioPersistente> usuarios;
@@ -70,7 +68,7 @@ namespace Persistencia
             if (File.Exists(usuariosPath))
             {
                 string json = File.ReadAllText(usuariosPath);
-                usuarios = JsonConvert.DeserializeObject<List<UsuarioPersistente>>(json);
+                usuarios = JsonConvert.DeserializeObject<List<UsuarioPersistente>>(json) ?? new List<UsuarioPersistente>();
             }
             else
             {
@@ -81,7 +79,6 @@ namespace Persistencia
             string nuevoJson = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
             File.WriteAllText(usuariosPath, nuevoJson);
         }
-
         public void LeerUsuarioPersistente()
         {
             if (!File.Exists(usuariosPath)) { throw new FileNotFoundException("Archivo no encontrado."); }
@@ -99,7 +96,6 @@ namespace Persistencia
             }
 
         }
-
         public void CambiarContraseñaUsuarioPersistente(string usuario, string nuevaClave)
         {
             try
@@ -128,7 +124,6 @@ namespace Persistencia
             catch (Exception e) { throw new Exception("Error: ", e); }
 
         }
-
         public void BajaUsuarioPersistente(string usuario)
         {
             try
@@ -149,13 +144,12 @@ namespace Persistencia
             }
             catch (Exception e) { throw new Exception("Error al eliminar el usuario: ", e); }
         }
-
         public bool esPrimerLogin(string nombreUsuario)
         {
             if (File.Exists(usuariosPath))
             {
                 string json = File.ReadAllText(usuariosPath);
-                List<UsuarioPersistente> usuarios = JsonConvert.DeserializeObject<List<UsuarioPersistente>>(json);
+                List<UsuarioPersistente> usuarios = JsonConvert.DeserializeObject<List<UsuarioPersistente>>(json) ?? new List<UsuarioPersistente>(); ;
 
                 UsuarioPersistente usuario = usuarios.Find(u => u._Usuario == nombreUsuario);
 
@@ -166,17 +160,16 @@ namespace Persistencia
             }
             return false;
         }
-
         public bool VerificarExpiracionContraseña(string usuario)
         {
             if (File.Exists(usuariosPath))
             {
                 string json = File.ReadAllText(usuariosPath);
-                List<UsuarioPersistente> usuarios = JsonConvert.DeserializeObject<List<UsuarioPersistente>>(json);
+                List<UsuarioPersistente> usuarios = JsonConvert.DeserializeObject<List<UsuarioPersistente>>(json) ?? new List<UsuarioPersistente>(); ;
 
                 UsuarioPersistente usuarioEncontrado = usuarios.Find(u => u._Usuario == usuario);
 
-                if (usuarioEncontrado._FechaContrasenia.HasValue &&
+                if (usuarioEncontrado != null && usuarioEncontrado._FechaContrasenia.HasValue &&
                     (DateTime.Now - usuarioEncontrado._FechaContrasenia.Value).TotalDays > 30)
                 {
                     return true;
@@ -184,7 +177,6 @@ namespace Persistencia
             }
             return false;
         }
-
         public int Login(string usuario, string clave, string admin)
         {
             string apiPath = "Usuario/Login";
@@ -202,9 +194,9 @@ namespace Persistencia
                 if (response.IsSuccessStatusCode)
                 {
                     List<Usuario> usuarios = GetUsuarios(admin);
-                    Usuario usuarioLogueado = usuarios.FirstOrDefault(u => u.NombreUsuario == usuario);
+                    Usuario usuarioLogueado = usuarios.FirstOrDefault(u => u.nombreUsuario == usuario);
 
-                    int perfilUsuario = usuarioLogueado._Host;
+                    int perfilUsuario = usuarioLogueado.host;
                     return perfilUsuario;
                 }
                 else
@@ -214,7 +206,6 @@ namespace Persistencia
             }
             catch (Exception e) { throw new Exception("Error al intentar iniciar sesión: " + e.Message); }
         }
-
         public void CambiarContraseña(CambiarContraseña usuario)
         {
             string apiPath = "Usuario/CambiarContraseña";
@@ -232,7 +223,6 @@ namespace Persistencia
             }
             catch (Exception e) { throw new Exception("Error: ", e); }
         }
-
         public void BajaUsuario(BajaUsuario usuarioBaja)
         {
             string apiPath = "Usuario/BajaUsuario";
@@ -255,7 +245,6 @@ namespace Persistencia
             }
             catch (Exception ex) { throw new Exception($"Error: {ex.Message}", ex); }
         }
-
         public void ReactivarUsuario(ReactivarUsuario usuario)
         {
             string apiPath = "Usuario/ReactivarUsuario";

@@ -19,11 +19,10 @@ namespace TemplateTPIntegrador
         private Guid guidUsuario;
         Usuario usuarioSeleccionado;
 
-        public FrmBajaModUsuario(int perfildeusuario)
+        public FrmBajaModUsuario()
         {
             InitializeComponent();
             this.FormClosing += Modulobajausuario_cerrar;
-            this.perfildeusuario = perfildeusuario;
         }
         //Boton Cruz de Ciere del Formulario
         private void Modulobajausuario_cerrar(object sender, FormClosingEventArgs e)
@@ -60,7 +59,7 @@ namespace TemplateTPIntegrador
 
                 Alertabotones.Visible = true;
                 Alertabotones.ForeColor = Color.Green;
-                Alertabotones.Text = $"{usuarioSeleccionado.NombreUsuario} dado de baja correctamente.";
+                Alertabotones.Text = $"{usuarioSeleccionado.nombreUsuario} dado de baja correctamente.";
                 cargarUsuarios();
             }
             catch (Exception ex)
@@ -81,7 +80,7 @@ namespace TemplateTPIntegrador
             foreach (Usuario user in allUsers)
             {
                 string userguid = user.id.ToString();
-                   if(userguid == Iddeusuariotexto.Text || user._Nombre == Iddenombretexto.Text)
+                   if(userguid == Iddeusuariotexto.Text || user.nombre == Iddenombretexto.Text)
                 {
                     usuarios.Add(user);
                 }
@@ -117,7 +116,7 @@ namespace TemplateTPIntegrador
         {
             List<Usuario> usuario = usuarionegocio.listarUsuarios();
 
-            usuario = usuario.OrderBy(u => u._Apellido).ToList();
+            usuario = usuario.OrderBy(u => u.apellido).ToList();
 
             var bindingList = new BindingList<Usuario>(usuario);
             var source = new BindingSource(bindingList, null);

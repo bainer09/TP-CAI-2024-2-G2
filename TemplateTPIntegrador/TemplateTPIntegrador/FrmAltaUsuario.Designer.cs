@@ -319,7 +319,7 @@ namespace Presentacion
             this.lblAlertaAltaUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblAlertaAltaUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAlertaAltaUsuario.ForeColor = System.Drawing.Color.Green;
-            this.lblAlertaAltaUsuario.Location = new System.Drawing.Point(788, 449);
+            this.lblAlertaAltaUsuario.Location = new System.Drawing.Point(736, 461);
             this.lblAlertaAltaUsuario.Name = "lblAlertaAltaUsuario";
             this.lblAlertaAltaUsuario.Size = new System.Drawing.Size(188, 22);
             this.lblAlertaAltaUsuario.TabIndex = 50;
