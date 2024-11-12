@@ -17,7 +17,7 @@ namespace Presentacion
         private ProductoNegocio productoNegocio = new ProductoNegocio();
         private int perfilUsuario;
         private Guid guidUsuario;
-        string userLogueado = UsuarioLogueado.NombreUsuario;
+        string userLogueado = UsuarioLogueado.nombreUsuario;
 
         public FrmAltaUsuario()
         {
@@ -88,12 +88,12 @@ namespace Presentacion
                 if (string.IsNullOrEmpty(errorMensaje))
                 {
                     List<Usuario> usuarios = usuarioNegocio.ListarUsuarios();
-                    Usuario usuario = usuarios.FirstOrDefault(u => u.NombreUsuario == userLogueado);
+                    Usuario usuario = usuarios.FirstOrDefault(u => u.nombreUsuario == userLogueado);
                     guidUsuario = usuario.id;
                     string guidUsuarioString = guidUsuario.ToString();
 
-                    usuarioNegocio.AgregarUsuario(guidUsuarioString, nombre, apellido, dni, direccion, telefono, email, fechaNacimiento, nombreUsuario, contraseña, perfilSeleccionado);
-                    usuarioNegocio.AgregarUsuarioLocal(nombreUsuario, contraseña);
+                    usuarioNegocio.AgregarUsuario(guidUsuarioString, perfilSeleccionado, nombre, apellido, dni, direccion, telefono, email, fechaNacimiento, nombreUsuario, contraseña);
+                    //usuarioNegocio.AgregarUsuarioLocal(nombreUsuario, contraseña);
 
                     MostrarExito("Usuario creado correctamente");
                     LimpiarCampos();
@@ -103,9 +103,10 @@ namespace Presentacion
                     MostrarError(lblAlertaAltaUsuario, errorMensaje);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MostrarError(lblAlertaAltaUsuario, "Se ha producido un error. Vuelva a intentarlo, si persiste contacte a su administrador del sistema.");
+                //MostrarError(lblAlertaAltaUsuario, "Se ha producido un error. Vuelva a intentarlo, si persiste contacte a su administrador del sistema.");
+                MostrarError(lblAlertaAltaUsuario, $"{ex.Message}");
             }
         }
 
