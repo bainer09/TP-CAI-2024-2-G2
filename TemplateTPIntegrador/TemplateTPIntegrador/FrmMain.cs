@@ -26,7 +26,7 @@ namespace Presentacion
             this.FormClosing += FrmMain_FormClosing;
             this.perfilUsuario = perfilUsuario;
             ConfigurarMenu();
-            //VerificarStockCritico();
+            VerificarStockCritico();
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -59,17 +59,21 @@ namespace Presentacion
             }
         }
 
-        /*private void VerificarStockCritico()
+        private void VerificarStockCritico()
         {
             lblStockCritico.Visible = perfilUsuario == 2 || perfilUsuario == 3;
             if (lblStockCritico.Visible)
             {
-                int cantidadProductosCriticos = productoNegocio.ContarProductosConStockCritico(); //Falta de Belu y Myr
+                int cantidadProductosCriticos = productoNegocio.ProductosConStockCritico();
                 lblStockCritico.Text = cantidadProductosCriticos > 0
                     ? $"{cantidadProductosCriticos} productos en stock crítico."
-                    : string.Empty;
+                    : "No hay productos en stock crítico.";
             }
-        }*/
+            else
+            {
+                lblStockCritico.Text = string.Empty; 
+            }
+        }
 
         private void AbrirFormulario(Form formulario)
         {
