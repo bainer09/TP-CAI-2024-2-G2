@@ -103,12 +103,6 @@
     <Compile Include="FrmContrasenia.Designer.cs">
       <DependentUpon>FrmContrasenia.cs</DependentUpon>
     </Compile>
-    <Compile Include="DevolverVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DevolverVenta.Designer.cs">
-      <DependentUpon>DevolverVenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,18 +128,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RegistrarProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RegistrarProducto.Designer.cs">
-      <DependentUpon>RegistrarProducto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RegistrarVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RegistrarVenta.Designer.cs">
-      <DependentUpon>RegistrarVenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="Utils\ValidacionesUtils.cs" />
     <Compile Include="ValidadorUtilis.cs" />
     <EmbeddedResource Include="FrmAltaUsuario.resx">
@@ -154,11 +136,14 @@
     <EmbeddedResource Include="FrmContrasenia.resx">
       <DependentUpon>FrmContrasenia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DevolverVenta.resx">
-      <DependentUpon>DevolverVenta.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDevolverVenta.resx">
+      <DependentUpon>FrmDevolverVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProducto.resx">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedores.resx">
       <DependentUpon>FrmProveedores.cs</DependentUpon>
@@ -166,18 +151,15 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmVenta.resx">
+      <DependentUpon>FrmVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <EmbeddedResource Include="RegistrarProducto.resx">
-      <DependentUpon>RegistrarProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RegistrarVenta.resx">
-      <DependentUpon>RegistrarVenta.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
