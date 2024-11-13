@@ -71,7 +71,7 @@ namespace Presentacion
             }
             else
             {
-                lblStockCritico.Text = string.Empty; 
+                lblStockCritico.Text = string.Empty;
             }
         }
 
