@@ -12,9 +12,11 @@ namespace TemplateTPIntegrador
 {
     public partial class FrmCliente : Form
     {
-        public FrmCliente()
+        private int perfilUsuario;
+        public FrmCliente(int perfilUsuario)
         {
             InitializeComponent();
+            this.perfilUsuario = perfilUsuario;
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

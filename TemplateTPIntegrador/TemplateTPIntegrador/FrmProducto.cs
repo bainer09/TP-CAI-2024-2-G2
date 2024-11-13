@@ -12,9 +12,11 @@ namespace TemplateTPIntegrador
 {
     public partial class FrmProducto : Form
     {
-        public FrmProducto()
+        private int perfilUsuario;
+        public FrmProducto(int perfilUsuario)
         {
             InitializeComponent();
+            this.perfilUsuario = perfilUsuario;
         }
     }
 }

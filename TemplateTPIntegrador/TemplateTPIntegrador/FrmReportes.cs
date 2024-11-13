@@ -12,9 +12,11 @@ namespace TemplateTPIntegrador
 {
     public partial class FrmReportes : Form
     {
-        public FrmReportes()
+        private int perfilUsuario;
+        public FrmReportes(int perfilUsuario)
         {
             InitializeComponent();
+            this.perfilUsuario = perfilUsuario;
         }
     }
 }
