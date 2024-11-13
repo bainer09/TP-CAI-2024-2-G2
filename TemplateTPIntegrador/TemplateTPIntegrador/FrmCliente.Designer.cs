@@ -73,7 +73,7 @@
             this.eticliente.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eticliente.Location = new System.Drawing.Point(79, 341);
             this.eticliente.Name = "eticliente";
-            this.eticliente.Size = new System.Drawing.Size(73, 21);
+            this.eticliente.Size = new System.Drawing.Size(50, 16);
             this.eticliente.TabIndex = 10;
             this.eticliente.Text = "Nombre";
             // 
@@ -83,7 +83,7 @@
             this.etiDireccion.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.etiDireccion.Location = new System.Drawing.Point(79, 636);
             this.etiDireccion.Name = "etiDireccion";
-            this.etiDireccion.Size = new System.Drawing.Size(83, 21);
+            this.etiDireccion.Size = new System.Drawing.Size(57, 16);
             this.etiDireccion.TabIndex = 11;
             this.etiDireccion.Text = "Direccion";
             // 
@@ -93,7 +93,7 @@
             this.Etitelefono.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Etitelefono.Location = new System.Drawing.Point(79, 716);
             this.Etitelefono.Name = "Etitelefono";
-            this.Etitelefono.Size = new System.Drawing.Size(76, 21);
+            this.Etitelefono.Size = new System.Drawing.Size(52, 16);
             this.Etitelefono.TabIndex = 12;
             this.Etitelefono.Text = "Telefono";
             // 
@@ -103,7 +103,7 @@
             this.etiEmail.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.etiEmail.Location = new System.Drawing.Point(79, 791);
             this.etiEmail.Name = "etiEmail";
-            this.etiEmail.Size = new System.Drawing.Size(51, 21);
+            this.etiEmail.Size = new System.Drawing.Size(35, 16);
             this.etiEmail.TabIndex = 13;
             this.etiEmail.Text = "Email";
             // 
@@ -111,35 +111,35 @@
             // 
             this.textnombrecliente.Location = new System.Drawing.Point(330, 332);
             this.textnombrecliente.Name = "textnombrecliente";
-            this.textnombrecliente.Size = new System.Drawing.Size(358, 27);
+            this.textnombrecliente.Size = new System.Drawing.Size(358, 21);
             this.textnombrecliente.TabIndex = 16;
             // 
             // texdireccioncliente
             // 
             this.texdireccioncliente.Location = new System.Drawing.Point(330, 636);
             this.texdireccioncliente.Name = "texdireccioncliente";
-            this.texdireccioncliente.Size = new System.Drawing.Size(358, 27);
+            this.texdireccioncliente.Size = new System.Drawing.Size(358, 21);
             this.texdireccioncliente.TabIndex = 17;
             // 
             // textelcliente
             // 
             this.textelcliente.Location = new System.Drawing.Point(330, 720);
             this.textelcliente.Name = "textelcliente";
-            this.textelcliente.Size = new System.Drawing.Size(358, 27);
+            this.textelcliente.Size = new System.Drawing.Size(358, 21);
             this.textelcliente.TabIndex = 18;
             // 
             // texemailcliente
             // 
             this.texemailcliente.Location = new System.Drawing.Point(330, 791);
             this.texemailcliente.Name = "texemailcliente";
-            this.texemailcliente.Size = new System.Drawing.Size(358, 27);
+            this.texemailcliente.Size = new System.Drawing.Size(358, 21);
             this.texemailcliente.TabIndex = 19;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(330, 405);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(358, 27);
+            this.textBox1.Size = new System.Drawing.Size(358, 21);
             this.textBox1.TabIndex = 21;
             // 
             // etiapellido
@@ -148,7 +148,7 @@
             this.etiapellido.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.etiapellido.Location = new System.Drawing.Point(79, 411);
             this.etiapellido.Name = "etiapellido";
-            this.etiapellido.Size = new System.Drawing.Size(74, 21);
+            this.etiapellido.Size = new System.Drawing.Size(50, 16);
             this.etiapellido.TabIndex = 20;
             this.etiapellido.Text = "Apellido";
             // 
@@ -158,7 +158,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(79, 489);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 21);
+            this.label1.Size = new System.Drawing.Size(123, 16);
             this.label1.TabIndex = 22;
             this.label1.Text = "Fecha de nacimiento";
             // 
@@ -168,7 +168,7 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(79, 561);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 21);
+            this.label2.Size = new System.Drawing.Size(26, 16);
             this.label2.TabIndex = 23;
             this.label2.Text = "DNI";
             // 
@@ -176,7 +176,7 @@
             // 
             this.texDNI.Location = new System.Drawing.Point(330, 561);
             this.texDNI.Name = "texDNI";
-            this.texDNI.Size = new System.Drawing.Size(358, 27);
+            this.texDNI.Size = new System.Drawing.Size(358, 21);
             this.texDNI.TabIndex = 24;
             // 
             // Botonmodificarcliente
@@ -221,7 +221,7 @@
             this.Clientes.Font = new System.Drawing.Font("Century Gothic", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clientes.Location = new System.Drawing.Point(647, 230);
             this.Clientes.Name = "Clientes";
-            this.Clientes.Size = new System.Drawing.Size(246, 66);
+            this.Clientes.Size = new System.Drawing.Size(166, 44);
             this.Clientes.TabIndex = 28;
             this.Clientes.Text = "Clientes";
             // 
@@ -254,15 +254,15 @@
             this.electrohogarlbl.Location = new System.Drawing.Point(234, 113);
             this.electrohogarlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.electrohogarlbl.Name = "electrohogarlbl";
-            this.electrohogarlbl.Size = new System.Drawing.Size(286, 39);
+            this.electrohogarlbl.Size = new System.Drawing.Size(184, 24);
             this.electrohogarlbl.TabIndex = 12;
             this.electrohogarlbl.Text = "ElectroHogar S.A.";
             // 
             // FrmCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1603, 1050);
+            this.ClientSize = new System.Drawing.Size(1604, 1038);
             this.Controls.Add(this.panelcyan);
             this.Controls.Add(this.Clientes);
             this.Controls.Add(this.Basededatosclientes);
