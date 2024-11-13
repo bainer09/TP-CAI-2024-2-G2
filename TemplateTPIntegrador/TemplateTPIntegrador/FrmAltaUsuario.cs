@@ -97,7 +97,7 @@ namespace Presentacion
                     //usuarioNegocio.AgregarUsuarioLocal(nombreUsuario, contraseña);
 
                     MostrarExito("Usuario creado correctamente");
-                    LimpiarCampos();
+                    //LimpiarCampos();
                 }
                 else
                 {
@@ -239,6 +239,11 @@ namespace Presentacion
             int edad = DateTime.Now.Year - fechaNacimiento.Year;
             if (fechaNacimiento > DateTime.Now.AddYears(-edad)) edad--;
             return edad >= 18;
+        }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
     }
 }

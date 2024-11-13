@@ -62,6 +62,7 @@ namespace Presentacion
             this.lblAlertaFecha = new System.Windows.Forms.Label();
             this.lblAlertaUsuario = new System.Windows.Forms.Label();
             this.lblAlertaPerfil = new System.Windows.Forms.Label();
+            this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -319,7 +320,7 @@ namespace Presentacion
             this.lblAlertaAltaUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblAlertaAltaUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAlertaAltaUsuario.ForeColor = System.Drawing.Color.Green;
-            this.lblAlertaAltaUsuario.Location = new System.Drawing.Point(736, 461);
+            this.lblAlertaAltaUsuario.Location = new System.Drawing.Point(736, 449);
             this.lblAlertaAltaUsuario.Name = "lblAlertaAltaUsuario";
             this.lblAlertaAltaUsuario.Size = new System.Drawing.Size(188, 22);
             this.lblAlertaAltaUsuario.TabIndex = 50;
@@ -433,12 +434,27 @@ namespace Presentacion
             this.lblAlertaPerfil.TabIndex = 59;
             this.lblAlertaPerfil.Text = "lblAlertaPerfil";
             // 
+            // btnLimpiarCampos
+            // 
+            this.btnLimpiarCampos.BackColor = System.Drawing.Color.White;
+            this.btnLimpiarCampos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarCampos.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(707, 475);
+            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(233, 30);
+            this.btnLimpiarCampos.TabIndex = 60;
+            this.btnLimpiarCampos.Text = "Limpiar Campos";
+            this.btnLimpiarCampos.UseVisualStyleBackColor = false;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
+            // 
             // FrmAltaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1535, 564);
+            this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.lblAlertaPerfil);
             this.Controls.Add(this.lblAlertaUsuario);
             this.Controls.Add(this.lblAlertaFecha);
@@ -516,5 +532,6 @@ namespace Presentacion
         private Label lblAlertaFecha;
         private Label lblAlertaUsuario;
         private Label lblAlertaPerfil;
+        private Button btnLimpiarCampos;
     }
 }

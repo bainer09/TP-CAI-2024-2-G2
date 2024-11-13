@@ -174,31 +174,43 @@ namespace Negocio
         {
             return usuarioService.VerificarExpiracionContraseña(usuario);
         }
-        public void CambiarContraseña(string usuario, string contraseñaActual, string nuevaContraseña)
+        public bool CambiarContraseña(string usuario, string contraseñaActual, string nuevaContraseña, out string mensajeError)
         {
+            mensajeError = string.Empty;
+
+            // Verificar si la combinación usuario-contraseña es correcta
+            int loginResult = Login(usuario, contraseñaActual);
+            if (loginResult == -1)
+            {
+                mensajeError = "La contraseña actual es incorrecta.";
+                return false; // Cambio no realizado
+            }
+
+            // Validar nueva contraseña
+            string validacionContraseña = ValidarContraseña(contraseñaActual, nuevaContraseña);
+            if (!string.IsNullOrEmpty(validacionContraseña))
+            {
+                mensajeError = validacionContraseña;
+                return false; // Cambio no realizado
+            }
+
+            // Intentar realizar el cambio de contraseña en la capa de persistencia
             try
             {
-                int loginResult = Login(usuario, contraseñaActual);
-                if (loginResult != -1)
-                {
-                    string validacionContraseña = ValidarContraseña(contraseñaActual, nuevaContraseña);
-                    if (!string.IsNullOrEmpty(validacionContraseña))
-                    {
-                        throw new Exception(validacionContraseña);
-                    }
-                    // Crear un objeto de CambiarContraseña y pasar a la capa de persistencia
-                    var cambiarContraseña = new CambiarContraseña(usuario, contraseñaActual, nuevaContraseña);
-                    usuarioService.CambiarContraseña(cambiarContraseña);
-                    usuarioService.CambiarContraseñaUsuarioPersistente(usuario, nuevaContraseña);
-                }
-                else
-                {
-                    throw new Exception("La contraseña actual es incorrecta");
-                }
+                var cambiarContraseña = new CambiarContraseña(usuario, contraseñaActual, nuevaContraseña);
+                usuarioService.CambiarContraseña(cambiarContraseña);
+
+                // Comentar o descomentar según tu implementación actual
+                // usuarioService.CambiarContraseñaUsuarioPersistente(usuario, nuevaContraseña);
+
+                return true; // Cambio exitoso
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al cambiar la contraseña en la capa de negocio.", ex);
+                mensajeError = "Error al cambiar la contraseña. Contacte al administrador.";
+                // Registrar log aquí, si es necesario, para diagnóstico interno
+                Console.WriteLine($"Error en CambiarContraseña: {ex.Message}");
+                return false; // Cambio no realizado
             }
         }
         internal string ValidarContraseña(string contraseñaActual, string nuevaContraseña)
