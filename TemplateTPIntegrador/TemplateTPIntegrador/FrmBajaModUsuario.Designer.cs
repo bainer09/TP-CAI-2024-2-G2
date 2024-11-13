@@ -155,7 +155,7 @@
             this.contrafondologo.Location = new System.Drawing.Point(0, 0);
             this.contrafondologo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.contrafondologo.Name = "contrafondologo";
-            this.contrafondologo.Size = new System.Drawing.Size(397, 1050);
+            this.contrafondologo.Size = new System.Drawing.Size(397, 1097);
             this.contrafondologo.TabIndex = 11;
             // 
             // electrohogarlbl
@@ -198,18 +198,18 @@
             // 
             this.Alertabotones.AutoSize = true;
             this.Alertabotones.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Alertabotones.Location = new System.Drawing.Point(1423, 1103);
+            this.Alertabotones.Location = new System.Drawing.Point(1437, 1041);
             this.Alertabotones.Name = "Alertabotones";
             this.Alertabotones.Size = new System.Drawing.Size(59, 21);
             this.Alertabotones.TabIndex = 12;
             this.Alertabotones.Text = "Alerta";
             this.Alertabotones.Visible = false;
             // 
-            // Modulobajausuario
+            // FrmBajaModUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1050);
+            this.ClientSize = new System.Drawing.Size(1830, 1097);
             this.Controls.Add(this.Alertabotones);
             this.Controls.Add(this.contrafondologo);
             this.Controls.Add(this.Buscarusuarioboton);
@@ -221,7 +221,7 @@
             this.Controls.Add(this.listausuarios);
             this.Controls.Add(this.Botonreactivarusuario);
             this.Controls.Add(this.Botondardebaja);
-            this.Name = "Modulobajausuario";
+            this.Name = "FrmBajaModUsuario";
             this.Text = "Baja de usuarios";
             this.Load += new System.EventHandler(this.Modulobajausuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listausuarios)).EndInit();
