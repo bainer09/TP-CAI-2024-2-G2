@@ -37,19 +37,23 @@
             this.texdireccioncliente = new System.Windows.Forms.TextBox();
             this.textelcliente = new System.Windows.Forms.TextBox();
             this.texemailcliente = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Textapellido = new System.Windows.Forms.TextBox();
             this.etiapellido = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.texDNI = new System.Windows.Forms.TextBox();
             this.Botonmodificarcliente = new System.Windows.Forms.Button();
             this.botondardebajacliente = new System.Windows.Forms.Button();
-            this.Basededatosclientes = new System.Windows.Forms.DataGridView();
+            this.listaclientes = new System.Windows.Forms.DataGridView();
             this.Clientes = new System.Windows.Forms.Label();
             this.panelcyan = new System.Windows.Forms.Panel();
+            this.Volverainicioboton = new System.Windows.Forms.Button();
             this.LogoElectroHogar = new System.Windows.Forms.PictureBox();
             this.electrohogarlbl = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.Basededatosclientes)).BeginInit();
+            this.fechanaccampo = new System.Windows.Forms.DateTimePicker();
+            this.alertacliente = new System.Windows.Forms.Label();
+            this.Reactivarboton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.listaclientes)).BeginInit();
             this.panelcyan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoElectroHogar)).BeginInit();
             this.SuspendLayout();
@@ -60,12 +64,13 @@
             this.Registrarusuarioboton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Registrarusuarioboton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Registrarusuarioboton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Registrarusuarioboton.Location = new System.Drawing.Point(330, 900);
+            this.Registrarusuarioboton.Location = new System.Drawing.Point(801, 959);
             this.Registrarusuarioboton.Name = "Registrarusuarioboton";
             this.Registrarusuarioboton.Size = new System.Drawing.Size(267, 116);
             this.Registrarusuarioboton.TabIndex = 9;
             this.Registrarusuarioboton.Text = "Registrar cliente";
             this.Registrarusuarioboton.UseVisualStyleBackColor = false;
+            this.Registrarusuarioboton.Click += new System.EventHandler(this.Registrarusuarioboton_Click);
             // 
             // eticliente
             // 
@@ -73,7 +78,7 @@
             this.eticliente.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eticliente.Location = new System.Drawing.Point(79, 341);
             this.eticliente.Name = "eticliente";
-            this.eticliente.Size = new System.Drawing.Size(50, 16);
+            this.eticliente.Size = new System.Drawing.Size(73, 21);
             this.eticliente.TabIndex = 10;
             this.eticliente.Text = "Nombre";
             // 
@@ -83,7 +88,7 @@
             this.etiDireccion.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.etiDireccion.Location = new System.Drawing.Point(79, 636);
             this.etiDireccion.Name = "etiDireccion";
-            this.etiDireccion.Size = new System.Drawing.Size(57, 16);
+            this.etiDireccion.Size = new System.Drawing.Size(83, 21);
             this.etiDireccion.TabIndex = 11;
             this.etiDireccion.Text = "Direccion";
             // 
@@ -93,7 +98,7 @@
             this.Etitelefono.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Etitelefono.Location = new System.Drawing.Point(79, 716);
             this.Etitelefono.Name = "Etitelefono";
-            this.Etitelefono.Size = new System.Drawing.Size(52, 16);
+            this.Etitelefono.Size = new System.Drawing.Size(76, 21);
             this.Etitelefono.TabIndex = 12;
             this.Etitelefono.Text = "Telefono";
             // 
@@ -103,7 +108,7 @@
             this.etiEmail.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.etiEmail.Location = new System.Drawing.Point(79, 791);
             this.etiEmail.Name = "etiEmail";
-            this.etiEmail.Size = new System.Drawing.Size(35, 16);
+            this.etiEmail.Size = new System.Drawing.Size(51, 21);
             this.etiEmail.TabIndex = 13;
             this.etiEmail.Text = "Email";
             // 
@@ -111,36 +116,36 @@
             // 
             this.textnombrecliente.Location = new System.Drawing.Point(330, 332);
             this.textnombrecliente.Name = "textnombrecliente";
-            this.textnombrecliente.Size = new System.Drawing.Size(358, 21);
+            this.textnombrecliente.Size = new System.Drawing.Size(358, 27);
             this.textnombrecliente.TabIndex = 16;
             // 
             // texdireccioncliente
             // 
             this.texdireccioncliente.Location = new System.Drawing.Point(330, 636);
             this.texdireccioncliente.Name = "texdireccioncliente";
-            this.texdireccioncliente.Size = new System.Drawing.Size(358, 21);
+            this.texdireccioncliente.Size = new System.Drawing.Size(358, 27);
             this.texdireccioncliente.TabIndex = 17;
             // 
             // textelcliente
             // 
             this.textelcliente.Location = new System.Drawing.Point(330, 720);
             this.textelcliente.Name = "textelcliente";
-            this.textelcliente.Size = new System.Drawing.Size(358, 21);
+            this.textelcliente.Size = new System.Drawing.Size(358, 27);
             this.textelcliente.TabIndex = 18;
             // 
             // texemailcliente
             // 
             this.texemailcliente.Location = new System.Drawing.Point(330, 791);
             this.texemailcliente.Name = "texemailcliente";
-            this.texemailcliente.Size = new System.Drawing.Size(358, 21);
+            this.texemailcliente.Size = new System.Drawing.Size(358, 27);
             this.texemailcliente.TabIndex = 19;
             // 
-            // textBox1
+            // Textapellido
             // 
-            this.textBox1.Location = new System.Drawing.Point(330, 405);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(358, 21);
-            this.textBox1.TabIndex = 21;
+            this.Textapellido.Location = new System.Drawing.Point(330, 405);
+            this.Textapellido.Name = "Textapellido";
+            this.Textapellido.Size = new System.Drawing.Size(358, 27);
+            this.Textapellido.TabIndex = 21;
             // 
             // etiapellido
             // 
@@ -148,7 +153,7 @@
             this.etiapellido.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.etiapellido.Location = new System.Drawing.Point(79, 411);
             this.etiapellido.Name = "etiapellido";
-            this.etiapellido.Size = new System.Drawing.Size(50, 16);
+            this.etiapellido.Size = new System.Drawing.Size(74, 21);
             this.etiapellido.TabIndex = 20;
             this.etiapellido.Text = "Apellido";
             // 
@@ -158,7 +163,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(79, 489);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 16);
+            this.label1.Size = new System.Drawing.Size(177, 21);
             this.label1.TabIndex = 22;
             this.label1.Text = "Fecha de nacimiento";
             // 
@@ -168,7 +173,7 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(79, 561);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 16);
+            this.label2.Size = new System.Drawing.Size(39, 21);
             this.label2.TabIndex = 23;
             this.label2.Text = "DNI";
             // 
@@ -176,7 +181,7 @@
             // 
             this.texDNI.Location = new System.Drawing.Point(330, 561);
             this.texDNI.Name = "texDNI";
-            this.texDNI.Size = new System.Drawing.Size(358, 21);
+            this.texDNI.Size = new System.Drawing.Size(358, 27);
             this.texDNI.TabIndex = 24;
             // 
             // Botonmodificarcliente
@@ -185,12 +190,13 @@
             this.Botonmodificarcliente.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Botonmodificarcliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Botonmodificarcliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Botonmodificarcliente.Location = new System.Drawing.Point(706, 900);
+            this.Botonmodificarcliente.Location = new System.Drawing.Point(1176, 959);
             this.Botonmodificarcliente.Name = "Botonmodificarcliente";
             this.Botonmodificarcliente.Size = new System.Drawing.Size(267, 116);
             this.Botonmodificarcliente.TabIndex = 25;
             this.Botonmodificarcliente.Text = "Modificar datos";
             this.Botonmodificarcliente.UseVisualStyleBackColor = false;
+            this.Botonmodificarcliente.Click += new System.EventHandler(this.Botonmodificarcliente_Click);
             // 
             // botondardebajacliente
             // 
@@ -198,22 +204,23 @@
             this.botondardebajacliente.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botondardebajacliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.botondardebajacliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.botondardebajacliente.Location = new System.Drawing.Point(1080, 900);
+            this.botondardebajacliente.Location = new System.Drawing.Point(1511, 959);
             this.botondardebajacliente.Name = "botondardebajacliente";
             this.botondardebajacliente.Size = new System.Drawing.Size(267, 116);
             this.botondardebajacliente.TabIndex = 26;
             this.botondardebajacliente.Text = "Dar de baja";
             this.botondardebajacliente.UseVisualStyleBackColor = false;
+            this.botondardebajacliente.Click += new System.EventHandler(this.botondardebajacliente_Click);
             // 
-            // Basededatosclientes
+            // listaclientes
             // 
-            this.Basededatosclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Basededatosclientes.Location = new System.Drawing.Point(757, 311);
-            this.Basededatosclientes.Name = "Basededatosclientes";
-            this.Basededatosclientes.RowHeadersWidth = 62;
-            this.Basededatosclientes.RowTemplate.Height = 28;
-            this.Basededatosclientes.Size = new System.Drawing.Size(822, 507);
-            this.Basededatosclientes.TabIndex = 27;
+            this.listaclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listaclientes.Location = new System.Drawing.Point(757, 311);
+            this.listaclientes.Name = "listaclientes";
+            this.listaclientes.RowHeadersWidth = 62;
+            this.listaclientes.RowTemplate.Height = 28;
+            this.listaclientes.Size = new System.Drawing.Size(1120, 583);
+            this.listaclientes.TabIndex = 27;
             // 
             // Clientes
             // 
@@ -221,19 +228,34 @@
             this.Clientes.Font = new System.Drawing.Font("Century Gothic", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clientes.Location = new System.Drawing.Point(647, 230);
             this.Clientes.Name = "Clientes";
-            this.Clientes.Size = new System.Drawing.Size(166, 44);
+            this.Clientes.Size = new System.Drawing.Size(246, 66);
             this.Clientes.TabIndex = 28;
             this.Clientes.Text = "Clientes";
             // 
             // panelcyan
             // 
             this.panelcyan.BackColor = System.Drawing.Color.DarkCyan;
+            this.panelcyan.Controls.Add(this.Volverainicioboton);
             this.panelcyan.Controls.Add(this.LogoElectroHogar);
             this.panelcyan.Controls.Add(this.electrohogarlbl);
             this.panelcyan.Location = new System.Drawing.Point(0, 0);
             this.panelcyan.Name = "panelcyan";
             this.panelcyan.Size = new System.Drawing.Size(3259, 218);
             this.panelcyan.TabIndex = 29;
+            // 
+            // Volverainicioboton
+            // 
+            this.Volverainicioboton.BackColor = System.Drawing.Color.SlateGray;
+            this.Volverainicioboton.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Volverainicioboton.ForeColor = System.Drawing.Color.White;
+            this.Volverainicioboton.Location = new System.Drawing.Point(1776, 42);
+            this.Volverainicioboton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.Volverainicioboton.Name = "Volverainicioboton";
+            this.Volverainicioboton.Size = new System.Drawing.Size(147, 123);
+            this.Volverainicioboton.TabIndex = 32;
+            this.Volverainicioboton.Text = "Volver a inicio";
+            this.Volverainicioboton.UseVisualStyleBackColor = false;
+            this.Volverainicioboton.Click += new System.EventHandler(this.Volverainicioboton_Click);
             // 
             // LogoElectroHogar
             // 
@@ -254,24 +276,59 @@
             this.electrohogarlbl.Location = new System.Drawing.Point(234, 113);
             this.electrohogarlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.electrohogarlbl.Name = "electrohogarlbl";
-            this.electrohogarlbl.Size = new System.Drawing.Size(184, 24);
+            this.electrohogarlbl.Size = new System.Drawing.Size(286, 39);
             this.electrohogarlbl.TabIndex = 12;
             this.electrohogarlbl.Text = "ElectroHogar S.A.";
             // 
+            // fechanaccampo
+            // 
+            this.fechanaccampo.Location = new System.Drawing.Point(330, 489);
+            this.fechanaccampo.Name = "fechanaccampo";
+            this.fechanaccampo.Size = new System.Drawing.Size(358, 27);
+            this.fechanaccampo.TabIndex = 30;
+            // 
+            // alertacliente
+            // 
+            this.alertacliente.AutoSize = true;
+            this.alertacliente.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertacliente.Location = new System.Drawing.Point(1060, 1080);
+            this.alertacliente.Name = "alertacliente";
+            this.alertacliente.Size = new System.Drawing.Size(59, 21);
+            this.alertacliente.TabIndex = 31;
+            this.alertacliente.Text = "Alerta";
+            this.alertacliente.Visible = false;
+            // 
+            // Reactivarboton
+            // 
+            this.Reactivarboton.BackColor = System.Drawing.Color.DarkCyan;
+            this.Reactivarboton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Reactivarboton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Reactivarboton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Reactivarboton.Location = new System.Drawing.Point(439, 959);
+            this.Reactivarboton.Name = "Reactivarboton";
+            this.Reactivarboton.Size = new System.Drawing.Size(267, 116);
+            this.Reactivarboton.TabIndex = 32;
+            this.Reactivarboton.Text = "Reactivar usuario";
+            this.Reactivarboton.UseVisualStyleBackColor = false;
+            this.Reactivarboton.Click += new System.EventHandler(this.Reactivarboton_Click);
+            // 
             // FrmCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1604, 1038);
+            this.ClientSize = new System.Drawing.Size(1973, 1163);
+            this.Controls.Add(this.Reactivarboton);
+            this.Controls.Add(this.alertacliente);
+            this.Controls.Add(this.fechanaccampo);
             this.Controls.Add(this.panelcyan);
             this.Controls.Add(this.Clientes);
-            this.Controls.Add(this.Basededatosclientes);
+            this.Controls.Add(this.listaclientes);
             this.Controls.Add(this.botondardebajacliente);
             this.Controls.Add(this.Botonmodificarcliente);
             this.Controls.Add(this.texDNI);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Textapellido);
             this.Controls.Add(this.etiapellido);
             this.Controls.Add(this.texemailcliente);
             this.Controls.Add(this.textelcliente);
@@ -285,7 +342,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmCliente";
             this.Text = "Registrar clientes";
-            ((System.ComponentModel.ISupportInitialize)(this.Basededatosclientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaclientes)).EndInit();
             this.panelcyan.ResumeLayout(false);
             this.panelcyan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoElectroHogar)).EndInit();
@@ -305,17 +362,21 @@
         private System.Windows.Forms.TextBox texdireccioncliente;
         private System.Windows.Forms.TextBox textelcliente;
         private System.Windows.Forms.TextBox texemailcliente;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Textapellido;
         private System.Windows.Forms.Label etiapellido;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox texDNI;
         private System.Windows.Forms.Button Botonmodificarcliente;
         private System.Windows.Forms.Button botondardebajacliente;
-        private System.Windows.Forms.DataGridView Basededatosclientes;
+        private System.Windows.Forms.DataGridView listaclientes;
         private System.Windows.Forms.Label Clientes;
         private System.Windows.Forms.Panel panelcyan;
         private System.Windows.Forms.Label electrohogarlbl;
         private System.Windows.Forms.PictureBox LogoElectroHogar;
+        private System.Windows.Forms.DateTimePicker fechanaccampo;
+        private System.Windows.Forms.Label alertacliente;
+        private System.Windows.Forms.Button Volverainicioboton;
+        private System.Windows.Forms.Button Reactivarboton;
     }
 }
