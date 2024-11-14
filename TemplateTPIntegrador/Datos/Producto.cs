@@ -8,25 +8,25 @@ namespace Datos
 {
     public class Producto
     {
-        public string _id { get => _id; set => _id = value; }
-        public int _idCategoria { get => _idCategoria; set => _idCategoria = value; }
-        public string _Nombre { get => _Nombre; set => _Nombre = value; }
-        public DateTime _FechaAlta { get => _FechaAlta; set => _FechaAlta = value; }
-        public DateTime? _FechaBaja { get => _FechaBaja; set => _FechaBaja = value; }
-        public double _Precio { get => _Precio; set => _Precio = value; }
-        public int _Stock { get => _Stock; set => _Stock = value; }
-        public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
-        public string _idProveedor { get => _idProveedor; set => _idProveedor = value; }
+        public string id { get; set; }
+        public int idCategoria { get; set; }
+        public string nombre { get; set; }
+        public DateTime fechaAlta { get; set; }
+        public DateTime? fechaBaja { get; set; }
+        public double precio { get; set; }
+        public int stock { get; set; }
+        public string idUsuario { get; set ; }
+        public string idProveedor { get; set; }
 
         public Producto(string id, int idCategoria, string nombre, DateTime FechaAlta, DateTime? FechaBaja, double precio, int stock)
         {
-            _id = id;
-            _idCategoria = idCategoria;
-            _Nombre = nombre;
-            _FechaAlta = FechaAlta;
-            _FechaBaja = FechaBaja;
-            _Precio = precio;
-            _Stock = stock;
+            this.id = id;
+            this.idCategoria = idCategoria;
+            this.nombre = nombre;
+            fechaAlta = FechaAlta;
+            fechaBaja = FechaBaja;
+            this.precio = precio;
+            this.stock = stock;
         }
 
         public Producto () {}
