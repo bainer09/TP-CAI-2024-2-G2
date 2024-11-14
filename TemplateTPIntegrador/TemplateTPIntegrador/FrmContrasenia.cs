@@ -65,17 +65,27 @@ namespace Presentacion
 
             try
             {
-                usuarioNegocio.CambiarContraseña(usuario, contraseñaActual, nuevaContraseña);
-                lblMsjError.Visible = false;
-                lblContraseñaOk.Text = "Contraseña modificada exitosamente";
-                lblContraseñaOk.ForeColor = Color.Green;
-                lblContraseñaOk.Visible = true;
+                string mensajeError;
+                bool cambioExitoso = usuarioNegocio.CambiarContraseña(usuario, contraseñaActual, nuevaContraseña, out mensajeError);
+
+                if (cambioExitoso)
+                {
+                    lblContraseñaOk.Text = "Contraseña modificada exitosamente";
+                    lblContraseñaOk.ForeColor = Color.Green;
+                    lblContraseñaOk.Visible = true;
+                }
+                else
+                {
+                    MostrarError(mensajeError);
+                }
+
                 LimpiarCampos();
             }
             catch (Exception ex)
             {
-                MostrarError("La contraseña actual ingresada no es correcta o ha ocurrido un error. Contacte al administrador si el problema persiste.");
+                MostrarError($"Ocurrió un error: {ex.Message}");
             }
+
         }
 
         private void btnVolverInicio_Click(object sender, EventArgs e)

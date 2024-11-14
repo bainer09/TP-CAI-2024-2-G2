@@ -17,14 +17,15 @@ namespace Presentacion
         private ProductoNegocio productoNegocio = new ProductoNegocio();
         private int perfilUsuario;
         private Guid guidUsuario;
-        string userLogueado = UsuarioLogueado.NombreUsuario;
+        string userLogueado = UsuarioLogueado.nombreUsuario;
 
-        public FrmAltaUsuario()
+        public FrmAltaUsuario(int perfilUsuario)
         {
             InitializeComponent();
             InitializeComboBox();
             OcultarAlertas();
             this.FormClosing += FrmAltaUsuario_FormClosing;
+            this.perfilUsuario = perfilUsuario;
         }
 
         private void FrmAltaUsuario_FormClosing(object sender, FormClosingEventArgs e)
@@ -88,24 +89,25 @@ namespace Presentacion
                 if (string.IsNullOrEmpty(errorMensaje))
                 {
                     List<Usuario> usuarios = usuarioNegocio.ListarUsuarios();
-                    Usuario usuario = usuarios.FirstOrDefault(u => u.NombreUsuario == userLogueado);
+                    Usuario usuario = usuarios.FirstOrDefault(u => u.nombreUsuario == userLogueado);
                     guidUsuario = usuario.id;
                     string guidUsuarioString = guidUsuario.ToString();
 
-                    usuarioNegocio.AgregarUsuario(guidUsuarioString, nombre, apellido, dni, direccion, telefono, email, fechaNacimiento, nombreUsuario, contraseña, perfilSeleccionado);
-                    usuarioNegocio.AgregarUsuarioLocal(nombreUsuario, contraseña);
+                    usuarioNegocio.AgregarUsuario(guidUsuarioString, perfilSeleccionado, nombre, apellido, dni, direccion, telefono, email, fechaNacimiento, nombreUsuario, contraseña);
+                    //usuarioNegocio.AgregarUsuarioLocal(nombreUsuario, contraseña);
 
                     MostrarExito("Usuario creado correctamente");
-                    LimpiarCampos();
+                    //LimpiarCampos();
                 }
                 else
                 {
                     MostrarError(lblAlertaAltaUsuario, errorMensaje);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MostrarError(lblAlertaAltaUsuario, "Se ha producido un error. Vuelva a intentarlo, si persiste contacte a su administrador del sistema.");
+                //MostrarError(lblAlertaAltaUsuario, "Se ha producido un error. Vuelva a intentarlo, si persiste contacte a su administrador del sistema.");
+                MostrarError(lblAlertaAltaUsuario, $"{ex.Message}");
             }
         }
 
@@ -237,6 +239,11 @@ namespace Presentacion
             int edad = DateTime.Now.Year - fechaNacimiento.Year;
             if (fechaNacimiento > DateTime.Now.AddYears(-edad)) edad--;
             return edad >= 18;
+        }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
     }
 }

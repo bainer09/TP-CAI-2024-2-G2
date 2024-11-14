@@ -1,5 +1,6 @@
 ﻿using Datos;
 using Negocio;
+using Presentacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,18 +17,23 @@ namespace TemplateTPIntegrador
         bool tieneErrorFormatoMail = true;
         bool modoEdicion = false;
         Guid proveedorIDSeleccionado;
+        private UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+        private ProductoNegocio productoNegocio = new ProductoNegocio();
+        private int perfilUsuario;
+        Guid usuarioLogueado;
 
-        public FrmProveedores()
+        public FrmProveedores(int perfilUsuario)
         {
             InitializeComponent();
+            this.perfilUsuario = perfilUsuario;
+            usuarioLogueado = ObtenerUsuarioLogueado();
         }
 
         private void btnAgregarProveedor_Click(object sender, EventArgs e)
         {
             try
             {
-                Guid usuarioLogueado = Guid.Parse("9ea1c0da-e541-4846-a9de-8478664a87bb");
-
+             
                 string nombre = txtNombre.Text.Trim();
                 string apellido = txtApellido.Text.Trim();
                 string email = txtMail.Text.Trim();
@@ -35,14 +41,11 @@ namespace TemplateTPIntegrador
 
                 bool tieneCamposVacios = validaciones.ValidarCamposTexto(new List<string> { nombre, apellido, email, cuit });
 
-                bool tieneCheckboxVacios = validaciones.ValidarCamposCheckbox(new List<bool> { checkAudio.Checked, checkCelulares.Checked, checkElectroHogar.Checked, checkInformatica.Checked, checkSmartTV.Checked });
-
                 bool tieneLongitudCuitErronea = validaciones.ValidarLongitud(cuit, 11);
 
-                bool camposEstanOK = !tieneCamposVacios && !tieneCheckboxVacios && !tieneErrorFormatoMail && !tieneLongitudCuitErronea;
+                bool camposEstanOK = !tieneCamposVacios && !tieneErrorFormatoMail && !tieneLongitudCuitErronea;
 
                 lblValidaciones.Visible = tieneCamposVacios;
-                lblValidacionCategoria.Visible = tieneCheckboxVacios;
                 lblValidacionCuit.Visible = !string.IsNullOrEmpty(cuit) && tieneLongitudCuitErronea;
 
                 if (camposEstanOK)
@@ -83,11 +86,6 @@ namespace TemplateTPIntegrador
             txtApellido.Text = "";
             txtMail.Text = "";
             txtCuit.Text = "";
-            checkAudio.Checked = false;
-            checkCelulares.Checked = false;
-            checkElectroHogar.Checked = false;
-            checkInformatica.Checked = false;
-            checkSmartTV.Checked = false;
             modoEdicion = false;
             proveedorIDSeleccionado = Guid.Empty;
             txtCuit.Enabled = !modoEdicion;
@@ -143,7 +141,6 @@ namespace TemplateTPIntegrador
                     return;
                 }
 
-                Guid usuarioLogueado = Guid.Parse("9ea1c0da-e541-4846-a9de-8478664a87bb");
                 DataGridViewRow filaSeleccionada = dataGridProveedores.SelectedRows[0];
                 proveedorIDSeleccionado = Guid.Parse(filaSeleccionada.Cells[0].Value.ToString());
 
@@ -170,7 +167,6 @@ namespace TemplateTPIntegrador
                     return;
                 }
 
-                Guid usuarioLogueado = Guid.Parse("9ea1c0da-e541-4846-a9de-8478664a87bb");
                 DataGridViewRow filaSeleccionada = dataGridProveedores.SelectedRows[0];
                 proveedorIDSeleccionado = Guid.Parse(filaSeleccionada.Cells[0].Value.ToString());
 
@@ -184,6 +180,21 @@ namespace TemplateTPIntegrador
             {
                 MessageBox.Show(ex.Message, FrmProveedores.ActiveForm.Text);
             }
+        }
+
+        private void btnVolverInicio_Click(object sender, EventArgs e)
+        {
+            FrmMain frmMain = new FrmMain(perfilUsuario, usuarioNegocio, productoNegocio);
+            frmMain.Show();
+            this.Hide();
+        }
+
+        private Guid ObtenerUsuarioLogueado()
+        {
+            string userLogueado = UsuarioLogueado.nombreUsuario;
+            List<Usuario> usuarios = usuarioNegocio.ListarUsuarios();
+            Usuario usuario = usuarios.FirstOrDefault(u => u.nombreUsuario == userLogueado);
+            return usuario.id;
         }
     }
 }

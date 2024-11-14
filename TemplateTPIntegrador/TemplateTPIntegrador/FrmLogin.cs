@@ -92,7 +92,7 @@ namespace PresentacionLayer
                     }
                     else if (intentosFallidos >= 3)
                     {
-                        //usuarioNegocio.BloquearUsuarioPorLoginFallido(usuario); //NOTAS: Metodo de VALEN en BAJA!!!
+                        usuarioNegocio.BorrarUsuarioPorLoginFallido(usuario);
                         MostrarMensaje("Ha superado el límite de intentos. Contacte a su Administrador para reactivar su usuario.");
                         intentosFallidos = 0; // Reiniciar intentos después de bloquear
                     }
@@ -125,11 +125,6 @@ namespace PresentacionLayer
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblLoginIncorrecto_Click(object sender, EventArgs e)
         {
 
         }

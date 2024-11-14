@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProveedoresNegocio.cs" />
+    <Compile Include="ReporteNegocio.cs" />
     <Compile Include="VentaNegocio.cs" />
     <Compile Include="ProductoNegocio.cs" />
     <Compile Include="ClienteNegocio.cs" />
