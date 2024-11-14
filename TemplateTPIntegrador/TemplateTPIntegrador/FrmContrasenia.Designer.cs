@@ -37,6 +37,7 @@
             this.btnCambioContraseña = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnVolverInicio = new System.Windows.Forms.Button();
             this.lblContraseñaOk = new System.Windows.Forms.Label();
             this.lblMsjError = new System.Windows.Forms.Label();
             this.lblConfirmacion = new System.Windows.Forms.Label();
@@ -126,15 +127,14 @@
             // btnCambioContraseña
             // 
             this.btnCambioContraseña.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnCambioContraseña.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambioContraseña.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCambioContraseña.ForeColor = System.Drawing.Color.White;
-            this.btnCambioContraseña.Location = new System.Drawing.Point(16, 339);
+            this.btnCambioContraseña.Location = new System.Drawing.Point(304, 353);
             this.btnCambioContraseña.Margin = new System.Windows.Forms.Padding(2);
             this.btnCambioContraseña.Name = "btnCambioContraseña";
-            this.btnCambioContraseña.Size = new System.Drawing.Size(182, 35);
+            this.btnCambioContraseña.Size = new System.Drawing.Size(184, 35);
             this.btnCambioContraseña.TabIndex = 0;
-            this.btnCambioContraseña.Text = "Cambiar Contraseña";
+            this.btnCambioContraseña.Text = "CAMBIAR CONTRASEÑA";
             this.btnCambioContraseña.UseVisualStyleBackColor = false;
             this.btnCambioContraseña.Click += new System.EventHandler(this.btnCambioContraseña_Click_1);
             // 
@@ -152,6 +152,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnVolverInicio);
             this.panel2.Controls.Add(this.lblContraseñaOk);
             this.panel2.Controls.Add(this.lblMsjError);
             this.panel2.Controls.Add(this.lblConfirmacion);
@@ -170,13 +171,27 @@
             this.panel2.Size = new System.Drawing.Size(499, 489);
             this.panel2.TabIndex = 10;
             // 
+            // btnVolverInicio
+            // 
+            this.btnVolverInicio.BackColor = System.Drawing.Color.White;
+            this.btnVolverInicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolverInicio.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnVolverInicio.Location = new System.Drawing.Point(5, 353);
+            this.btnVolverInicio.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVolverInicio.Name = "btnVolverInicio";
+            this.btnVolverInicio.Size = new System.Drawing.Size(182, 35);
+            this.btnVolverInicio.TabIndex = 18;
+            this.btnVolverInicio.Text = "VOLVER";
+            this.btnVolverInicio.UseVisualStyleBackColor = false;
+            this.btnVolverInicio.Click += new System.EventHandler(this.btnVolverInicio_Click);
+            // 
             // lblContraseñaOk
             // 
             this.lblContraseñaOk.AutoSize = true;
             this.lblContraseñaOk.BackColor = System.Drawing.Color.Transparent;
             this.lblContraseñaOk.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContraseñaOk.ForeColor = System.Drawing.Color.Black;
-            this.lblContraseñaOk.Location = new System.Drawing.Point(369, 294);
+            this.lblContraseñaOk.Location = new System.Drawing.Point(14, 322);
             this.lblContraseñaOk.Name = "lblContraseñaOk";
             this.lblContraseñaOk.Size = new System.Drawing.Size(90, 18);
             this.lblContraseñaOk.TabIndex = 17;
@@ -327,6 +342,7 @@
         private System.Windows.Forms.Label lblContraseñaOk;
         private System.Windows.Forms.Label lblMsjError;
         private System.Windows.Forms.Label lblConfirmacion;
+        private System.Windows.Forms.Button btnVolverInicio;
     }
 }
 

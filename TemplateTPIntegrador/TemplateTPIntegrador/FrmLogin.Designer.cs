@@ -48,6 +48,7 @@ namespace PresentacionLayer
             this.lblLoginIncorrecto = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.linklblCambioClave = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel3.SuspendLayout();
@@ -131,7 +132,6 @@ namespace PresentacionLayer
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(158, 337);
@@ -200,6 +200,7 @@ namespace PresentacionLayer
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.linklblCambioClave);
             this.panel2.Controls.Add(this.lblLoginIncorrecto);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
@@ -242,6 +243,18 @@ namespace PresentacionLayer
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
+            // 
+            // linklblCambioClave
+            // 
+            this.linklblCambioClave.AutoSize = true;
+            this.linklblCambioClave.Location = new System.Drawing.Point(332, 288);
+            this.linklblCambioClave.Name = "linklblCambioClave";
+            this.linklblCambioClave.Size = new System.Drawing.Size(102, 13);
+            this.linklblCambioClave.TabIndex = 12;
+            this.linklblCambioClave.TabStop = true;
+            this.linklblCambioClave.Text = "Cambiar Contraseña";
+            this.linklblCambioClave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linklblCambioClave.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblCambioClave_LinkClicked);
             // 
             // FrmLogin
             // 
@@ -287,6 +300,7 @@ namespace PresentacionLayer
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblLoginIncorrecto;
+        private LinkLabel linklblCambioClave;
     }
 }
 

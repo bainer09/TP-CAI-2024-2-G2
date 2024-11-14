@@ -56,6 +56,7 @@ namespace Presentacion
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblBienvenido = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblStockCritico = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -204,12 +205,26 @@ namespace Presentacion
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
+            // lblStockCritico
+            // 
+            this.lblStockCritico.AutoSize = true;
+            this.lblStockCritico.BackColor = System.Drawing.Color.Transparent;
+            this.lblStockCritico.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockCritico.ForeColor = System.Drawing.Color.Red;
+            this.lblStockCritico.Location = new System.Drawing.Point(259, 346);
+            this.lblStockCritico.Name = "lblStockCritico";
+            this.lblStockCritico.Size = new System.Drawing.Size(104, 21);
+            this.lblStockCritico.TabIndex = 5;
+            this.lblStockCritico.Text = string.Empty;
+            this.lblStockCritico.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1386, 765);
+            this.Controls.Add(this.lblStockCritico);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.lblBienvenido);
             this.Controls.Add(this.btnLogOut);
@@ -248,5 +263,6 @@ namespace Presentacion
         private ToolStripMenuItem strpNuevaVenta;
         private ToolStripMenuItem strpDevolucionVenta;
         private PictureBox pictureBox3;
+        private Label lblStockCritico;
     }
 }

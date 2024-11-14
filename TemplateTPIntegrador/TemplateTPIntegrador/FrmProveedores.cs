@@ -21,9 +21,10 @@ namespace TemplateTPIntegrador
         private ProductoNegocio productoNegocio = new ProductoNegocio();
         private int perfilUsuario;
 
-        public FrmProveedores()
+        public FrmProveedores(int perfilUsuario)
         {
             InitializeComponent();
+            this.perfilUsuario = perfilUsuario;
         }
 
         private void btnAgregarProveedor_Click(object sender, EventArgs e)

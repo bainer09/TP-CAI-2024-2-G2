@@ -15,14 +15,15 @@ namespace TemplateTPIntegrador
     public partial class FrmBajaModUsuario : Form
     {
         private UsuarioNegocio usuarionegocio = new UsuarioNegocio();
-        private int perfildeusuario;
         private Guid guidUsuario;
         Usuario usuarioSeleccionado;
+        private int perfilUsuario;
 
-        public FrmBajaModUsuario()
+        public FrmBajaModUsuario(int perfilUsuario)
         {
             InitializeComponent();
             this.FormClosing += Modulobajausuario_cerrar;
+            this.perfilUsuario = perfilUsuario;
         }
         //Boton Cruz de Ciere del Formulario
         private void Modulobajausuario_cerrar(object sender, FormClosingEventArgs e)
