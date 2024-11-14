@@ -15,10 +15,7 @@ namespace TemplateTPIntegrador
 {
     public partial class FrmVenta : Form
     {
-        public FrmVenta(FrmComprobante frmComprobante)
-        {
-            InitializeComponent();
-        }
+
             private int perfilUsuario;
             private Guid guidUsuario;
             private string userLogueado = UsuarioLogueado.NombreUsuario;
@@ -40,7 +37,9 @@ namespace TemplateTPIntegrador
                 lvCarrito.View = View.Details;
                 lvCarrito.FullRowSelect = true;
                 lvCarrito.GridLines = true;
-                cmbCliente.SelectedIndexChanged += cbCliente_SelectedIndexChanged;
+
+                //BELU a SACAR?
+                /*cmbCliente.SelectedIndexChanged += cbCliente_SelectedIndexChanged;*/
                 lvCarrito.Columns.Add("Producto", 400);
                 lvCarrito.Columns.Add("Precio", 100);
                 lvCarrito.Columns.Add("Cantidad", 100);
@@ -54,17 +53,16 @@ namespace TemplateTPIntegrador
                 }
             }
 
-            private void btnVolverInicio_Click(object sender, EventArgs e)
-            {
-                //VER CON MYR
-                //FrmMain frmMain = new FrmMain(perfilUsuario);
-                //frmMain.Show();
-                this.Hide();
-            }
+        private void btnVolverMenu_Click(object sender, EventArgs e)
+        {
+            FrmMain frmMain = new FrmMain(perfilUsuario, usuarioNegocio, productoNegocio);
+            frmMain.Show();
+            this.Hide();
+        }
 
-            private void FrmVenta_Load(object sender, EventArgs e)
+        private void FrmVenta_Load(object sender, EventArgs e)
             {
-                lblMensajeCarrito.Visible = false;
+                lblMensajes.Visible = false;
                 lblMensajeVentas.Visible = false;
                 cargarProductos();
                 cargarClientes();
@@ -73,7 +71,8 @@ namespace TemplateTPIntegrador
             private void cargarProductos()
             {
                 List<Producto> productos = productoNegocio.ObtenerProductos();
-                productos = productos.OrderBy(p => p.nombre).ToList();
+                //CORREGIR nombre
+                //productos = productos.OrderBy(p => p.nombre).ToList();
 
                 var bindingList = new BindingList<Producto>(productos);
                 var source = new BindingSource(bindingList, null);
@@ -106,9 +105,10 @@ namespace TemplateTPIntegrador
             private void cargarClientes()
             {
                 List<Cliente> clientes = clienteNegocio.ObtenerClientes();
-                clientes = clientes.OrderBy(c => c.apellido).ToList();
+                //CORREGIR apellido
+                //clientes = clientes.OrderBy(c => c.apellido).ToList();
 
-                cmbCliente.DataSource = clientes;
+            cmbCliente.DataSource = clientes;
                 cmbCliente.DisplayMember = "NombreCompleto";
                 cmbCliente.ValueMember = "Id";
                 cmbCliente.SelectedIndex = -1;
@@ -121,10 +121,14 @@ namespace TemplateTPIntegrador
                     Cliente clienteSeleccionado = cmbCliente.SelectedItem as Cliente;
                     if (clienteSeleccionado != null)
                     {
-                        Guid idCliente = clienteSeleccionado.id;
-                        bool esPrimeraCompra = ventaNegocio.EsPrimeraCompra(idCliente);
-                        lblPrimeraCompra.Visible = esPrimeraCompra;
-                        lblPrimeraCompra.Text = esPrimeraCompra ? "Descuento primera compra: 5%" : string.Empty;
+                        //CORREGIR id
+                        //Guid idCliente = clienteSeleccionado.id;
+                        //CORREGIR cliente
+                        //bool esPrimeraCompra = ventaNegocio.EsPrimeraCompra(idCliente);
+
+                        //MYR arreglar metodo
+                        //lblPrimeraCompra.Visible = esPrimeraCompra;
+                        //lblPrimeraCompra.Text = esPrimeraCompra ? "Descuento primera compra: 5%" : string.Empty;
                     }
                 }
                 else
@@ -137,7 +141,7 @@ namespace TemplateTPIntegrador
             {
                 if (lvCarrito.SelectedItems.Count == 0)
                 {
-                    MostrarAlerta("Por favor, seleccione un producto para eliminar del carrito.");
+                    Mensajes("Por favor, seleccione un producto para eliminar del carrito.");
                     return;
                 }
 
@@ -146,31 +150,34 @@ namespace TemplateTPIntegrador
 
                 if (productoSeleccionado == null)
                 {
-                    MostrarAlerta("Hubo un error al obtener el producto seleccionado. Intente nuevamente.");
+                    Mensajes("Hubo un error al obtener el producto seleccionado. Intente nuevamente.");
                     return;
                 }
 
                 carrito.Remove(productoSeleccionado);
                 ActualizarStockProducto(productoSeleccionado);
-                actualizarCarrito();
+                //MYR a actualizar metodo
+                //actualizarCarrito();
                 actualizarDataGridViewProductos();
-                MostrarAlerta("Producto eliminado del carrito", Color.Green);
+                Mensajes("Producto eliminado del carrito", Color.Green);
             }
 
-            private void MostrarAlerta(string mensaje, Color? color = null)
+            private void Mensajes(string mensaje, Color? color = null)
             {
-                lblMensajeCarrito.Visible = true;
-                lblMensajeCarrito.ForeColor = color ?? Color.Red;
-                lblMensajeCarrito.Text = mensaje;
+                lblMensajes.Visible = true;
+                lblMensajes.ForeColor = color ?? Color.Red;
+                lblMensajes.Text = mensaje;
             }
 
             private void ActualizarStockProducto(Producto productoSeleccionado)
             {
-                var productoOriginal = productoNegocio.ObtenerProductos().FirstOrDefault(p => p.id == productoSeleccionado.id);
-                if (productoOriginal != null)
+            //CORREGIR id
+            //var productoOriginal = productoNegocio.ObtenerProductos().FirstOrDefault(p => p.id == productoSeleccionado.id);
+            //Comento para que no pinche:
+                /*if (productoOriginal != null)
                 {
                     productoOriginal.Stock += 1;
-                }
+                }*/
             }
 
             private void btnAgregar_Click(object sender, EventArgs e)
@@ -179,13 +186,13 @@ namespace TemplateTPIntegrador
 
                 if (cmbCliente.SelectedItem == null)
                 {
-                    MostrarAlerta("Debe seleccionar un cliente antes de agregar productos.");
+                    Mensajes("Debe seleccionar un cliente antes de agregar productos.");
                     return;
                 }
 
                 if (dgvProductosaRegistrar.SelectedRows.Count == 0)
                 {
-                    MostrarAlerta("Seleccione un producto de la lista para agregarlo al carrito.");
+                    Mensajes("Seleccione un producto de la lista para agregarlo al carrito.");
                     return;
                 }
 
@@ -193,23 +200,28 @@ namespace TemplateTPIntegrador
                 Producto productoSeleccionado = (Producto)filaSeleccionada.DataBoundItem;
                 int cantidadSeleccionada = (int)numericUpDownCantidad.Value;
 
-
-            if (cantidadSeleccionada > productoSeleccionado.stock)
+            //CORREGIR stock
+            //if (cantidadSeleccionada > productoSeleccionado.stock)
                 {
-                    MostrarAlerta("No hay suficiente stock disponible para la cantidad seleccionada.");
+                    Mensajes("No hay suficiente stock disponible para la cantidad seleccionada.");
                     return;
                 }
-
+            //Comento para que no pinche:
+            /*
                 productoSeleccionado.stock -= cantidadSeleccionada;
                 AgregarProductosAlCarrito(productoSeleccionado, cantidadSeleccionada);
-                actualizarCarrito();
+
+                //MYR a actualizar metodo
+                //actualizarCarrito();
                 actualizarDataGridViewProductos();
+            */
             }
 
             private void AgregarProductosAlCarrito(Producto productoSeleccionado, int cantidadSeleccionada)
             {
                 for (int i = 0; i < cantidadSeleccionada; i++)
                 {
+                    //MYR a chequear nombres
                     /*carrito.Add(new Producto
                     {
                         id = productoSeleccionado.id,
@@ -297,47 +309,62 @@ namespace TemplateTPIntegrador
                     lblMensajeVentas.Text = "Por favor, selecciona un cliente.";
                     return;
                 }
-
-                Guid idCliente = clienteSeleccionado.id;
-                var productosAgrupados = carrito.GroupBy(p => p.id)
+                //CORREGIR id
+                //Guid idCliente = clienteSeleccionado.id;
+                /*var productosAgrupados = carrito.GroupBy(p => p.id)
                                                 .Select(g => new
                                                 {
                                                     Producto = g.First(),
                                                     Cantidad = g.Sum(p => p.Cantidad)
-                                                }).ToList();
+                                                }).ToList();*/
 
-                bool esPrimeraCompra = ventaNegocio.EsPrimeraCompra(clienteSeleccionado.id);
+                //CORREGIR id
+                //bool esPrimeraCompra = ventaNegocio.EsPrimeraCompra(clienteSeleccionado.id);
                 DateTime fechaVenta = DateTime.Now;
-
-                foreach (var item in productosAgrupados)
+                //Comento para que no pinche
+                /*foreach (var item in productosAgrupados)
                 {
                     var producto = item.Producto;
                     var cantidadVendida = item.Cantidad;
                     double montoTotal = producto.Precio * cantidadVendida;
+                */
 
                     //MYR a chequear
-                    AgregarVenta venta = new AgregarVenta(idCliente.ToString(), guidUsuario.ToString(), producto.Id.ToString(), cantidadVendida, montoTotal, fechaVenta);
+                    //AgregarVenta venta = new AgregarVenta(idCliente.ToString(), guidUsuario.ToString(), producto.Id.ToString(), cantidadVendida, montoTotal, fechaVenta);
                     
-                    ventaNegocio.AgregarVenta(venta);
+            //CORREGIR venta
+                    //ventaNegocio.AgregarVenta(venta);
+                    //JSON
                     //productoNegocio.ActualizarProductoEnJson(producto.Nombre, producto.Precio, -cantidadVendida);
                 }
 
-                var productosListos = productosAgrupados.Select(g => (g.Producto, g.Cantidad)).ToList();
-                double totalSinDescuentos = productosListos.Sum(p => p.Producto.Precio * p.Cantidad);
-                double descuentoPrimeraCompra = esPrimeraCompra ? totalSinDescuentos * 0.05 : 0;
-
-                lblMensajeVentas.Text = "Venta completada con éxito.";
-
-                //Rodri a hacer lo de generar comprobante
-
-                //GenerarComprobante(clienteSeleccionado, productosListos, descuentoPrimeraCompra);
-
-                carrito.Clear();
-                //actualizarCarrito();
-                cargarProductos();
+                //Comento para que no pinche:
+/*
+var productosListos = productosAgrupados.Select(g => (g.Producto, g.Cantidad)).ToList();
+double totalSinDescuentos = productosListos.Sum(p => p.Producto.Precio * p.Cantidad);
+double descuentoPrimeraCompra = esPrimeraCompra ? totalSinDescuentos * 0.05 : 0;
 
 
-                
-            }
-        }
-    }
+lblMensajeVentas.Text = "Venta completada con éxito.";
+*/
+
+//RODRI a hacer lo de generar comprobante
+//GenerarComprobante(clienteSeleccionado, productosListos, descuentoPrimeraCompra);
+
+//Comento para que no pinche:
+/*
+carrito.Clear();
+*/
+
+//MYR a actualizar metodo
+//actualizarCarrito();
+
+//Comento para que no pinche:
+/*
+cargarProductos();
+*/
+
+
+}
+}
+

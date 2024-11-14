@@ -33,9 +33,13 @@ namespace TemplateTPIntegrador
         private Guid idProductoReactivar;
 
 
-
-        //Ver si esta label para productos con stock critico
-
+        private void FrmProducto_Load(object sender, EventArgs e)
+        {
+            //ProductoPersistente.PoblarproductoLocal();
+            //cargarProductos();
+            cargarProveedores();
+            //cargarCategorias();
+        }
 
         public FrmProducto(int perfilUsuario)
         {
@@ -43,6 +47,8 @@ namespace TemplateTPIntegrador
             this.FormClosing += FrmProducto_FormClosing;
             this.perfilUsuario = perfilUsuario;
         }
+
+        
 
         private void FrmProducto_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -52,25 +58,17 @@ namespace TemplateTPIntegrador
             }
         }
 
-        private void btnVolverInicio_Click(object sender, EventArgs e)
+        private void btnVolverMenu_Click(object sender, EventArgs e)
         {
             FrmMain frmMain = new FrmMain(perfilUsuario, usuarioNegocio, productoNegocio);
             frmMain.Show();
             this.Hide();
         }
 
-        private void FrmProducto_Load(object sender, EventArgs e)
-        {
-
-            //ProductoPersistente.PoblarproductoLocal();
-            cargarProductos();
-            cargarProveedores();
-            cargarCategorias();
-        }
-
 
         private void MostrarMensajeAlerta(string mensaje, Color color)
         {
+            lblalertaProductos.Visible = true;
             lblalertaProductos.ForeColor = color;
             lblalertaProductos.Text = mensaje;
         }
@@ -85,7 +83,12 @@ namespace TemplateTPIntegrador
             return false;
         }
 
-        private void ResetFormulario()
+        private void btnLimpiarSeleccion_Click(object sender, EventArgs e)
+        {
+            LimpiarSeleccion();
+        }
+
+        private void LimpiarSeleccion()
         {
             txtNombre.Clear();
             txtPrecio.Clear();
@@ -97,8 +100,8 @@ namespace TemplateTPIntegrador
             chkSmartTV.Checked = false;
 
         }
-
-        private Producto ObtenerProductoSeleccionado()
+        //Eliminar?
+       /* private Producto ObtenerProductoSeleccionado()
         {
             if (dgwProductoAMostrar.CurrentRow == null)
             {
@@ -106,7 +109,7 @@ namespace TemplateTPIntegrador
                 return null;
             }
             return (Producto)dgwProductoAMostrar.CurrentRow.DataBoundItem;
-        }
+        }*/
 
         private void cargarProductos()
         {
@@ -114,20 +117,20 @@ namespace TemplateTPIntegrador
             productos = productos.OrderBy(p => p.nombre).ToList();
             var bindingList = new BindingList<Producto>(productos);
             var source = new BindingSource(bindingList, null);
-            dgwProductoAMostrar.DataSource = source;
-            dgwProductoAMostrar.Columns["Id"].Visible = false;
-            dgwProductoAMostrar.Columns["FechaBaja"].Visible = false;
-            dgwProductoAMostrar.Columns["IdUsuario"].Visible = false;
-            dgwProductoAMostrar.Columns["IdProveedor"].Visible = false;
-            dgwProductoAMostrar.Columns["Cantidad"].Visible = false;
-            dgwProductoAMostrar.Columns["NombreProveedor"].Visible = false;
-            dgwProductoAMostrar.Columns["ApellidoProveedor"].Visible = false;
-            dgwProductoAMostrar.CellFormatting += DataGridViewProducto_CellFormatting;
+            dgvProductosenStock.DataSource = source;
+            dgvProductosenStock.Columns["Id"].Visible = false;
+            dgvProductosenStock.Columns["FechaBaja"].Visible = false;
+            dgvProductosenStock.Columns["IdUsuario"].Visible = false;
+            dgvProductosenStock.Columns["IdProveedor"].Visible = false;
+            dgvProductosenStock.Columns["Cantidad"].Visible = false;
+            dgvProductosenStock.Columns["NombreProveedor"].Visible = false;
+            dgvProductosenStock.Columns["ApellidoProveedor"].Visible = false;
+            dgvProductosenStock.CellFormatting += DataGridViewProducto_CellFormatting;
         }
 
         private void DataGridViewProducto_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgwProductoAMostrar.Columns[e.ColumnIndex].Name == "Precio")
+            if (dgvProductosenStock.Columns[e.ColumnIndex].Name == "Precio")
             {
                 if (e.Value != null && double.TryParse(e.Value.ToString(), out double precio))
                 {
@@ -138,26 +141,28 @@ namespace TemplateTPIntegrador
         }
 
 
-
-        private void btnAltaProducto_Click(object sender, EventArgs e)
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!EsPrecioValido(txtPrecio.Text, out double precio)) return;
 
                 if (string.IsNullOrWhiteSpace(txtNombre.Text) || numericUpDownStock.Value == 0)
+
                 {
-                    MostrarMensajeAlerta("Todos los campos son obligatorios.", Color.Red);
+                    MostrarMensajeAlerta("Por favor, complete todos los campos para continuar.", Color.Red);
                     return;
                 }
 
+                if (!EsPrecioValido(txtPrecio.Text, out double precio)) return;
+
                 if (dgvProdProveedor.CurrentRow == null)
                 {
-                    MostrarMensajeAlerta("Debe seleccionar el Proveedor del Producto antes de dar de alta el mismo.", Color.Red);
+                    MostrarMensajeAlerta("Por favor, seleccione un proveedor.", Color.Red);
                     return;
                 }
 
                 var proveedorSeleccionado = (Proveedor)dgvProdProveedor.CurrentRow.DataBoundItem;
+
                 int[] categoriasSeleccionadas = {
                     chkAudio.Checked ? 1 : 0,
                     chkCelulares.Checked ? 2 : 0,
@@ -174,12 +179,14 @@ namespace TemplateTPIntegrador
                 }
 
                 idCategoria = categoriasSeleccionadas.First(c => c != 0);
+
                 //MYR a chequear
                 //productoNegocio.AltaProducto(guidUsuario.ToString(), idCategoria, proveedorSeleccionado.Id.ToString(), proveedorSeleccionado.Nombre, proveedorSeleccionado.Apellido, txtNombre.Text.Trim(), precio, (int)numericUpDownStock.Value);
 
-                cargarProductos();
+                //cargarProductos();
                 MostrarMensajeAlerta("Producto agregado con éxito.", Color.Green);
-                ResetFormulario();
+
+                LimpiarSeleccion();
             }
             catch (Exception ex)
             {
@@ -189,18 +196,24 @@ namespace TemplateTPIntegrador
 
         private void cargarProveedores()
         {
+
             var proveedores = proveedorNegocio.listarProveedores().OrderBy(c => c.Apellido).ToList();
+
             var bindingList = new BindingList<Proveedor>(proveedores);
+
             var source = new BindingSource(bindingList, null);
+
             dgvProdProveedor.DataSource = source;
+            dgvProdProveedor.AutoGenerateColumns = true;
             dgvProdProveedor.Columns["Id"].Visible = false;
             dgvProdProveedor.Columns["FechaAlta"].Visible = false;
             dgvProdProveedor.Columns["FechaBaja"].Visible = false;
             dgvProdProveedor.Columns["Email"].Visible = false;
             dgvProdProveedor.Columns["IdUsuario"].Visible = false;
+        
         }
 
-        private void cargarCategorias()
+        /*private void cargarCategorias()
         {
             var categorias = new Categorias().categoriasProducto.Select(c => new { Name = c.Value, Value = c.Key }).ToList();
             cbCategoriasdeProductos.DataSource = categorias;
@@ -208,26 +221,35 @@ namespace TemplateTPIntegrador
             cbCategoriasdeProductos.ValueMember = "Value";
             cbCategoriasdeProductos.SelectedIndex = -1;
             cbCategoriasdeProductos.SelectedIndexChanged += cbCategoriasdeProductos_SelectedIndexChanged;
-        }
+        }*/
 
 
 
-        private void dataGridViewProductoporCategoria_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        /*private void dataGridViewProductoporCategoria_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvProductoporCategoria.Columns[e.ColumnIndex].Name == "Precio" && e.Value != null && double.TryParse(e.Value.ToString(), out double precio))
             {
                 e.Value = precio.ToString("C");
                 e.FormattingApplied = true;
             }
-        }
+        }*/
 
         private void numericUpDownStock_ValueChanged(object sender, EventArgs e)
         {
             stockModificado = true;
         }
 
+
+
         //Para sacar?
-        /*private void linkLabelProductosporCategoria_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        /*
+         * 
+         *private void numericUpDownStock_ValueChanged(object sender, EventArgs e)
+            {
+                stockModificado = true;
+            }
+
+         * private void linkLabelProductosporCategoria_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MostrarGroupBox(groupBoxProdporCategoria);
         }
@@ -243,8 +265,8 @@ namespace TemplateTPIntegrador
             groupBoxProdporCategoria.Visible = false;
             groupBoxStock.Visible = false;
             groupBoxToShow.Visible = true;
-        }*/
-
+        }
+        */
 
     }
 }

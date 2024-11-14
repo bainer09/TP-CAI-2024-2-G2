@@ -32,20 +32,21 @@
             this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lvCarrito = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemoverItem = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvProductosaRegistrar = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownCantidad = new System.Windows.Forms.NumericUpDown();
             this.button3 = new System.Windows.Forms.Button();
             this.dateTimePickerVenta = new System.Windows.Forms.DateTimePicker();
             this.lblMensajeVentas = new System.Windows.Forms.Label();
-            this.lblMensajeCarrito = new System.Windows.Forms.Label();
+            this.lblMensajes = new System.Windows.Forms.Label();
             this.lblPrimeraCompra = new System.Windows.Forms.Label();
+            this.btnVolveraMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductosaRegistrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -72,7 +73,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(545, 22);
+            this.label2.Location = new System.Drawing.Point(371, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 23);
             this.label2.TabIndex = 2;
@@ -81,31 +82,32 @@
             // lvCarrito
             // 
             this.lvCarrito.HideSelection = false;
-            this.lvCarrito.Location = new System.Drawing.Point(550, 50);
+            this.lvCarrito.Location = new System.Drawing.Point(376, 123);
             this.lvCarrito.Name = "lvCarrito";
             this.lvCarrito.Size = new System.Drawing.Size(174, 163);
             this.lvCarrito.TabIndex = 3;
             this.lvCarrito.UseCompatibleStateImageBehavior = false;
             // 
-            // button1
+            // btnRemoverItem
             // 
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(550, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 35);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Remover Item";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRemoverItem.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.btnRemoverItem.ForeColor = System.Drawing.Color.Red;
+            this.btnRemoverItem.Location = new System.Drawing.Point(376, 292);
+            this.btnRemoverItem.Name = "btnRemoverItem";
+            this.btnRemoverItem.Size = new System.Drawing.Size(174, 35);
+            this.btnRemoverItem.TabIndex = 4;
+            this.btnRemoverItem.Text = "Remover Item";
+            this.btnRemoverItem.UseVisualStyleBackColor = true;
+            this.btnRemoverItem.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Green;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 10.75F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(550, 365);
+            this.button2.Location = new System.Drawing.Point(605, 263);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(174, 35);
+            this.button2.Size = new System.Drawing.Size(174, 38);
             this.button2.TabIndex = 5;
             this.button2.Text = "Registrar venta";
             this.button2.UseVisualStyleBackColor = false;
@@ -113,11 +115,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.75F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label3.Location = new System.Drawing.Point(545, 267);
+            this.label3.Location = new System.Drawing.Point(649, 141);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 26);
+            this.label3.Size = new System.Drawing.Size(89, 38);
             this.label3.TabIndex = 6;
             this.label3.Text = "Total";
             // 
@@ -125,7 +127,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15F);
-            this.label4.Location = new System.Drawing.Point(594, 303);
+            this.label4.Location = new System.Drawing.Point(649, 201);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 37);
             this.label4.TabIndex = 10;
@@ -136,7 +138,7 @@
             this.dgvProductosaRegistrar.AllowUserToDeleteRows = false;
             this.dgvProductosaRegistrar.BackgroundColor = System.Drawing.Color.White;
             this.dgvProductosaRegistrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductosaRegistrar.Location = new System.Drawing.Point(69, 157);
+            this.dgvProductosaRegistrar.Location = new System.Drawing.Point(68, 157);
             this.dgvProductosaRegistrar.Name = "dgvProductosaRegistrar";
             this.dgvProductosaRegistrar.RowHeadersWidth = 62;
             this.dgvProductosaRegistrar.RowTemplate.Height = 28;
@@ -154,12 +156,12 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Cantidad";
             // 
-            // numericUpDown1
+            // numericUpDownCantidad
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(185, 324);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown1.TabIndex = 13;
+            this.numericUpDownCantidad.Location = new System.Drawing.Point(185, 324);
+            this.numericUpDownCantidad.Name = "numericUpDownCantidad";
+            this.numericUpDownCantidad.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDownCantidad.TabIndex = 13;
             // 
             // button3
             // 
@@ -171,6 +173,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "Agregar al carrito";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dateTimePickerVenta
             // 
@@ -178,9 +181,9 @@
             this.dateTimePickerVenta.CalendarForeColor = System.Drawing.Color.Black;
             this.dateTimePickerVenta.CalendarTitleForeColor = System.Drawing.Color.Black;
             this.dateTimePickerVenta.CalendarTrailingForeColor = System.Drawing.Color.DarkCyan;
-            this.dateTimePickerVenta.Location = new System.Drawing.Point(69, 50);
+            this.dateTimePickerVenta.Location = new System.Drawing.Point(68, 22);
             this.dateTimePickerVenta.Name = "dateTimePickerVenta";
-            this.dateTimePickerVenta.Size = new System.Drawing.Size(240, 26);
+            this.dateTimePickerVenta.Size = new System.Drawing.Size(318, 26);
             this.dateTimePickerVenta.TabIndex = 15;
             // 
             // lblMensajeVentas
@@ -195,17 +198,17 @@
             this.lblMensajeVentas.TabIndex = 16;
             this.lblMensajeVentas.Text = "label6";
             // 
-            // lblMensajeCarrito
+            // lblMensajes
             // 
-            this.lblMensajeCarrito.AutoSize = true;
-            this.lblMensajeCarrito.BackColor = System.Drawing.SystemColors.Control;
-            this.lblMensajeCarrito.Font = new System.Drawing.Font("Century Gothic", 8F);
-            this.lblMensajeCarrito.ForeColor = System.Drawing.Color.Green;
-            this.lblMensajeCarrito.Location = new System.Drawing.Point(65, 403);
-            this.lblMensajeCarrito.Name = "lblMensajeCarrito";
-            this.lblMensajeCarrito.Size = new System.Drawing.Size(57, 21);
-            this.lblMensajeCarrito.TabIndex = 17;
-            this.lblMensajeCarrito.Text = "label6";
+            this.lblMensajes.AutoSize = true;
+            this.lblMensajes.BackColor = System.Drawing.SystemColors.Control;
+            this.lblMensajes.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.lblMensajes.ForeColor = System.Drawing.Color.Green;
+            this.lblMensajes.Location = new System.Drawing.Point(342, 373);
+            this.lblMensajes.Name = "lblMensajes";
+            this.lblMensajes.Size = new System.Drawing.Size(57, 21);
+            this.lblMensajes.TabIndex = 17;
+            this.lblMensajes.Text = "label6";
             // 
             // lblPrimeraCompra
             // 
@@ -219,24 +222,38 @@
             this.lblPrimeraCompra.TabIndex = 18;
             this.lblPrimeraCompra.Text = "label6";
             // 
+            // btnVolveraMenu
+            // 
+            this.btnVolveraMenu.BackColor = System.Drawing.SystemColors.Control;
+            this.btnVolveraMenu.Font = new System.Drawing.Font("Century Gothic", 10.75F, System.Drawing.FontStyle.Bold);
+            this.btnVolveraMenu.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnVolveraMenu.Location = new System.Drawing.Point(612, 22);
+            this.btnVolveraMenu.Name = "btnVolveraMenu";
+            this.btnVolveraMenu.Size = new System.Drawing.Size(160, 76);
+            this.btnVolveraMenu.TabIndex = 35;
+            this.btnVolveraMenu.Text = "Volver al Menu";
+            this.btnVolveraMenu.UseVisualStyleBackColor = false;
+            this.btnVolveraMenu.Click += new System.EventHandler(this.btnVolverMenu_Click);
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVolveraMenu);
             this.Controls.Add(this.lblPrimeraCompra);
-            this.Controls.Add(this.lblMensajeCarrito);
+            this.Controls.Add(this.lblMensajes);
             this.Controls.Add(this.lblMensajeVentas);
             this.Controls.Add(this.dateTimePickerVenta);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numericUpDownCantidad);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dgvProductosaRegistrar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRemoverItem);
             this.Controls.Add(this.lvCarrito);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbCliente);
@@ -244,7 +261,7 @@
             this.Name = "FrmVenta";
             this.Text = " Registrar Venta";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductosaRegistrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,17 +273,18 @@
         private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView lvCarrito;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRemoverItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvProductosaRegistrar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDownCantidad;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DateTimePicker dateTimePickerVenta;
         private System.Windows.Forms.Label lblMensajeVentas;
-        private System.Windows.Forms.Label lblMensajeCarrito;
+        private System.Windows.Forms.Label lblMensajes;
         private System.Windows.Forms.Label lblPrimeraCompra;
+        private System.Windows.Forms.Button btnVolveraMenu;
     }
 }
