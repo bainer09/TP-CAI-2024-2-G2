@@ -135,7 +135,7 @@ namespace Persistencia
             try
             {
                 List<Producto> productos = GetProductos();
-                return productos.Where(p => p._FechaBaja != null).ToList();
+                return productos.Where(p => p.fechaBaja != null).ToList();
             } catch (Exception e) { throw new Exception("Error al obtener el listado de productos dados de baja.\n", e); }
         }
     }
@@ -170,11 +170,11 @@ namespace Persistencia
             string json = File.ReadAllText(productosPath);
             List<Producto> productos = JsonConvert.DeserializeObject<List<Producto>>(json);
 
-            Producto productoBaja = productos.Find(p => p._Nombre == nombreProducto);
+            Producto productoBaja = productos.Find(p => p.nombre == nombreProducto);
 
             if (productoBaja == null) { throw new Exception("Producto no encontrado."); }
 
-            productoBaja._FechaBaja = DateTime.Now;
+            productoBaja.fechaBaja = DateTime.Now;
 
             try
             {
@@ -187,12 +187,12 @@ namespace Persistencia
         {
             string json = File.ReadAllText(productosPath);
             List<Producto> productos = JsonConvert.DeserializeObject<List<Producto>>(json);
-            Producto productoModificacion = productos.Find(p => p._id == idProducto);
+            Producto productoModificacion = productos.Find(p => p.id == idProducto);
 
             if (productoModificacion == null) { throw new Exception("Producto no encontrado."); }
 
-            productoModificacion._Precio = precio;
-            productoModificacion._Stock = stock;
+            productoModificacion.precio = precio;
+            productoModificacion.stock = stock;
 
             try
             {
@@ -206,11 +206,11 @@ namespace Persistencia
             string json = File.ReadAllText(productosPath);
             List<Producto> productos = JsonConvert.DeserializeObject<List<Producto>>(json);
 
-            Producto productoReactivado = productos.Find(p => p._id == idProducto);
+            Producto productoReactivado = productos.Find(p => p.id == idProducto);
 
             if (productoReactivado == null) { throw new Exception("Producto no encontrado."); }
 
-            productoReactivado._FechaBaja = null;
+            productoReactivado.fechaBaja = null;
 
             try
             {

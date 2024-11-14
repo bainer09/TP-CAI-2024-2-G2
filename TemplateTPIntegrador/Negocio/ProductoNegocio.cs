@@ -22,13 +22,13 @@ namespace Negocio
 
             Producto nuevoProducto = new Producto
             {
-                _Nombre = producto._Nombre,
-                _Precio = producto._Precio,
-                _Stock = producto._Stock,
-                _idCategoria = producto._idCategoria,
-                _idProveedor = producto._idProveedor,
-                _FechaAlta = DateTime.Now,
-                _FechaBaja = null
+                nombre = producto._Nombre,
+                precio = producto._Precio,
+                stock = producto._Stock,
+                idCategoria = producto._idCategoria,
+                idProveedor = producto._idProveedor,
+                fechaAlta = DateTime.Now,
+                fechaBaja = null
             };
             ProductoP.AltaProductoLocal(nuevoProducto);
         }
@@ -58,12 +58,12 @@ namespace Negocio
         public int ProductosConStockCritico()
         {
             List<Producto> productos = ObtenerProductos();
-            return productos.Count(p => p._Stock <= StockCritico);
+            return productos.Count(p => p.stock <= StockCritico);
         }
         public List<Producto> ObtenerProductosConStockCritico()
         {
             List<Producto> productos = ObtenerProductos();
-            return productos.Where(p => p._Stock <= StockCritico).ToList();
+            return productos.Where(p => p.stock <= StockCritico).ToList();
         }
         public List<Producto> ObtenerProductosDadosDeBaja()
         {

@@ -20,19 +20,20 @@ namespace TemplateTPIntegrador
         private UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
         private ProductoNegocio productoNegocio = new ProductoNegocio();
         private int perfilUsuario;
+        Guid usuarioLogueado;
 
         public FrmProveedores(int perfilUsuario)
         {
             InitializeComponent();
             this.perfilUsuario = perfilUsuario;
+            usuarioLogueado = ObtenerUsuarioLogueado();
         }
 
         private void btnAgregarProveedor_Click(object sender, EventArgs e)
         {
             try
             {
-                Guid usuarioLogueado = Guid.Parse("9ea1c0da-e541-4846-a9de-8478664a87bb");
-
+             
                 string nombre = txtNombre.Text.Trim();
                 string apellido = txtApellido.Text.Trim();
                 string email = txtMail.Text.Trim();
@@ -140,7 +141,6 @@ namespace TemplateTPIntegrador
                     return;
                 }
 
-                Guid usuarioLogueado = Guid.Parse("9ea1c0da-e541-4846-a9de-8478664a87bb");
                 DataGridViewRow filaSeleccionada = dataGridProveedores.SelectedRows[0];
                 proveedorIDSeleccionado = Guid.Parse(filaSeleccionada.Cells[0].Value.ToString());
 
@@ -167,7 +167,6 @@ namespace TemplateTPIntegrador
                     return;
                 }
 
-                Guid usuarioLogueado = Guid.Parse("9ea1c0da-e541-4846-a9de-8478664a87bb");
                 DataGridViewRow filaSeleccionada = dataGridProveedores.SelectedRows[0];
                 proveedorIDSeleccionado = Guid.Parse(filaSeleccionada.Cells[0].Value.ToString());
 
@@ -188,6 +187,14 @@ namespace TemplateTPIntegrador
             FrmMain frmMain = new FrmMain(perfilUsuario, usuarioNegocio, productoNegocio);
             frmMain.Show();
             this.Hide();
+        }
+
+        private Guid ObtenerUsuarioLogueado()
+        {
+            string userLogueado = UsuarioLogueado.nombreUsuario;
+            List<Usuario> usuarios = usuarioNegocio.ListarUsuarios();
+            Usuario usuario = usuarios.FirstOrDefault(u => u.nombreUsuario == userLogueado);
+            return usuario.id;
         }
     }
 }

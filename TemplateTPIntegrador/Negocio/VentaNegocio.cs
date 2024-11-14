@@ -22,8 +22,8 @@ namespace Negocio
         public double PromoElectroHogar(List<Venta> carrito, List<Producto> productos)
         {
             double MontoElectroHogar = carrito
-                .Where(v => productos.Any(p => p._id == v._idProducto && p._idCategoria == 3))
-                .Sum(v => productos.First(p => p._id == v._idProducto)._Precio * v._Cantidad);
+                .Where(v => productos.Any(p => p.id == v._idProducto && p.idCategoria == 3))
+                .Sum(v => productos.First(p => p.id == v._idProducto).precio * v._Cantidad);
 
             if (MontoElectroHogar >= MontoMinimoElectroHogar) { return MontoElectroHogar * PromoClienteNuevoDescuento; }
             
@@ -36,7 +36,7 @@ namespace Negocio
         }
         public (double TotalConDescuento, double DescuentoElectroHogar) ObtenerTotalConDescuento(List<Producto> productos, List<Venta> carrito, bool EsPrimeraCompra)
         {
-            double Monto = carrito.Sum(v => productos.First(p => p._id == v._idProducto)._Precio * v._Cantidad);
+            double Monto = carrito.Sum(v => productos.First(p => p.id == v._idProducto).precio * v._Cantidad);
             double DescuentoElectroHogar = PromoElectroHogar(carrito, productos);
             double DescuentoPrimeraCompra = 0;
 
@@ -56,7 +56,8 @@ namespace Negocio
                 venta._idProducto,
                 venta._Cantidad,
                 venta._idUsuario,
-                DateTime.Now
+                DateTime.Now,
+                venta._montoTotal
             );
             VentaP.AgregarVentaLocal(nuevaVenta);
         }
