@@ -19,12 +19,13 @@ namespace Presentacion
         private Guid guidUsuario;
         string userLogueado = UsuarioLogueado.nombreUsuario;
 
-        public FrmAltaUsuario()
+        public FrmAltaUsuario(int perfilUsuario)
         {
             InitializeComponent();
             InitializeComboBox();
             OcultarAlertas();
             this.FormClosing += FrmAltaUsuario_FormClosing;
+            this.perfilUsuario = perfilUsuario;
         }
 
         private void FrmAltaUsuario_FormClosing(object sender, FormClosingEventArgs e)
@@ -96,7 +97,7 @@ namespace Presentacion
                     //usuarioNegocio.AgregarUsuarioLocal(nombreUsuario, contraseña);
 
                     MostrarExito("Usuario creado correctamente");
-                    LimpiarCampos();
+                    //LimpiarCampos();
                 }
                 else
                 {
@@ -238,6 +239,11 @@ namespace Presentacion
             int edad = DateTime.Now.Year - fechaNacimiento.Year;
             if (fechaNacimiento > DateTime.Now.AddYears(-edad)) edad--;
             return edad >= 18;
+        }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
     }
 }

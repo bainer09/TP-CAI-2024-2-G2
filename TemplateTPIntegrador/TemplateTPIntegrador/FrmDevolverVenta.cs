@@ -12,9 +12,11 @@ namespace TemplateTPIntegrador
 {
     public partial class FrmDevolverVenta : Form
     {
-        public FrmDevolverVenta()
+        private int perfilUsuario;
+        public FrmDevolverVenta(int perfilUsuario)
         {
             InitializeComponent();
+            this.perfilUsuario = perfilUsuario;
         }
     }
 }
