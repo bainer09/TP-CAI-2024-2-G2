@@ -173,7 +173,7 @@
             this.dateTimePickerVenta.CalendarTrailingForeColor = System.Drawing.Color.DarkCyan;
             this.dateTimePickerVenta.Location = new System.Drawing.Point(68, 22);
             this.dateTimePickerVenta.Name = "dateTimePickerVenta";
-            this.dateTimePickerVenta.Size = new System.Drawing.Size(318, 26);
+            this.dateTimePickerVenta.Size = new System.Drawing.Size(466, 26);
             this.dateTimePickerVenta.TabIndex = 15;
             this.dateTimePickerVenta.ValueChanged += new System.EventHandler(this.dateTimePickerVenta_ValueChanged);
             // 

@@ -122,7 +122,7 @@ namespace TemplateTPIntegrador
             listaAMostrarClientes = listaAMostrarClientes.OrderBy(c =>c.NombreCompleto).ToList();
 
             cmbCliente.DataSource = listaAMostrarClientes;          
-            cmbCliente.DisplayMember = "NombreCompleto";        
+            cmbCliente.DisplayMember = "NombreCompleto";
             cmbCliente.ValueMember = "id";                     
             cmbCliente.SelectedIndex = -1;
         }
@@ -277,7 +277,6 @@ namespace TemplateTPIntegrador
             Guid idCliente = clienteSeleccionado.id;
             */
 
-            Cliente clienteSeleccionado = cmbCliente.SelectedItem as Cliente;
             Guid idCliente = (Guid)cmbCliente.SelectedValue;
 
             bool esPrimeraCompra = ventaNegocio.EsPrimeraCompra(idCliente);
