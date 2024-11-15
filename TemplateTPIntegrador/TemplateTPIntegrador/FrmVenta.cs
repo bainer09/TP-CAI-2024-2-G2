@@ -66,9 +66,18 @@ namespace TemplateTPIntegrador
             this.Hide();
         }
 
+        private void dateTimePickerVenta_ValueChanged(object sender, EventArgs e)
+        {
+            cargarProductos();
+        }
+
+
         private void cargarProductos()
         {
+            DateTime fechaSeleccionada = dateTimePickerVenta.Value;
+
             List<Producto> productos = productoNegocio.ObtenerProductos();
+            productos = productos.Where(p => p.fechaAlta >= fechaSeleccionada).ToList();
             productos = productos.OrderBy(p => p.nombre).ToList();
 
             var bindingList = new BindingList<Producto>(productos);
@@ -104,9 +113,17 @@ namespace TemplateTPIntegrador
             List<Cliente> clientes = clienteNegocio.ObtenerClientes();
             clientes = clientes.OrderBy(c => c.apellido).ToList();
 
-            cmbCliente.DataSource = clientes;
-            cmbCliente.DisplayMember = "NombreCompleto";
-            cmbCliente.ValueMember = "Id";
+            var listaAMostrarClientes = clientes.Select(c => new
+            {
+                Id = c.id,
+                NombreCompleto = $"{c.nombre} {c.apellido}"
+            }).ToList();
+
+            listaAMostrarClientes = listaAMostrarClientes.OrderBy(c =>c.NombreCompleto).ToList();
+
+            cmbCliente.DataSource = listaAMostrarClientes;          
+            cmbCliente.DisplayMember = "NombreCompleto";        
+            cmbCliente.ValueMember = "id";                     
             cmbCliente.SelectedIndex = -1;
         }
 
@@ -188,7 +205,9 @@ namespace TemplateTPIntegrador
             }
 
             var filaSeleccionada = dgvProductos.SelectedRows[0];
+
             Producto productoSeleccionado = (Producto)filaSeleccionada.DataBoundItem;
+
             int cantidadSeleccionada = (int)numericUpDownCantidad.Value;
 
             if (cantidadSeleccionada > productoSeleccionado.stock)
@@ -231,7 +250,7 @@ namespace TemplateTPIntegrador
                                             .Select(g => new
                                             {
                                                 Producto = g.First(),
-                                                Cantidad = g.Sum(p => p.cantidadVendida)   // VER  
+                                                Cantidad = g.Sum(p => p.cantidadVendida) 
                                             }).ToList();
 
             double totalSinDescuentos = productosAgrupados.Sum(p => p.Producto.precio * p.Cantidad);
@@ -254,8 +273,12 @@ namespace TemplateTPIntegrador
 
             lblTotal.Text = $"Total: {totalConDescuento:C}";
 
-            Cliente clienteSeleccionado = cmbCliente.SelectedItem as Cliente;
+            /*Cliente clienteSeleccionado = cmbCliente.SelectedItem as Cliente;
             Guid idCliente = clienteSeleccionado.id;
+            */
+
+            Cliente clienteSeleccionado = cmbCliente.SelectedItem as Cliente;
+            Guid idCliente = (Guid)cmbCliente.SelectedValue;
 
             bool esPrimeraCompra = ventaNegocio.EsPrimeraCompra(idCliente);
 
@@ -285,10 +308,14 @@ namespace TemplateTPIntegrador
             dgvProductos.Refresh();
         }
 
-        private void btnCompletarVenta_Click(object sender, EventArgs e)
+
+        private void btnRegistrarVenta_Click(object sender, EventArgs e)
+
         {
+            
             if (carrito.Count == 0)
             {
+                lblClienteNuevo.Visible = true;
                 lblClienteNuevo.Text = "El carrito está vacío. No puedes completar la venta.";
                 return;
             }
@@ -296,6 +323,7 @@ namespace TemplateTPIntegrador
             Cliente clienteSeleccionado = cmbCliente.SelectedItem as Cliente;
             if (clienteSeleccionado == null)
             {
+                lblClienteNuevo.Visible = true;
                 lblClienteNuevo.Text = "Por favor, selecciona un cliente.";
                 return;
             }
@@ -327,7 +355,7 @@ namespace TemplateTPIntegrador
             double totalSinDescuentos = productosListos.Sum(p => p.Producto.precio * p.Cantidad);
             double descuentoPrimeraCompra = esPrimeraCompra ? totalSinDescuentos * 0.05 : 0;
 
-
+            lblClienteNuevo.Visible = true;
             lblClienteNuevo.Text = "Venta completada con éxito.";
 
             //GenerarComprobante(clienteSeleccionado, productosListos, descuentoPrimeraCompra);
@@ -337,8 +365,6 @@ namespace TemplateTPIntegrador
             actualizarCarrito();
             cargarProductos();
         }
-
-
     }
 }
 
