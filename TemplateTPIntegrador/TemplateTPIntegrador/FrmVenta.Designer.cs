@@ -36,7 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.dgvProductosaRegistrar = new System.Windows.Forms.DataGridView();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDownCantidad = new System.Windows.Forms.NumericUpDown();
             this.button3 = new System.Windows.Forms.Button();
@@ -47,7 +47,7 @@
             this.btnVolveraMenu = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.lblAlertadecuentoCatElectroHogar = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosaRegistrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,17 +135,17 @@
             this.lblTotal.TabIndex = 10;
             this.lblTotal.Text = "$0,00";
             // 
-            // dgvProductosaRegistrar
+            // dgvProductos
             // 
-            this.dgvProductosaRegistrar.AllowUserToDeleteRows = false;
-            this.dgvProductosaRegistrar.BackgroundColor = System.Drawing.Color.White;
-            this.dgvProductosaRegistrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductosaRegistrar.Location = new System.Drawing.Point(68, 157);
-            this.dgvProductosaRegistrar.Name = "dgvProductosaRegistrar";
-            this.dgvProductosaRegistrar.RowHeadersWidth = 62;
-            this.dgvProductosaRegistrar.RowTemplate.Height = 28;
-            this.dgvProductosaRegistrar.Size = new System.Drawing.Size(240, 150);
-            this.dgvProductosaRegistrar.TabIndex = 11;
+            this.dgvProductos.AllowUserToDeleteRows = false;
+            this.dgvProductos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(68, 157);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.RowHeadersWidth = 62;
+            this.dgvProductos.RowTemplate.Height = 28;
+            this.dgvProductos.Size = new System.Drawing.Size(240, 150);
+            this.dgvProductos.TabIndex = 11;
             // 
             // label5
             // 
@@ -274,7 +274,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.numericUpDownCantidad);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dgvProductosaRegistrar);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
@@ -285,7 +285,8 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmVenta";
             this.Text = " Registrar Venta";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosaRegistrar)).EndInit();
+            this.Load += new System.EventHandler(this.FrmVenta_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -302,7 +303,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.DataGridView dgvProductosaRegistrar;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numericUpDownCantidad;
         private System.Windows.Forms.Button button3;

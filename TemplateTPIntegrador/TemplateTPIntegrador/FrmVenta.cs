@@ -27,6 +27,14 @@ namespace TemplateTPIntegrador
         private List<CarritoProducto> carrito = new List<CarritoProducto>();
         private FrmComprobante frmComprobante;
 
+        private void FrmVenta_Load(object sender, EventArgs e)
+        {
+            lblMensajes.Visible = false;
+            lblClienteNuevo.Visible = false;
+            cargarProductos();
+            cargarClientes();
+        }
+
 
         public FrmVenta(int perfilUsuario, FrmComprobante frmComprobante)
         {
@@ -58,14 +66,6 @@ namespace TemplateTPIntegrador
             this.Hide();
         }
 
-        private void FrmVenta_Load(object sender, EventArgs e)
-        {
-            lblMensajes.Visible = false;
-            lblClienteNuevo.Visible = false;
-            cargarProductos();
-            cargarClientes();
-        }
-
         private void cargarProductos()
         {
             List<Producto> productos = productoNegocio.ObtenerProductos();
@@ -73,26 +73,26 @@ namespace TemplateTPIntegrador
 
             var bindingList = new BindingList<Producto>(productos);
             var source = new BindingSource(bindingList, null);
-            dgvProductosaRegistrar.DataSource = source;
+            dgvProductos.DataSource = source;
 
             OcultarColumnasInnecesarias();
-            dgvProductosaRegistrar.CellFormatting += dataGridViewProducto_CellFormatting;
+            dgvProductos.CellFormatting += dataGridViewProducto_CellFormatting;
 
-            dgvProductosaRegistrar.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvProductos.Columns["precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
 
         private void OcultarColumnasInnecesarias()
         {
-            var columnasAEliminar = new[] { "Id", "FechaBaja", "IdUsuario", "IdProveedor", "Cantidad", "NombreProveedor", "ApellidoProveedor" };
+            var columnasAEliminar = new[] { "id", "fechaBaja", "idUsuario", "idProveedor", "stock"};
             foreach (var columna in columnasAEliminar)
             {
-                dgvProductosaRegistrar.Columns[columna].Visible = false;
+                dgvProductos.Columns[columna].Visible = false;
             }
         }
 
         private void dataGridViewProducto_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvProductosaRegistrar.Columns[e.ColumnIndex].Name == "Precio" && e.Value != null && double.TryParse(e.Value.ToString(), out double precio))
+            if (dgvProductos.Columns[e.ColumnIndex].Name == "precio" && e.Value != null && double.TryParse(e.Value.ToString(), out double precio))
             {
                 e.Value = precio.ToString("C");
                 e.FormattingApplied = true;
@@ -181,13 +181,13 @@ namespace TemplateTPIntegrador
                 return;
             }
 
-            if (dgvProductosaRegistrar.SelectedRows.Count == 0)
+            if (dgvProductos.SelectedRows.Count == 0)
             {
                 Mensajes("Seleccione un producto de la lista para agregarlo al carrito.");
                 return;
             }
 
-            var filaSeleccionada = dgvProductosaRegistrar.SelectedRows[0];
+            var filaSeleccionada = dgvProductos.SelectedRows[0];
             Producto productoSeleccionado = (Producto)filaSeleccionada.DataBoundItem;
             int cantidadSeleccionada = (int)numericUpDownCantidad.Value;
 
@@ -282,7 +282,7 @@ namespace TemplateTPIntegrador
 
         private void actualizarDataGridViewProductos()
         {
-            dgvProductosaRegistrar.Refresh();
+            dgvProductos.Refresh();
         }
 
         private void btnCompletarVenta_Click(object sender, EventArgs e)
@@ -337,6 +337,8 @@ namespace TemplateTPIntegrador
             actualizarCarrito();
             cargarProductos();
         }
+
+
     }
 }
 
