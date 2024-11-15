@@ -18,5 +18,7 @@ namespace TemplateTPIntegrador
             InitializeComponent();
             this.perfilUsuario = perfilUsuario;
         }
+
+        //metodo en venta negocio
     }
 }
