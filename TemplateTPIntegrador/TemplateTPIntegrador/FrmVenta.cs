@@ -272,11 +272,11 @@ namespace TemplateTPIntegrador
             if (descuentoElectroHogar > 0)
             {
                 lblMensajes.Visible = true;
-                lblAlertadecuentoCatElectroHogar.Text = $"Descuento 5% en productos de Electro Hogar: {descuentoElectroHogar:C}";
+                lblAlertadescuentoCatElectroHogar.Text = $"Descuento 5% en productos de Electro Hogar: {descuentoElectroHogar:C}";
             }
             else
             {
-                lblAlertadecuentoCatElectroHogar.Visible = false;
+                lblAlertadescuentoCatElectroHogar.Visible = false;
             }
         }
 
