@@ -64,7 +64,6 @@ namespace Presentacion
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.DarkCyan;
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.strpVentasMenu,
@@ -77,7 +76,7 @@ namespace Presentacion
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip1.Size = new System.Drawing.Size(1119, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1119, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -90,20 +89,20 @@ namespace Presentacion
             this.strpVentasMenu.ForeColor = System.Drawing.Color.White;
             this.strpVentasMenu.Name = "strpVentasMenu";
             this.strpVentasMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.strpVentasMenu.Size = new System.Drawing.Size(115, 32);
+            this.strpVentasMenu.Size = new System.Drawing.Size(79, 23);
             this.strpVentasMenu.Text = "VENTAS";
             // 
             // strpNuevaVenta
             // 
             this.strpNuevaVenta.Name = "strpNuevaVenta";
-            this.strpNuevaVenta.Size = new System.Drawing.Size(276, 36);
+            this.strpNuevaVenta.Size = new System.Drawing.Size(185, 24);
             this.strpNuevaVenta.Text = "NUEVA VENTA";
             this.strpNuevaVenta.Click += new System.EventHandler(this.strpNuevaVenta_Click);
             // 
             // strpDevolucionVenta
             // 
             this.strpDevolucionVenta.Name = "strpDevolucionVenta";
-            this.strpDevolucionVenta.Size = new System.Drawing.Size(276, 36);
+            this.strpDevolucionVenta.Size = new System.Drawing.Size(185, 24);
             this.strpDevolucionVenta.Text = "DEVOLUCION";
             this.strpDevolucionVenta.Click += new System.EventHandler(this.strpDevolucionVenta_Click);
             // 
@@ -112,7 +111,7 @@ namespace Presentacion
             this.strpClientesMenu.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strpClientesMenu.ForeColor = System.Drawing.Color.White;
             this.strpClientesMenu.Name = "strpClientesMenu";
-            this.strpClientesMenu.Size = new System.Drawing.Size(129, 32);
+            this.strpClientesMenu.Size = new System.Drawing.Size(87, 23);
             this.strpClientesMenu.Text = "CLIENTES";
             this.strpClientesMenu.Click += new System.EventHandler(this.strpClientesMenu_Click);
             // 
@@ -122,7 +121,7 @@ namespace Presentacion
             this.strpProductosMenu.ForeColor = System.Drawing.Color.White;
             this.strpProductosMenu.Name = "strpProductosMenu";
             this.strpProductosMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.strpProductosMenu.Size = new System.Drawing.Size(168, 32);
+            this.strpProductosMenu.Size = new System.Drawing.Size(113, 23);
             this.strpProductosMenu.Text = "PRODUCTOS";
             this.strpProductosMenu.Click += new System.EventHandler(this.strpProductosMenu_Click);
             // 
@@ -132,7 +131,7 @@ namespace Presentacion
             this.strpProveedoresMenu.ForeColor = System.Drawing.Color.White;
             this.strpProveedoresMenu.Name = "strpProveedoresMenu";
             this.strpProveedoresMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.strpProveedoresMenu.Size = new System.Drawing.Size(191, 32);
+            this.strpProveedoresMenu.Size = new System.Drawing.Size(128, 23);
             this.strpProveedoresMenu.Text = "PROVEEDORES";
             this.strpProveedoresMenu.Click += new System.EventHandler(this.strpProveedoresMenu_Click);
             // 
@@ -142,7 +141,7 @@ namespace Presentacion
             this.strpReportesMenu.ForeColor = System.Drawing.Color.White;
             this.strpReportesMenu.Name = "strpReportesMenu";
             this.strpReportesMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.strpReportesMenu.Size = new System.Drawing.Size(135, 32);
+            this.strpReportesMenu.Size = new System.Drawing.Size(92, 23);
             this.strpReportesMenu.Text = "REPORTES";
             this.strpReportesMenu.Click += new System.EventHandler(this.strpReportesMenu_Click);
             // 
@@ -156,30 +155,30 @@ namespace Presentacion
             this.strpUsuariosMenu.ForeColor = System.Drawing.Color.White;
             this.strpUsuariosMenu.Name = "strpUsuariosMenu";
             this.strpUsuariosMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.strpUsuariosMenu.Size = new System.Drawing.Size(141, 32);
+            this.strpUsuariosMenu.Size = new System.Drawing.Size(95, 23);
             this.strpUsuariosMenu.Text = "USUARIOS";
             // 
             // strpAltaUsuariosMenu
             // 
             this.strpAltaUsuariosMenu.Name = "strpAltaUsuariosMenu";
-            this.strpAltaUsuariosMenu.Size = new System.Drawing.Size(315, 36);
+            this.strpAltaUsuariosMenu.Size = new System.Drawing.Size(210, 24);
             this.strpAltaUsuariosMenu.Text = "ALTA";
             this.strpAltaUsuariosMenu.Click += new System.EventHandler(this.strpAltaUsuariosMenu_Click);
             // 
             // strpBajaUsuariosMenu
             // 
             this.strpBajaUsuariosMenu.Name = "strpBajaUsuariosMenu";
-            this.strpBajaUsuariosMenu.Size = new System.Drawing.Size(315, 36);
+            this.strpBajaUsuariosMenu.Size = new System.Drawing.Size(210, 24);
             this.strpBajaUsuariosMenu.Text = "BAJA-REACTIVAR";
             this.strpBajaUsuariosMenu.Click += new System.EventHandler(this.strpBajaUsuariosMenu_Click);
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(967, -5);
+            this.btnLogOut.Location = new System.Drawing.Point(951, 463);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(156, 46);
             this.btnLogOut.TabIndex = 1;
-            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.Text = "LogOut";
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
@@ -191,7 +190,7 @@ namespace Presentacion
             this.lblBienvenido.ForeColor = System.Drawing.Color.DarkCyan;
             this.lblBienvenido.Location = new System.Drawing.Point(116, 248);
             this.lblBienvenido.Name = "lblBienvenido";
-            this.lblBienvenido.Size = new System.Drawing.Size(1102, 70);
+            this.lblBienvenido.Size = new System.Drawing.Size(742, 47);
             this.lblBienvenido.TabIndex = 2;
             this.lblBienvenido.Text = "Sistema de Gestión ElectroHogar S.A.";
             this.lblBienvenido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -214,13 +213,13 @@ namespace Presentacion
             this.lblStockCritico.ForeColor = System.Drawing.Color.Red;
             this.lblStockCritico.Location = new System.Drawing.Point(259, 346);
             this.lblStockCritico.Name = "lblStockCritico";
-            this.lblStockCritico.Size = new System.Drawing.Size(0, 30);
+            this.lblStockCritico.Size = new System.Drawing.Size(0, 21);
             this.lblStockCritico.TabIndex = 5;
             this.lblStockCritico.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
             this.ClientSize = new System.Drawing.Size(1119, 521);
@@ -237,7 +236,6 @@ namespace Presentacion
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

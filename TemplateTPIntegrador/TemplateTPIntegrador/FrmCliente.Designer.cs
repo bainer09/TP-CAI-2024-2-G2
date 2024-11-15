@@ -58,7 +58,7 @@
             this.eticliente.AutoSize = true;
             this.eticliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eticliente.ForeColor = System.Drawing.Color.DarkCyan;
-            this.eticliente.Location = new System.Drawing.Point(62, 144);
+            this.eticliente.Location = new System.Drawing.Point(66, 103);
             this.eticliente.Name = "eticliente";
             this.eticliente.Size = new System.Drawing.Size(59, 16);
             this.eticliente.TabIndex = 10;
@@ -69,7 +69,7 @@
             this.etiDireccion.AutoSize = true;
             this.etiDireccion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.etiDireccion.ForeColor = System.Drawing.Color.DarkCyan;
-            this.etiDireccion.Location = new System.Drawing.Point(62, 320);
+            this.etiDireccion.Location = new System.Drawing.Point(66, 279);
             this.etiDireccion.Name = "etiDireccion";
             this.etiDireccion.Size = new System.Drawing.Size(69, 16);
             this.etiDireccion.TabIndex = 11;
@@ -80,7 +80,7 @@
             this.Etitelefono.AutoSize = true;
             this.Etitelefono.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Etitelefono.ForeColor = System.Drawing.Color.DarkCyan;
-            this.Etitelefono.Location = new System.Drawing.Point(62, 363);
+            this.Etitelefono.Location = new System.Drawing.Point(66, 322);
             this.Etitelefono.Name = "Etitelefono";
             this.Etitelefono.Size = new System.Drawing.Size(61, 16);
             this.Etitelefono.TabIndex = 12;
@@ -91,7 +91,7 @@
             this.etiEmail.AutoSize = true;
             this.etiEmail.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.etiEmail.ForeColor = System.Drawing.Color.DarkCyan;
-            this.etiEmail.Location = new System.Drawing.Point(62, 417);
+            this.etiEmail.Location = new System.Drawing.Point(66, 376);
             this.etiEmail.Name = "etiEmail";
             this.etiEmail.Size = new System.Drawing.Size(43, 16);
             this.etiEmail.TabIndex = 13;
@@ -99,35 +99,35 @@
             // 
             // txtNombreCliente
             // 
-            this.txtNombreCliente.Location = new System.Drawing.Point(256, 131);
+            this.txtNombreCliente.Location = new System.Drawing.Point(260, 90);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Size = new System.Drawing.Size(358, 21);
             this.txtNombreCliente.TabIndex = 16;
             // 
             // txtDireccionCliente
             // 
-            this.txtDireccionCliente.Location = new System.Drawing.Point(256, 316);
+            this.txtDireccionCliente.Location = new System.Drawing.Point(260, 275);
             this.txtDireccionCliente.Name = "txtDireccionCliente";
             this.txtDireccionCliente.Size = new System.Drawing.Size(358, 21);
             this.txtDireccionCliente.TabIndex = 17;
             // 
             // txtTelCliente
             // 
-            this.txtTelCliente.Location = new System.Drawing.Point(256, 363);
+            this.txtTelCliente.Location = new System.Drawing.Point(260, 322);
             this.txtTelCliente.Name = "txtTelCliente";
             this.txtTelCliente.Size = new System.Drawing.Size(358, 21);
             this.txtTelCliente.TabIndex = 18;
             // 
             // txtEmailCliente
             // 
-            this.txtEmailCliente.Location = new System.Drawing.Point(256, 413);
+            this.txtEmailCliente.Location = new System.Drawing.Point(260, 372);
             this.txtEmailCliente.Name = "txtEmailCliente";
             this.txtEmailCliente.Size = new System.Drawing.Size(358, 21);
             this.txtEmailCliente.TabIndex = 19;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(256, 179);
+            this.txtApellido.Location = new System.Drawing.Point(260, 138);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(358, 21);
             this.txtApellido.TabIndex = 21;
@@ -137,7 +137,7 @@
             this.etiapellido.AutoSize = true;
             this.etiapellido.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.etiapellido.ForeColor = System.Drawing.Color.DarkCyan;
-            this.etiapellido.Location = new System.Drawing.Point(62, 189);
+            this.etiapellido.Location = new System.Drawing.Point(66, 148);
             this.etiapellido.Name = "etiapellido";
             this.etiapellido.Size = new System.Drawing.Size(63, 16);
             this.etiapellido.TabIndex = 20;
@@ -148,7 +148,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label1.Location = new System.Drawing.Point(62, 229);
+            this.label1.Location = new System.Drawing.Point(66, 188);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 16);
             this.label1.TabIndex = 22;
@@ -159,7 +159,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(62, 273);
+            this.label2.Location = new System.Drawing.Point(66, 232);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 16);
             this.label2.TabIndex = 23;
@@ -167,7 +167,7 @@
             // 
             // txtDNI
             // 
-            this.txtDNI.Location = new System.Drawing.Point(256, 269);
+            this.txtDNI.Location = new System.Drawing.Point(260, 228);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(358, 21);
             this.txtDNI.TabIndex = 24;
@@ -178,7 +178,7 @@
             this.btnModificarCliente.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnModificarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificarCliente.Location = new System.Drawing.Point(965, 490);
+            this.btnModificarCliente.Location = new System.Drawing.Point(937, 434);
             this.btnModificarCliente.Name = "btnModificarCliente";
             this.btnModificarCliente.Size = new System.Drawing.Size(188, 49);
             this.btnModificarCliente.TabIndex = 25;
@@ -192,7 +192,7 @@
             this.btnDarBajaCliente.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDarBajaCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDarBajaCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDarBajaCliente.Location = new System.Drawing.Point(1393, 490);
+            this.btnDarBajaCliente.Location = new System.Drawing.Point(1365, 434);
             this.btnDarBajaCliente.Name = "btnDarBajaCliente";
             this.btnDarBajaCliente.Size = new System.Drawing.Size(188, 49);
             this.btnDarBajaCliente.TabIndex = 26;
@@ -203,7 +203,7 @@
             // listaclientes
             // 
             this.listaclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listaclientes.Location = new System.Drawing.Point(740, 114);
+            this.listaclientes.Location = new System.Drawing.Point(714, 90);
             this.listaclientes.Name = "listaclientes";
             this.listaclientes.RowHeadersWidth = 62;
             this.listaclientes.RowTemplate.Height = 28;
@@ -215,7 +215,7 @@
             this.Clientes.AutoSize = true;
             this.Clientes.Font = new System.Drawing.Font("Century Gothic", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clientes.ForeColor = System.Drawing.Color.DarkCyan;
-            this.Clientes.Location = new System.Drawing.Point(630, 33);
+            this.Clientes.Location = new System.Drawing.Point(634, 12);
             this.Clientes.Name = "Clientes";
             this.Clientes.Size = new System.Drawing.Size(166, 44);
             this.Clientes.TabIndex = 28;
@@ -223,21 +223,21 @@
             // 
             // btnVolverInicio
             // 
-            this.btnVolverInicio.BackColor = System.Drawing.Color.SlateGray;
+            this.btnVolverInicio.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnVolverInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolverInicio.ForeColor = System.Drawing.Color.White;
-            this.btnVolverInicio.Location = new System.Drawing.Point(1416, 28);
-            this.btnVolverInicio.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnVolverInicio.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnVolverInicio.Location = new System.Drawing.Point(1403, 516);
+            this.btnVolverInicio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnVolverInicio.Name = "btnVolverInicio";
-            this.btnVolverInicio.Size = new System.Drawing.Size(165, 59);
-            this.btnVolverInicio.TabIndex = 32;
-            this.btnVolverInicio.Text = "Volver a inicio";
+            this.btnVolverInicio.Size = new System.Drawing.Size(267, 51);
+            this.btnVolverInicio.TabIndex = 20;
+            this.btnVolverInicio.Text = "MENU PRINCIPAL";
             this.btnVolverInicio.UseVisualStyleBackColor = false;
             this.btnVolverInicio.Click += new System.EventHandler(this.btnVolverInicio_Click);
             // 
             // fechanaccampo
             // 
-            this.fechanaccampo.Location = new System.Drawing.Point(256, 225);
+            this.fechanaccampo.Location = new System.Drawing.Point(260, 184);
             this.fechanaccampo.Name = "fechanaccampo";
             this.fechanaccampo.Size = new System.Drawing.Size(358, 21);
             this.fechanaccampo.TabIndex = 30;
@@ -248,7 +248,7 @@
             this.btnReactivarCliente.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReactivarCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnReactivarCliente.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnReactivarCliente.Location = new System.Drawing.Point(1179, 490);
+            this.btnReactivarCliente.Location = new System.Drawing.Point(1151, 434);
             this.btnReactivarCliente.Name = "btnReactivarCliente";
             this.btnReactivarCliente.Size = new System.Drawing.Size(188, 49);
             this.btnReactivarCliente.TabIndex = 32;
@@ -262,7 +262,7 @@
             this.btnAltaCliente.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAltaCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAltaCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAltaCliente.Location = new System.Drawing.Point(740, 490);
+            this.btnAltaCliente.Location = new System.Drawing.Point(712, 434);
             this.btnAltaCliente.Name = "btnAltaCliente";
             this.btnAltaCliente.Size = new System.Drawing.Size(188, 49);
             this.btnAltaCliente.TabIndex = 33;
@@ -274,7 +274,7 @@
             // 
             this.lblAlertaClientes.AutoSize = true;
             this.lblAlertaClientes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlertaClientes.Location = new System.Drawing.Point(53, 507);
+            this.lblAlertaClientes.Location = new System.Drawing.Point(57, 466);
             this.lblAlertaClientes.Name = "lblAlertaClientes";
             this.lblAlertaClientes.Size = new System.Drawing.Size(55, 19);
             this.lblAlertaClientes.TabIndex = 34;

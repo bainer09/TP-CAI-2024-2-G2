@@ -312,7 +312,5 @@ namespace TemplateTPIntegrador
                 MessageBox.Show("Ocurrió un error al agregar el cliente: " + ex.Message + "\n\n" + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
     }
 }
