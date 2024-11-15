@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System;
 using System.Collections.Generic;
 using TemplateTPIntegrador;
+using System.Diagnostics;
 
 
 namespace Presentacion
@@ -61,19 +62,32 @@ namespace Presentacion
 
         private void VerificarStockCritico()
         {
-            lblStockCritico.Visible = perfilUsuario == 2 || perfilUsuario == 3;
-            if (lblStockCritico.Visible)
+            // Verificar si el perfil es 2 o 3 para mostrar el lblStockCritico
+            bool mostrarStockCritico = perfilUsuario == 2 || perfilUsuario == 3;
+            lblStockCritico.Visible = mostrarStockCritico;
+
+            if (mostrarStockCritico)
             {
                 int cantidadProductosCriticos = productoNegocio.ProductosConStockCritico();
-                lblStockCritico.Text = cantidadProductosCriticos > 0
-                    ? $"{cantidadProductosCriticos} productos en stock crítico."
-                    : "No hay productos en stock crítico.";
+
+                // Depurar el valor de cantidadProductosCriticos
+                Debug.WriteLine($"Cantidad de productos en stock crítico: {cantidadProductosCriticos}");
+
+                if (cantidadProductosCriticos > 0)
+                {
+                    lblStockCritico.Text = $"{cantidadProductosCriticos} productos en stock crítico.";
+                }
+                else
+                {
+                    lblStockCritico.Text = "No hay productos en stock crítico.";
+                }
             }
             else
             {
                 lblStockCritico.Text = string.Empty;
             }
         }
+
 
         private void AbrirFormulario(Form formulario)
         {
