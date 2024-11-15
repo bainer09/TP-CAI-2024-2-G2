@@ -13,7 +13,7 @@ namespace Persistencia
 {
     public class VentaWS
     {
-        public void AgregarVenta(AgregarVenta venta)
+        public void AgregarVenta(Venta venta)
         {
             string apiPath = "Venta/AgregarVenta";
             var request = JsonConvert.SerializeObject(venta);
@@ -35,7 +35,7 @@ namespace Persistencia
             }
             catch (Exception e) { throw new Exception($"Error: ", e); }
         }
-        public List<GetVenta> GetVentasPorCliente(string idCliente)
+        public List<GetVenta> GetVentasPorCliente(Guid idCliente)
         {
             string apiPath = $"Venta/GetVentaByCliente?id={idCliente}";
             List<GetVenta> ventas = new List<GetVenta>();
