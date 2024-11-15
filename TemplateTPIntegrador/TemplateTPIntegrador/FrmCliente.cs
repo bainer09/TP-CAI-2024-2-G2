@@ -22,7 +22,7 @@ namespace TemplateTPIntegrador
         private ProductoNegocio productoNegocio = new ProductoNegocio();
         private int perfildelusuario;
         private string DNIcliente;
-        private string idusuario;
+        private Guid idusuario;
         string userLogueado = UsuarioLogueado.nombreUsuario;
         public FrmCliente(int perfiluser)
         {
@@ -44,7 +44,7 @@ namespace TemplateTPIntegrador
         {
             List<Cliente> clientes = clienteNegocio.ObtenerClientes();
 
-            clientes = clientes.OrderBy(c => c._Apellido).ToList();
+            clientes = clientes.OrderBy(c => c.apellido).ToList();
 
             var bindingList = new BindingList<Cliente>(clientes);
             var source = new BindingSource(bindingList, null);
@@ -57,13 +57,13 @@ namespace TemplateTPIntegrador
         private void listacliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Cliente cliente = (Cliente)listaclientes.Rows[listaclientes.CurrentCell.RowIndex].DataBoundItem;
-            textnombrecliente.Text = cliente._Nombre;
-            Textapellido.Text = cliente._Apellido;
-            texDNI.Text = cliente._DNI.ToString();
-            texdireccioncliente.Text = cliente._Direccion;
-            textelcliente.Text = cliente._Telefono;
-            texemailcliente.Text = cliente._Email;
-            fechanaccampo.Value = cliente._FechaNacimiento;
+            textnombrecliente.Text = cliente.nombre;
+            Textapellido.Text = cliente.apellido;
+            texDNI.Text = cliente.dni.ToString();
+            texdireccioncliente.Text = cliente.direccion;
+            textelcliente.Text = cliente.telefono;
+            texemailcliente.Text = cliente.email;
+            fechanaccampo.Value = cliente.fechaNacimiento;
         }
 
         private void FrmCliente_cerrar(object sender, FormClosingEventArgs e)
@@ -94,7 +94,7 @@ namespace TemplateTPIntegrador
                 clienteNegocio.BajaCliente(clienteaborrar);
                 alertacliente.Visible = true;
                 alertacliente.ForeColor = Color.Green;
-                alertacliente.Text = $"El cliente {cliente._Nombre} \n {cliente._Apellido}\n ha sido dado de baja";
+                alertacliente.Text = $"El cliente {cliente.nombre} \n {cliente.apellido}\n ha sido dado de baja";
                 cargarClientes();
 
             }
@@ -121,8 +121,8 @@ namespace TemplateTPIntegrador
                     return;
                 }
 
-                string nombreActual = cliente._Nombre;
-                string apellidoActual = cliente._Apellido;
+                string nombreActual = cliente.nombre;
+                string apellidoActual = cliente.apellido;
                 string nombreNuevo = textnombrecliente.Text;
                 string apellidoNuevo = Textapellido.Text;
 
@@ -134,12 +134,12 @@ namespace TemplateTPIntegrador
                     return;
                 }
 
-
+                Guid idCliente = cliente.id;
                 String direccion = texdireccioncliente.Text;
                 String telefono = textelcliente.Text;
                 String email = texemailcliente.Text;
-                ModificarCliente clienteamodificar = new ModificarCliente(idusuario, direccion, telefono, email);
-                idusuario = cliente._id;
+                ModificarCliente clienteamodificar = new ModificarCliente(idCliente, direccion, telefono, email);
+                idusuario = cliente.id;
 
 
                 int DNIcliente = int.Parse(texDNI.Text);
@@ -148,7 +148,7 @@ namespace TemplateTPIntegrador
 
                 alertacliente.Visible = true;
                 alertacliente.ForeColor = Color.Green;
-                alertacliente.Text = $"El cliente {cliente._Nombre} \n{cliente._Apellido} \nha sido modificado correctamente";
+                alertacliente.Text = $"El cliente {cliente.nombre} \n{cliente.apellido} \nha sido modificado correctamente";
 
                 cargarClientes();
             }
@@ -180,7 +180,7 @@ namespace TemplateTPIntegrador
                 clienteNegocio.ReactivarCliente(clienteareactivar);
                 alertacliente.Visible = true;
                 alertacliente.ForeColor = Color.Green;
-                alertacliente.Text = $"El cliente {cliente._Nombre} \n {cliente._Apellido}\n ha sido dado de reactivado";
+                alertacliente.Text = $"El cliente {cliente.nombre} \n {cliente.apellido}\n ha sido dado de reactivado";
                 cargarClientes();
 
             }

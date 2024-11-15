@@ -47,7 +47,6 @@ namespace Presentacion
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.btnAltaUsuario = new System.Windows.Forms.Button();
-            this.btnVolverInicio = new System.Windows.Forms.Button();
             this.lblFechaNacimiento = new System.Windows.Forms.Label();
             this.dateTimeFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.cbPerfiles = new System.Windows.Forms.ComboBox();
@@ -63,6 +62,7 @@ namespace Presentacion
             this.lblAlertaUsuario = new System.Windows.Forms.Label();
             this.lblAlertaPerfil = new System.Windows.Forms.Label();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
+            this.btnVolverInicio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -253,20 +253,6 @@ namespace Presentacion
             this.btnAltaUsuario.UseVisualStyleBackColor = false;
             this.btnAltaUsuario.Click += new System.EventHandler(this.btnAltaUsuario_Click);
             // 
-            // btnVolverInicio
-            // 
-            this.btnVolverInicio.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnVolverInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolverInicio.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnVolverInicio.Location = new System.Drawing.Point(1260, 500);
-            this.btnVolverInicio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnVolverInicio.Name = "btnVolverInicio";
-            this.btnVolverInicio.Size = new System.Drawing.Size(267, 51);
-            this.btnVolverInicio.TabIndex = 20;
-            this.btnVolverInicio.Text = "MENU PRINCIPAL";
-            this.btnVolverInicio.UseVisualStyleBackColor = false;
-            this.btnVolverInicio.Click += new System.EventHandler(this.btnVolverInicio_Click);
-            // 
             // lblFechaNacimiento
             // 
             this.lblFechaNacimiento.AutoSize = true;
@@ -448,6 +434,20 @@ namespace Presentacion
             this.btnLimpiarCampos.UseVisualStyleBackColor = false;
             this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
+            // btnVolverInicio
+            // 
+            this.btnVolverInicio.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVolverInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolverInicio.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnVolverInicio.Location = new System.Drawing.Point(1260, 500);
+            this.btnVolverInicio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnVolverInicio.Name = "btnVolverInicio";
+            this.btnVolverInicio.Size = new System.Drawing.Size(267, 51);
+            this.btnVolverInicio.TabIndex = 20;
+            this.btnVolverInicio.Text = "MENU PRINCIPAL";
+            this.btnVolverInicio.UseVisualStyleBackColor = false;
+            this.btnVolverInicio.Click += new System.EventHandler(this.btnVolverInicio_Click);
+            // 
             // FrmAltaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -517,7 +517,6 @@ namespace Presentacion
         private TextBox txtTelefono;
         private TextBox txtUsuario;
         private Button btnAltaUsuario;
-        private Button btnVolverInicio;
         private Label lblFechaNacimiento;
         private DateTimePicker dateTimeFechaNacimiento;
         private ComboBox cbPerfiles;
@@ -533,5 +532,6 @@ namespace Presentacion
         private Label lblAlertaUsuario;
         private Label lblAlertaPerfil;
         private Button btnLimpiarCampos;
+        private Button btnVolverInicio;
     }
 }
