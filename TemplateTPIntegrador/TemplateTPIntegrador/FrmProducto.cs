@@ -22,7 +22,6 @@ namespace TemplateTPIntegrador
             InitializeComponent();
             this.perfilUsuario = perfilUsuario;
         }
-        private int perfilUsuario;
         private int idCategoria;
         private string idProveedor;
         private string nombreProveedor;

@@ -8,17 +8,17 @@ namespace Datos
 {
     public class Producto
     {
-        public string id { get; set; }
+        public Guid id { get; set; }
         public int idCategoria { get; set; }
         public string nombre { get; set; }
         public DateTime fechaAlta { get; set; }
         public DateTime? fechaBaja { get; set; }
         public double precio { get; set; }
         public int stock { get; set; }
-        public string idUsuario { get; set ; }
-        public string idProveedor { get; set; }
+        public Guid idUsuario { get; set; }
+        public Guid idProveedor { get; set; }
 
-        public Producto(string id, int idCategoria, string nombre, DateTime FechaAlta, DateTime? FechaBaja, double precio, int stock)
+        public Producto(Guid id, int idCategoria, string nombre, DateTime FechaAlta, DateTime? FechaBaja, double precio, int stock)
         {
             this.id = id;
             this.idCategoria = idCategoria;
@@ -29,62 +29,85 @@ namespace Datos
             this.stock = stock;
         }
 
-        public Producto () {}
+        public Producto() { }
     }
     public class AltaProducto
     {
-        public int _idCategoria { get => _idCategoria; set => _idCategoria = value; }
-        public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
-        public string _idProveedor { get => _idProveedor; set => _idProveedor = value; }
-        public string _Nombre { get => _Nombre; set => _Nombre = value; }
-        public double _Precio { get => _Precio; set => _Precio = value; }
-        public int _Stock { get => _Stock; set => _Stock = value; }
+        public int idCategoria { get; set; }
+        public Guid idUsuario { get; set; }
+        public Guid idProveedor { get; set; }
+        public string nombre { get; set; }
+        public double precio { get; set; }
+        public int stock { get; set; }
 
-        public AltaProducto(int idCategoria, string idUsuario, string idProveedor, string nombre, double precio, int stock)
+        public AltaProducto(int idCategoria, Guid idUsuario, Guid idProveedor, string nombre, double precio, int stock)
         {
-            _idCategoria = idCategoria;
-            _idUsuario = idUsuario;
-            _idProveedor = idProveedor;
-            _Nombre = nombre;
-            _Precio = precio;
-            _Stock = stock;
+            this.idCategoria = idCategoria;
+            this.idUsuario = idUsuario;
+            this.idProveedor = idProveedor;
+            this.nombre = nombre;
+            this.precio = precio;
+            this.stock = stock;
         }
     }
     public class ModificarProducto
     {
-        public string _id { get => _id; set => _id = value; }
-        public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
-        public double _Precio { get => _Precio; set => _Precio = value; }
-        public int _Stock { get => _Stock; set => _Stock = value; }
+        public Guid id { get; set; }
+        public Guid idUsuario { get; set; }
+        public double precio { get; set; }
+        public int stock { get; set; }
 
-        public ModificarProducto(string id, string idUsuario, double precio, int stock)
+        public ModificarProducto(Guid id, Guid idUsuario, double precio, int stock)
         {
-            _id = id;
-            _idUsuario = idUsuario;
-            _Precio = precio;
-            _Stock = stock;
+            this.id = id;
+            this.idUsuario = idUsuario;
+            this.precio = precio;
+            this.stock = stock;
         }
     }
     public class BajaProducto
     {
-        public string _id { get => _id; set => _id = value; }
-        public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
+        public Guid id { get; set; }
+        public Guid idUsuario { get; set; }
 
-        public BajaProducto(string id, string idUsuario)
+        public BajaProducto(Guid id, Guid idUsuario)
         {
-            _id = id;
-            _idUsuario = idUsuario;
+            this.id = id;
+            this.idUsuario = idUsuario;
         }
     }
     public class ReactivarProducto
     {
-        public string _id { get => _id; set => _id = value; }
-        public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
+        public Guid id { get; set; }
+        public Guid idUsuario { get; set; }
 
-        public ReactivarProducto(string id, string idUsuario)
+        public ReactivarProducto(Guid id, Guid idUsuario)
         {
-            _id = id;
-            _idUsuario = idUsuario;
+            this.id = id;
+            this.idUsuario = idUsuario;
         }
+    }
+    public class CarritoProducto
+    {
+        public Guid idProducto { get; set; }
+        public string nombre { get; set; }
+        public double precio { get; set; }
+        public int stock { get; set; }
+        public int idCategoria { get; set; }
+        public Guid idProveedor { get; set; }
+        public int cantidadVendida { get; set; }
+
+        public CarritoProducto(Guid idProducto, string nombre, double precio, int stock, int idCategoria, Guid idProveedor, int cantidadVendida)
+        {
+            this.idProducto = idProducto;
+            this.nombre = nombre;
+            this.precio = precio;
+            this.stock = stock;
+            this.idCategoria = idCategoria;
+            this.idProveedor = idProveedor;
+            this.cantidadVendida = cantidadVendida;
+        }
+
+        public CarritoProducto() {}
     }
 }

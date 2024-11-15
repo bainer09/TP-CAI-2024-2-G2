@@ -18,12 +18,12 @@ namespace Negocio
             ClienteWS.AltaCliente(cliente);
             Cliente nuevoCliente = new Cliente
             {
-                _DNI = cliente._DNI,
-                _Telefono = cliente._Telefono,
-                _FechaAlta = DateTime.Now,
-                _FechaBaja = null,
-                _Direccion = cliente._Direccion,
-                _Email = cliente._Email,
+                dni = cliente.dni,
+                telefono = cliente.telefono,
+                fechaAlta = DateTime.Now,
+                fechaBaja = null,
+                direccion = cliente.direccion,
+                email = cliente.email,
             };
             ClienteP.AltaClienteLocal(nuevoCliente);
         }

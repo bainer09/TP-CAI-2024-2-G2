@@ -30,17 +30,17 @@ namespace Negocio
             List<Usuario> usuarios = usuarioNegocio.listarUsuarios();
 
             var informe = ventas
-                .GroupBy(v => new { v._idUsuario, Mes = v._FechaAlta.ToString("yyyy-MM") })
+                .GroupBy(v => new { v.idUsuario, Mes = v.fechaVenta.ToString("yyyy-MM") })
                 .Select(g => new
                 {
-                    IdUsuario = g.Key._idUsuario,
+                    IdUsuario = g.Key.idUsuario,
                     Mes = g.Key.Mes,
                     CantidadVentas = g.Count(),
-                    MontoTotal = g.Sum(v => v._montoTotal)
+                    MontoTotal = g.Sum(v => v.montoTotal)
                 })
                 .Join(usuarios,
                       venta => venta.IdUsuario,
-                      usuario => usuario.id.ToString(),
+                      usuario => usuario.id,
                       (venta, usuario) => new
                       {
                           Vendedor = $"{usuario.nombre} {usuario.apellido}",
@@ -61,15 +61,15 @@ namespace Negocio
             List<Producto> productos = productoNegocio.ObtenerProductos();
 
             var informe = ventas
-                .GroupBy(v => v._idProducto)
+                .GroupBy(v => v.idProducto)
                 .Select(g => new
                 {
                     IdProducto = g.Key,
-                    CantidadVentas = g.Sum(v => v._Cantidad)
+                    CantidadVentas = g.Sum(v => v.cantidad)
                 })
                 .Join(productos,
                       venta => venta.IdProducto,
-                      producto => producto.id.ToString(),
+                      producto => producto.id,
                       (venta, producto) => new
                       {
                           Producto = producto.nombre,

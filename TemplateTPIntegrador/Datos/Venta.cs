@@ -8,74 +8,84 @@ namespace Datos
 {
     public class Venta
     {
-        public string _id { get; set ; }
-        public string _idCliente { get; set; }
-        public string _idProducto { get; set ; }
-        public int _Cantidad { get; set ; }
-        public DateTime _FechaAlta { get; set ; }
-        public int _Estado { get ; set; }
-        public string _idUsuario { get ; set; }
-        public double _montoTotal { get ; set; }
+        public Guid id { get; set ; }
+        public Guid idCliente { get; set; }
+        public Guid idProducto { get; set ; }
+        public int cantidad { get; set ; }
+        public DateTime fechaVenta { get; set ; }
+        public int estado { get ; set; }
+        public Guid idUsuario { get ; set; }
+        public double montoTotal { get ; set; }
 
 
-        public Venta(string id, string idCliente, string idProducto, int cantidad, DateTime fechaAlta, int estado, string idUsuario, double montoTotal)
+        public Venta(Guid id, Guid idCliente, Guid idProducto, int cantidad, DateTime fechaAlta, int estado, Guid idUsuario, double montoTotal)
         {
-            _id = id;
-            _idCliente = idCliente;
-            _idProducto = idProducto;
-            _Cantidad = cantidad;
-            _FechaAlta = fechaAlta;
-            _Estado = estado;
-            _idUsuario = idUsuario;
-            _montoTotal = montoTotal;
+            this.id = id;
+            this.idCliente = idCliente;
+            this.idProducto = idProducto;
+            this.cantidad = cantidad;
+            this.fechaVenta = fechaAlta;
+            this.estado = estado;
+            this.idUsuario = idUsuario;
+            this.montoTotal = montoTotal;
+        }
+        public Venta(Guid idCliente, Guid idUsuario, Guid idProducto, int cantidad, double montoTotal, DateTime fechaVenta)
+        {
+            this.idCliente = idCliente;
+            this.idUsuario = idUsuario;
+            this.idProducto = idProducto;
+            this.cantidad = cantidad;
+            this.montoTotal = montoTotal;
+            this.fechaVenta = fechaVenta;
+
         }
         
     }
     public class AgregarVenta
     {
-        public string _idCliente { get; set; }
-        public DateTime? _fechaVenta { get; set; }
-        public string _idProducto { get; set; }
-        public int _Cantidad { get; set; }
-        public string _idUsuario { get; set; }
+        public Guid idCliente { get; set; }
+        public Guid idUsuario { get; set; }
+        public Guid idProducto { get; set; }
+        public DateTime? fechaVenta { get; set; }
+        public int cantidad { get; set; }
+        public double montoTotal { get; set; }
 
-        public double _montoTotal { get; set; }
-
-        public AgregarVenta(string idCliente, string idProducto, int cantidad, string idUsuario, DateTime? fechaVenta, double montoTotal)
+        public AgregarVenta(Guid idCliente, Guid idProducto, int cantidad, Guid idUsuario, DateTime? fechaVenta, double montoTotal)
         {
-            _idCliente = idCliente;
-            _idProducto = idProducto;
-            _Cantidad = cantidad;
-            _idUsuario = idUsuario;
-            _fechaVenta = fechaVenta;
-            _montoTotal = montoTotal;
+            this.idCliente = idCliente;
+            this.idProducto = idProducto;
+            this.cantidad = cantidad;
+            this.idUsuario = idUsuario;
+            this.fechaVenta = fechaVenta;
+            this.montoTotal = montoTotal;
         }
+        public AgregarVenta() {}
     }
     public class DevolucionVenta
     {
-        public string _id { get => _id; set => _id = value; }
-        public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
+        public Guid id { get; set; }
+        public Guid idUsuario { get; set; }
 
-        public DevolucionVenta(string id, string idUsuario)
+        public DevolucionVenta(Guid id, Guid idUsuario)
         {
-            _id = id;
-            _idUsuario = idUsuario;
+            this.id = id;
+            this.idUsuario = idUsuario;
 
         }
     }
     public class GetVenta
     {
-        public string _id { get => _id; set => _id = value; }
-        public int _Cantidad { get => _Cantidad; set => _Cantidad = value; }
-        public DateTime _FechaAlta { get => _FechaAlta; set => _FechaAlta = value; }
-        public int _Estado { get => _Estado; set => _Estado = value; }
+        public Guid id { get; set; }
+        public int cantidad { get; set; }
+        public DateTime fechaAlta { get; set; }
+        public int estado { get; set; }
 
-        public GetVenta(string id, int cantidad, DateTime fechaAlta, int estado)
+        public GetVenta(Guid id, int cantidad, DateTime fechaAlta, int estado)
         {
-            _id = id;
-            _Cantidad = cantidad;
-            _FechaAlta = fechaAlta;
-            _Estado = estado;
+            this.id = id;
+            this.cantidad = cantidad;
+            this.fechaAlta = fechaAlta;
+            this.estado = estado;
         }
     }
 }
