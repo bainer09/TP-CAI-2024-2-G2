@@ -27,6 +27,14 @@ namespace TemplateTPIntegrador
         private List<CarritoProducto> carrito = new List<CarritoProducto>();
         private FrmComprobante frmComprobante;
 
+        private void FrmVenta_Load(object sender, EventArgs e)
+        {
+            lblMensajes.Visible = false;
+            lblClienteNuevo.Visible = false;
+            cargarProductos();
+            cargarClientes();
+        }
+
 
         public FrmVenta(int perfilUsuario, FrmComprobante frmComprobante)
         {
@@ -38,9 +46,6 @@ namespace TemplateTPIntegrador
             lvCarrito.View = View.Details;
             lvCarrito.FullRowSelect = true;
             lvCarrito.GridLines = true;
-
-            //BELU a SACAR?
-            /*cmbCliente.SelectedIndexChanged += cbCliente_SelectedIndexChanged;*/
             lvCarrito.Columns.Add("Producto", 400);
             lvCarrito.Columns.Add("Precio", 100);
             lvCarrito.Columns.Add("Cantidad", 100);
@@ -61,14 +66,6 @@ namespace TemplateTPIntegrador
             this.Hide();
         }
 
-        private void FrmVenta_Load(object sender, EventArgs e)
-        {
-            lblMensajes.Visible = false;
-            lblMensajeVentas.Visible = false;
-            cargarProductos();
-            cargarClientes();
-        }
-
         private void cargarProductos()
         {
             List<Producto> productos = productoNegocio.ObtenerProductos();
@@ -76,26 +73,26 @@ namespace TemplateTPIntegrador
 
             var bindingList = new BindingList<Producto>(productos);
             var source = new BindingSource(bindingList, null);
-            dgvProductosaRegistrar.DataSource = source;
+            dgvProductos.DataSource = source;
 
             OcultarColumnasInnecesarias();
-            dgvProductosaRegistrar.CellFormatting += dataGridViewProducto_CellFormatting;
+            dgvProductos.CellFormatting += dataGridViewProducto_CellFormatting;
 
-            dgvProductosaRegistrar.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvProductos.Columns["precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
 
         private void OcultarColumnasInnecesarias()
         {
-            var columnasAEliminar = new[] { "Id", "FechaBaja", "IdUsuario", "IdProveedor", "Cantidad", "NombreProveedor", "ApellidoProveedor" };
+            var columnasAEliminar = new[] { "id", "fechaBaja", "idUsuario", "idProveedor", "stock"};
             foreach (var columna in columnasAEliminar)
             {
-                dgvProductosaRegistrar.Columns[columna].Visible = false;
+                dgvProductos.Columns[columna].Visible = false;
             }
         }
 
         private void dataGridViewProducto_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvProductosaRegistrar.Columns[e.ColumnIndex].Name == "Precio" && e.Value != null && double.TryParse(e.Value.ToString(), out double precio))
+            if (dgvProductos.Columns[e.ColumnIndex].Name == "precio" && e.Value != null && double.TryParse(e.Value.ToString(), out double precio))
             {
                 e.Value = precio.ToString("C");
                 e.FormattingApplied = true;
@@ -176,7 +173,7 @@ namespace TemplateTPIntegrador
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            lblMensajeVentas.Visible = false;
+            lblClienteNuevo.Visible = false;
 
             if (cmbCliente.SelectedItem == null)
             {
@@ -184,13 +181,13 @@ namespace TemplateTPIntegrador
                 return;
             }
 
-            if (dgvProductosaRegistrar.SelectedRows.Count == 0)
+            if (dgvProductos.SelectedRows.Count == 0)
             {
                 Mensajes("Seleccione un producto de la lista para agregarlo al carrito.");
                 return;
             }
 
-            var filaSeleccionada = dgvProductosaRegistrar.SelectedRows[0];
+            var filaSeleccionada = dgvProductos.SelectedRows[0];
             Producto productoSeleccionado = (Producto)filaSeleccionada.DataBoundItem;
             int cantidadSeleccionada = (int)numericUpDownCantidad.Value;
 
@@ -252,13 +249,16 @@ namespace TemplateTPIntegrador
                 };
                 listViewItem.SubItems.Add(producto.precio.ToString("C"));
                 listViewItem.SubItems.Add(cantidad.ToString());
-                lstCarrito.Items.Add(listViewItem); // Belén
+                lvCarrito.Items.Add(listViewItem); 
             }
 
             lblTotal.Text = $"Total: {totalConDescuento:C}";
 
-            // Belén
-            /*
+            Cliente clienteSeleccionado = cmbCliente.SelectedItem as Cliente;
+            Guid idCliente = clienteSeleccionado.id;
+
+            bool esPrimeraCompra = ventaNegocio.EsPrimeraCompra(idCliente);
+
             if (esPrimeraCompra)
             {
                 lblClienteNuevo.Visible = true;
@@ -268,10 +268,10 @@ namespace TemplateTPIntegrador
             {
                 lblClienteNuevo.Visible = false;
             }
-            */
+
             if (descuentoElectroHogar > 0)
             {
-                lblAlertadecuentoCatElectroHogar.Visible = true;
+                lblMensajes.Visible = true;
                 lblAlertadecuentoCatElectroHogar.Text = $"Descuento 5% en productos de Electro Hogar: {descuentoElectroHogar:C}";
             }
             else
@@ -282,21 +282,21 @@ namespace TemplateTPIntegrador
 
         private void actualizarDataGridViewProductos()
         {
-            dgvProductosaRegistrar.Refresh();
+            dgvProductos.Refresh();
         }
 
         private void btnCompletarVenta_Click(object sender, EventArgs e)
         {
             if (carrito.Count == 0)
             {
-                lblMensajeVentas.Text = "El carrito está vacío. No puedes completar la venta.";
+                lblClienteNuevo.Text = "El carrito está vacío. No puedes completar la venta.";
                 return;
             }
 
             Cliente clienteSeleccionado = cmbCliente.SelectedItem as Cliente;
             if (clienteSeleccionado == null)
             {
-                lblMensajeVentas.Text = "Por favor, selecciona un cliente.";
+                lblClienteNuevo.Text = "Por favor, selecciona un cliente.";
                 return;
             }
             Guid idCliente = clienteSeleccionado.id;
@@ -328,7 +328,7 @@ namespace TemplateTPIntegrador
             double descuentoPrimeraCompra = esPrimeraCompra ? totalSinDescuentos * 0.05 : 0;
 
 
-            lblMensajeVentas.Text = "Venta completada con éxito.";
+            lblClienteNuevo.Text = "Venta completada con éxito.";
 
             //GenerarComprobante(clienteSeleccionado, productosListos, descuentoPrimeraCompra);
 
@@ -337,6 +337,8 @@ namespace TemplateTPIntegrador
             actualizarCarrito();
             cargarProductos();
         }
+
+
     }
 }
 

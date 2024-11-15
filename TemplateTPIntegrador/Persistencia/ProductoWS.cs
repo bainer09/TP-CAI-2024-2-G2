@@ -34,7 +34,8 @@ namespace Persistencia
                     throw new Exception($"Error: {response.StatusCode} - {response.ReasonPhrase}");
                 }
             }
-            catch (Exception e) { throw new Exception($"Error al dar de alta el producto.\n", e); }
+            //catch (Exception e) { throw new Exception($"Error al dar de alta el producto.\n", e); }
+            catch (Exception e) { Console.WriteLine(e.Message); }
         }
         public void BajaProducto(BajaProducto producto)
         {

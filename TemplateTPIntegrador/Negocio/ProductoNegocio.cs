@@ -30,7 +30,7 @@ namespace Negocio
                 fechaAlta = DateTime.Now,
                 fechaBaja = null
             };
-            ProductoP.AltaProductoLocal(nuevoProducto);
+            //ProductoP.AltaProductoLocal(nuevoProducto);
         }
         public void ModificarProducto(Guid idProducto, Guid idUsuario, double precio, int stock)
         {

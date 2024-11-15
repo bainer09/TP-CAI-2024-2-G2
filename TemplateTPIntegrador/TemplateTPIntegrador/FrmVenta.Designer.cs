@@ -35,17 +35,19 @@
             this.btnRemoverItem = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dgvProductosaRegistrar = new System.Windows.Forms.DataGridView();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDownCantidad = new System.Windows.Forms.NumericUpDown();
             this.button3 = new System.Windows.Forms.Button();
             this.dateTimePickerVenta = new System.Windows.Forms.DateTimePicker();
-            this.lblMensajeVentas = new System.Windows.Forms.Label();
+            this.lblClienteNuevo = new System.Windows.Forms.Label();
             this.lblMensajes = new System.Windows.Forms.Label();
             this.lblPrimeraCompra = new System.Windows.Forms.Label();
             this.btnVolveraMenu = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosaRegistrar)).BeginInit();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblAlertadecuentoCatElectroHogar = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,27 +125,27 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Total";
             // 
-            // label4
+            // lblTotal
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 15F);
-            this.label4.Location = new System.Drawing.Point(649, 201);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 37);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "$0,00";
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold);
+            this.lblTotal.Location = new System.Drawing.Point(649, 201);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(93, 37);
+            this.lblTotal.TabIndex = 10;
+            this.lblTotal.Text = "$0,00";
             // 
-            // dgvProductosaRegistrar
+            // dgvProductos
             // 
-            this.dgvProductosaRegistrar.AllowUserToDeleteRows = false;
-            this.dgvProductosaRegistrar.BackgroundColor = System.Drawing.Color.White;
-            this.dgvProductosaRegistrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductosaRegistrar.Location = new System.Drawing.Point(68, 157);
-            this.dgvProductosaRegistrar.Name = "dgvProductosaRegistrar";
-            this.dgvProductosaRegistrar.RowHeadersWidth = 62;
-            this.dgvProductosaRegistrar.RowTemplate.Height = 28;
-            this.dgvProductosaRegistrar.Size = new System.Drawing.Size(240, 150);
-            this.dgvProductosaRegistrar.TabIndex = 11;
+            this.dgvProductos.AllowUserToDeleteRows = false;
+            this.dgvProductos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(68, 157);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.RowHeadersWidth = 62;
+            this.dgvProductos.RowTemplate.Height = 28;
+            this.dgvProductos.Size = new System.Drawing.Size(240, 150);
+            this.dgvProductos.TabIndex = 11;
             // 
             // label5
             // 
@@ -186,17 +188,17 @@
             this.dateTimePickerVenta.Size = new System.Drawing.Size(318, 26);
             this.dateTimePickerVenta.TabIndex = 15;
             // 
-            // lblMensajeVentas
+            // lblClienteNuevo
             // 
-            this.lblMensajeVentas.AutoSize = true;
-            this.lblMensajeVentas.BackColor = System.Drawing.SystemColors.Control;
-            this.lblMensajeVentas.Font = new System.Drawing.Font("Century Gothic", 8F);
-            this.lblMensajeVentas.ForeColor = System.Drawing.Color.Green;
-            this.lblMensajeVentas.Location = new System.Drawing.Point(234, 97);
-            this.lblMensajeVentas.Name = "lblMensajeVentas";
-            this.lblMensajeVentas.Size = new System.Drawing.Size(57, 21);
-            this.lblMensajeVentas.TabIndex = 16;
-            this.lblMensajeVentas.Text = "label6";
+            this.lblClienteNuevo.AutoSize = true;
+            this.lblClienteNuevo.BackColor = System.Drawing.SystemColors.Control;
+            this.lblClienteNuevo.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.lblClienteNuevo.ForeColor = System.Drawing.Color.Green;
+            this.lblClienteNuevo.Location = new System.Drawing.Point(234, 97);
+            this.lblClienteNuevo.Name = "lblClienteNuevo";
+            this.lblClienteNuevo.Size = new System.Drawing.Size(57, 21);
+            this.lblClienteNuevo.TabIndex = 16;
+            this.lblClienteNuevo.Text = "label6";
             // 
             // lblMensajes
             // 
@@ -235,22 +237,45 @@
             this.btnVolveraMenu.UseVisualStyleBackColor = false;
             this.btnVolveraMenu.Click += new System.EventHandler(this.btnVolverMenu_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 20);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "label6";
+            // 
+            // lblAlertadecuentoCatElectroHogar
+            // 
+            this.lblAlertadecuentoCatElectroHogar.AutoSize = true;
+            this.lblAlertadecuentoCatElectroHogar.BackColor = System.Drawing.SystemColors.Control;
+            this.lblAlertadecuentoCatElectroHogar.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.lblAlertadecuentoCatElectroHogar.ForeColor = System.Drawing.Color.Green;
+            this.lblAlertadecuentoCatElectroHogar.Location = new System.Drawing.Point(493, 365);
+            this.lblAlertadecuentoCatElectroHogar.Name = "lblAlertadecuentoCatElectroHogar";
+            this.lblAlertadecuentoCatElectroHogar.Size = new System.Drawing.Size(57, 21);
+            this.lblAlertadecuentoCatElectroHogar.TabIndex = 37;
+            this.lblAlertadecuentoCatElectroHogar.Text = "label6";
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblAlertadecuentoCatElectroHogar);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnVolveraMenu);
             this.Controls.Add(this.lblPrimeraCompra);
             this.Controls.Add(this.lblMensajes);
-            this.Controls.Add(this.lblMensajeVentas);
+            this.Controls.Add(this.lblClienteNuevo);
             this.Controls.Add(this.dateTimePickerVenta);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.numericUpDownCantidad);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dgvProductosaRegistrar);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dgvProductos);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnRemoverItem);
@@ -260,7 +285,8 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmVenta";
             this.Text = " Registrar Venta";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosaRegistrar)).EndInit();
+            this.Load += new System.EventHandler(this.FrmVenta_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -276,15 +302,17 @@
         private System.Windows.Forms.Button btnRemoverItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dgvProductosaRegistrar;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numericUpDownCantidad;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DateTimePicker dateTimePickerVenta;
-        private System.Windows.Forms.Label lblMensajeVentas;
+        private System.Windows.Forms.Label lblClienteNuevo;
         private System.Windows.Forms.Label lblMensajes;
         private System.Windows.Forms.Label lblPrimeraCompra;
         private System.Windows.Forms.Button btnVolveraMenu;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblAlertadecuentoCatElectroHogar;
     }
 }

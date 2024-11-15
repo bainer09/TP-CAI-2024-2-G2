@@ -17,7 +17,13 @@ namespace TemplateTPIntegrador
     public partial class FrmProducto : Form
     {
         private int perfilUsuario;
-        private int idCategoria;
+        public FrmProducto(int perfilUsuario)
+        {
+            InitializeComponent();
+            this.FormClosing += FrmProducto_FormClosing;
+            this.perfilUsuario = perfilUsuario;
+        }
+        private int IdCategoria;
         private string idProveedor;
         private string nombreProveedor;
         private string apellidoProveedor;
@@ -32,18 +38,10 @@ namespace TemplateTPIntegrador
         private void FrmProducto_Load(object sender, EventArgs e)
         {
             //ProductoPersistente.PoblarproductoLocal();
-            //cargarProductos();
+            cargarProductos();
             cargarProveedores();
             //cargarCategorias();
         }
-
-        public FrmProducto(int perfilUsuario)
-        {
-            InitializeComponent();
-            this.FormClosing += FrmProducto_FormClosing;
-            this.perfilUsuario = perfilUsuario;
-        }
-
         
 
         private void FrmProducto_FormClosing(object sender, FormClosingEventArgs e)
@@ -114,13 +112,11 @@ namespace TemplateTPIntegrador
             var bindingList = new BindingList<Producto>(productos);
             var source = new BindingSource(bindingList, null);
             dgvProductosenStock.DataSource = source;
-            dgvProductosenStock.Columns["Id"].Visible = false;
-            dgvProductosenStock.Columns["FechaBaja"].Visible = false;
-            dgvProductosenStock.Columns["IdUsuario"].Visible = false;
-            dgvProductosenStock.Columns["IdProveedor"].Visible = false;
-            dgvProductosenStock.Columns["Cantidad"].Visible = false;
-            dgvProductosenStock.Columns["NombreProveedor"].Visible = false;
-            dgvProductosenStock.Columns["ApellidoProveedor"].Visible = false;
+            dgvProductosenStock.Columns["id"].Visible = false;
+            dgvProductosenStock.Columns["fechaBaja"].Visible = false;
+            dgvProductosenStock.Columns["idUsuario"].Visible = false;
+            dgvProductosenStock.Columns["idProveedor"].Visible = false;
+            dgvProductosenStock.Columns["stock"].Visible = false;
             dgvProductosenStock.CellFormatting += DataGridViewProducto_CellFormatting;
         }
 
@@ -174,19 +170,34 @@ namespace TemplateTPIntegrador
                     return;
                 }
 
-                idCategoria = categoriasSeleccionadas.First(c => c != 0);
+                IdCategoria = categoriasSeleccionadas.First(c => c != 0);
 
-                //MYR a chequear
-                //productoNegocio.AltaProducto(guidUsuario.ToString(), idCategoria, proveedorSeleccionado.Id.ToString(), proveedorSeleccionado.Nombre, proveedorSeleccionado.Apellido, txtNombre.Text.Trim(), precio, (int)numericUpDownStock.Value);
+                Guid proveedor = proveedorSeleccionado.Id;
+                string Nombre = txtNombre.Text.Trim();
+                int Stock = (int)numericUpDownStock.Value;
+                double Precio = double.Parse(txtPrecio.Text);
 
-                //cargarProductos();
+                AltaProducto nuevoProducto = new AltaProducto(IdCategoria, guidUsuario, proveedor, Nombre, Precio, Stock)
+                {
+                    idUsuario = guidUsuario,
+                    idCategoria = IdCategoria,
+                    idProveedor = proveedor,
+                    nombre = Nombre,
+                    precio = Precio,
+                    stock = Stock,
+                };
+
+                productoNegocio.AltaProducto(nuevoProducto);
+
+                cargarProductos();
                 MostrarMensajeAlerta("Producto agregado con éxito.", Color.Green);
 
                 LimpiarSeleccion();
             }
             catch (Exception ex)
             {
-                MostrarMensajeAlerta("Se ha producido un error. Contacte a su administrador del sistema.", Color.Red);
+                //MostrarMensajeAlerta("Se ha producido un error. Contacte a su administrador del sistema.", Color.Red);
+                MostrarMensajeAlerta(ex.Message, Color.Red);
             }
         }
 
@@ -201,11 +212,11 @@ namespace TemplateTPIntegrador
 
             dgvProdProveedor.DataSource = source;
             dgvProdProveedor.AutoGenerateColumns = true;
-            dgvProdProveedor.Columns["Id"].Visible = false;
-            dgvProdProveedor.Columns["FechaAlta"].Visible = false;
-            dgvProdProveedor.Columns["FechaBaja"].Visible = false;
-            dgvProdProveedor.Columns["Email"].Visible = false;
-            dgvProdProveedor.Columns["IdUsuario"].Visible = false;
+            dgvProdProveedor.Columns["id"].Visible = false;
+            dgvProdProveedor.Columns["fechaAlta"].Visible = false;
+            dgvProdProveedor.Columns["fechaBaja"].Visible = false;
+            dgvProdProveedor.Columns["email"].Visible = false;
+            dgvProdProveedor.Columns["idUsuario"].Visible = false;
         
         }
 
