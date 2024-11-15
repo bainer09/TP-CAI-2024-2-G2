@@ -50,7 +50,7 @@ namespace Negocio
                 DateTime.Now,
                 venta.montoTotal
             );
-            VentaP.AgregarVentaLocal(nuevaVenta);
+            //VentaP.AgregarVentaLocal(nuevaVenta);
         }
         public List<GetVenta> ObtenerVentasPorCliente(Guid idCliente)
         {
