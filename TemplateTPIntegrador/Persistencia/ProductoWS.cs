@@ -183,7 +183,7 @@ namespace Persistencia
             }
             catch (Exception e) { throw new Exception("Error al dar de baja el producto en forma local.\n", e); }
         }
-        public void ModificarProductoLocal(string idProducto, double precio, int stock)
+        public void ModificarProductoLocal(Guid idProducto, double precio, int stock)
         {
             string json = File.ReadAllText(productosPath);
             List<Producto> productos = JsonConvert.DeserializeObject<List<Producto>>(json);
@@ -201,7 +201,7 @@ namespace Persistencia
             }
             catch (Exception e) { throw new Exception("Error al modificar el producto en forma local.\n", e); }
         }
-        public void ReactivarProductoLocal(string idProducto)
+        public void ReactivarProductoLocal(Guid idProducto)
         {
             string json = File.ReadAllText(productosPath);
             List<Producto> productos = JsonConvert.DeserializeObject<List<Producto>>(json);
