@@ -8,90 +8,90 @@ namespace Datos
 {
     public class Cliente
     {
-        public string _id { get => _id; set => _id = value; }
-        public string _Nombre { get => _Nombre; set => _Nombre = value; }
-        public string _Apellido { get => _Apellido; set => _Apellido = value; }
-        public string _Direccion { get => _Direccion; set => _Direccion = value; }
-        public string _Telefono { get => _Telefono; set => _Telefono = value; }
-        public string _Email { get => _Email; set => _Email = value; }
-        public int _DNI { get => _DNI; set => _DNI = value; }
-        public DateTime _FechaNacimiento { get => _FechaNacimiento; set => _FechaNacimiento = value; }
-        public DateTime _FechaAlta { get => _FechaAlta; set => _FechaAlta = value; }
-        public DateTime? _FechaBaja { get => _FechaBaja; set => _FechaBaja = value; }
-        public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
-        public string _Host { get => _Host; set => _Host = value; }
+        public Guid id { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public string direccion { get; set; }
+        public string telefono { get; set; }
+        public string email { get; set; }
+        public int dni { get; set; }
+        public DateTime fechaNacimiento { get; set; }
+        public DateTime fechaAlta { get; set; }
+        public DateTime? fechaBaja { get; set; }
+        public Guid idUsuario { get; set; }
+        public string host { get; set; }
 
-        public Cliente(string id, string nombre, string apellido, string direccion, string telefono, string email, int dNI, DateTime fechaNacimiento, DateTime fechaAlta, DateTime? fechaBaja, string idUsuario, string host = "Grupo 2")
+        public Cliente(Guid id, string nombre, string apellido, string direccion, string telefono, string email, int dNI, DateTime fechaNacimiento, DateTime fechaAlta, DateTime? fechaBaja, Guid idUsuario, string host = "Grupo 2")
         {
-            _id = id;
-            _Nombre = nombre;
-            _Apellido = apellido;
-            _Direccion = direccion;
-            _Telefono = telefono;
-            _Email = email;
-            _DNI = dNI;
-            _FechaNacimiento = fechaNacimiento;
-            _FechaAlta = fechaAlta;
-            _FechaBaja = fechaBaja;
-            _idUsuario = idUsuario;
-            _Host = host;
+            this.id = id;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.direccion = direccion;
+            this.telefono = telefono;
+            this.email = email;
+            this.dni = dNI;
+            this.fechaNacimiento = fechaNacimiento;
+            this.fechaAlta = fechaAlta;
+            this.fechaBaja = fechaBaja;
+            this.idUsuario = idUsuario;
+            this.host = host;
         }
         public Cliente() {}
     }
     public class AltaCliente
     {
-        public string _idUsuario { get => _idUsuario; set => _idUsuario = value; }
-        public string _Nombre { get => _Nombre; set => _Nombre = value; }
-        public string _Apellido { get => _Apellido; set => _Apellido = value; }
-        public int _DNI { get => _DNI; set => _DNI = value; }
-        public string _Direccion { get => _Direccion; set => _Direccion = value; }
-        public string _Telefono { get => _Telefono; set => _Telefono = value; }
-        public string _Email { get => _Email; set => _Email = value; }
-        public DateTime _FechaNacimiento { get => _FechaNacimiento; set => _FechaNacimiento = value; }
-        public string _Host { get => _Host ; set => _Host = value; }
+        public Guid idUsuario { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public int dni { get; set; }
+        public string direccion { get; set; }
+        public string telefono { get; set; }
+        public string email { get; set; }
+        public DateTime fechaNacimiento { get; set; }
+        public string host { get; set; }
 
-        public AltaCliente(string idUsuario, string nombre, string apellido, int DNI, string direccion, string telefono, string email, DateTime fechaNacimiento, string host = "Grupo 2")
+        public AltaCliente(Guid idUsuario, string nombre, string apellido, int DNI, string direccion, string telefono, string email, DateTime fechaNacimiento, string host = "Grupo 2")
         {
-            _idUsuario = idUsuario;
-            _Nombre = nombre;
-            _Apellido = apellido;
-            _DNI = DNI;
-            _Direccion = direccion;
-            _Telefono = telefono;
-            _Email = email;
-            _FechaNacimiento = fechaNacimiento;
-            _Host = host;
+            this.idUsuario = idUsuario;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.dni = DNI;
+            this.direccion = direccion;
+            this.telefono = telefono;
+            this.email = email;
+            this.fechaNacimiento = fechaNacimiento;
+            this.host = host;
         }
     }
     public class ModificarCliente
     {
-        public string _id { get => _id; set => _id = value; }
-        public string _Direccion { get => _Direccion; set => _Direccion = value; }
-        public string _Telefono { get => _Telefono; set => _Telefono = value; }
-        public string _Email { get => _Email; set => _Email = value; }
+        public Guid id { get; set; }
+        public string direccion { get; set; }
+        public string telefono { get; set; }
+        public string email { get; set; }
 
-        public ModificarCliente(string id, string direccion, string telefono, string email)
+        public ModificarCliente(Guid id, string direccion, string telefono, string email)
         {
-            _id = id;
-            _Direccion = direccion;
-            _Telefono = telefono;
-            _Email = email;
+            this.id = id;
+            this.direccion = direccion;
+            this.telefono = telefono;
+            this.email = email;
         }
     }
     public class BajaCliente
     {
-        public string _id { get => _id; set => _id = value; }
-        public BajaCliente(string id)
+        public Guid id { get; set; }
+        public BajaCliente(Guid id)
         {
-            _id = id;
+            this.id = id;
         }
     }
     public class ReactivarCliente
     {
-        public string _id { get => _id; set => _id = value; }
-        public ReactivarCliente(string id)
+        public Guid id { get; set; }
+        public ReactivarCliente(Guid id)
         {
-            _id = id;
+            this.id = id;
         }
     }
 }

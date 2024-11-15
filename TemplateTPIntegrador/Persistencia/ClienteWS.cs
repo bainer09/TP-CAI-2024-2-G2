@@ -150,13 +150,13 @@ namespace Persistencia
         {
             string json = File.ReadAllText(clientesPath);
             List<Cliente> clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
-            Cliente clienteModificacion = clientes.Find(c => c._DNI == DNI);
+            Cliente clienteModificacion = clientes.Find(c => c.dni == DNI);
 
             if (clienteModificacion == null) { throw new Exception("Cliente no encontrado."); }
 
-            clienteModificacion._Direccion = cliente._Direccion;
-            clienteModificacion._Telefono = cliente._Telefono;
-            clienteModificacion._Email = cliente._Email;
+            clienteModificacion.direccion = cliente.direccion;
+            clienteModificacion.telefono = cliente.telefono;
+            clienteModificacion.email = cliente.email;
 
             try
             {
@@ -169,7 +169,7 @@ namespace Persistencia
         {
             string json = File.ReadAllText(clientesPath);
             List<Cliente> clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
-            List<Cliente> clientesFiltrados = clientes.FindAll(c => c._DNI != DNI);
+            List<Cliente> clientesFiltrados = clientes.FindAll(c => c.dni != DNI);
 
             try
             {

@@ -13,8 +13,7 @@ namespace Persistencia
 {
     public class UsuarioWS
     {
-        private const string usuariosPath = "C:/Users/oskie/OneDrive/DOCUMENTOS v2/FACULTAD/CONSTRUCCIÓN DE APLICACIONES INFORMÁTICAS/TP/ElectroHogar SA/TemplateTPIntegrador/Persistencia/Data/Usuarios.json";
-        //private const string usuariosPath = @"/TemplateTPIntegrador/Persistencia/Data/Usuarios.json";
+        private const string usuariosPath = @"/TemplateTPIntegrador/Persistencia/Data/Usuarios.json";
         public List<Usuario> GetUsuarios(string admin)
         {
             string apiPath = $"Usuario/TraerUsuariosActivos?id={admin}";

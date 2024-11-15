@@ -14,8 +14,7 @@ namespace Negocio
     {
         private readonly UsuarioWS usuarioService = new UsuarioWS();
         private const string IdAdministrador = "9ea1c0da-e541-4846-a9de-8478664a87bb";
-        private const string bajasPath = "C:/Users/oskie/OneDrive/DOCUMENTOS v2/FACULTAD/CONSTRUCCIÓN DE APLICACIONES INFORMÁTICAS/TP/ElectroHogar SA/TemplateTPIntegrador/Persistencia/Data/Bajas_Usuario.json";
-        //private const string bajasPath = @"/TemplateTPIntegrador/Persistencia/Data/Bajas_Usuario.json";
+        private const string bajasPath = @"/TemplateTPIntegrador/Persistencia/Data/Bajas_Usuario.json";
 
         public void AgregarUsuario(string guidUsuarioString, int host, string nombre, string apellido, int dni, string direccion, string telefono, string email, DateTime fechaNacimiento, string nombreUsuario, string contraseña)
         {

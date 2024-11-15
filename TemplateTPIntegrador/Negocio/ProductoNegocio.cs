@@ -22,23 +22,23 @@ namespace Negocio
 
             Producto nuevoProducto = new Producto
             {
-                nombre = producto._Nombre,
-                precio = producto._Precio,
-                stock = producto._Stock,
-                idCategoria = producto._idCategoria,
-                idProveedor = producto._idProveedor,
+                nombre = producto.nombre,
+                precio = producto.precio,
+                stock = producto.stock,
+                idCategoria = producto.idCategoria,
+                idProveedor = producto.idProveedor,
                 fechaAlta = DateTime.Now,
                 fechaBaja = null
             };
             ProductoP.AltaProductoLocal(nuevoProducto);
         }
-        public void ModificarProducto(string idProducto, string idUsuario, double precio, int stock)
+        public void ModificarProducto(Guid idProducto, Guid idUsuario, double precio, int stock)
         {
             ModificarProducto productoModificado = new ModificarProducto(idProducto, idUsuario, precio, stock);
             ProductoWS.ModificarProducto(productoModificado);
             ProductoP.ModificarProductoLocal(idProducto, precio, stock);
         }
-        public void BajaProducto(string idProducto, string idUsuario, string nombreProducto)
+        public void BajaProducto(Guid idProducto, Guid idUsuario, string nombreProducto)
         {
             BajaProducto productoBaja = new BajaProducto(idProducto, idUsuario);
             ProductoWS.BajaProducto(productoBaja);
@@ -48,12 +48,12 @@ namespace Negocio
         {
             return ProductoWS.GetProductos();
         }
-        public void ReactivarProducto(string idProducto, string idUsuario, string nombreProducto)
+        public void ReactivarProducto(Guid idProducto, Guid idUsuario)
         {
             ReactivarProducto productoReactivado = new ReactivarProducto(idProducto, idUsuario);
 
             ProductoWS.ReactivarProducto(productoReactivado);
-            ProductoP.ReactivarProductoLocal(nombreProducto);
+            ProductoP.ReactivarProductoLocal(idProducto);
         }
         public int ProductosConStockCritico()
         {
