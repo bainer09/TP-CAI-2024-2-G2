@@ -12,7 +12,7 @@ namespace Negocio
     public class ClienteNegocio
     {
         private ClienteWS ClienteWS = new ClienteWS();
-        private ClientePersistente ClienteP = new ClientePersistente();
+        //private ClientePersistente ClienteP = new ClientePersistente();
         public void AltaCliente(AltaCliente cliente)
         {
             ClienteWS.AltaCliente(cliente);
@@ -25,13 +25,13 @@ namespace Negocio
                 direccion = cliente.direccion,
                 email = cliente.email,
             };
-            ClienteP.AltaClienteLocal(nuevoCliente);
+            //ClienteP.AltaClienteLocal(nuevoCliente);
         }
         public void ModificarCliente(ModificarCliente cliente, int DNI)
         {
             try {
                 ClienteWS.ModificarCliente(cliente);
-                ClienteP.ModificarClienteLocal(cliente, DNI);
+                //ClienteP.ModificarClienteLocal(cliente, DNI);
             }
             catch (Exception e) { throw new Exception("Error: ", e); }
         }

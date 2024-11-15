@@ -66,18 +66,18 @@ namespace TemplateTPIntegrador
             this.Hide();
         }
 
-        private void dateTimePickerVenta_ValueChanged(object sender, EventArgs e)
-        {
-            cargarProductos();
-        }
+        //private void dateTimePickerVenta_ValueChanged(object sender, EventArgs e)
+        //{
+        //   cargarProductos();
+        //}
 
 
         private void cargarProductos()
         {
-            DateTime fechaSeleccionada = dateTimePickerVenta.Value;
+            //DateTime fechaSeleccionada = dateTimePickerVenta.Value;
 
             List<Producto> productos = productoNegocio.ObtenerProductos();
-            productos = productos.Where(p => p.fechaAlta >= fechaSeleccionada).ToList();
+            //productos = productos.Where(p => p.fechaAlta >= fechaSeleccionada).ToList();
             productos = productos.OrderBy(p => p.nombre).ToList();
 
             var bindingList = new BindingList<Producto>(productos);
@@ -92,7 +92,7 @@ namespace TemplateTPIntegrador
 
         private void OcultarColumnasInnecesarias()
         {
-            var columnasAEliminar = new[] { "id", "fechaBaja", "idUsuario", "idProveedor", "stock"};
+            var columnasAEliminar = new[] { "id", "fechaBaja", "idUsuario", "idProveedor", "stock" };
             foreach (var columna in columnasAEliminar)
             {
                 dgvProductos.Columns[columna].Visible = false;
@@ -113,18 +113,12 @@ namespace TemplateTPIntegrador
             List<Cliente> clientes = clienteNegocio.ObtenerClientes();
             clientes = clientes.OrderBy(c => c.apellido).ToList();
 
-            var listaAMostrarClientes = clientes.Select(c => new
-            {
-                Id = c.id,
-                NombreCompleto = $"{c.nombre} {c.apellido}"
-            }).ToList();
+            // Asignar la lista de clientes directamente
+            cmbCliente.DataSource = clientes;
+            cmbCliente.DisplayMember = "NombreCompleto"; // Mostramos el nombre completo en el ComboBox
+            cmbCliente.ValueMember = "id"; // El id es el valor asociado con la selección
 
-            listaAMostrarClientes = listaAMostrarClientes.OrderBy(c =>c.NombreCompleto).ToList();
-
-            cmbCliente.DataSource = listaAMostrarClientes;          
-            cmbCliente.DisplayMember = "NombreCompleto";        
-            cmbCliente.ValueMember = "id";                     
-            cmbCliente.SelectedIndex = -1;
+            cmbCliente.SelectedIndex = -1; // No seleccionar ninguno al inicio
         }
 
         private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
@@ -240,6 +234,7 @@ namespace TemplateTPIntegrador
                 };
                 carrito.Add(productoAgregar);
             }
+            lblMensajes.Visible = false;
         }
 
         private void actualizarCarrito()
@@ -250,14 +245,14 @@ namespace TemplateTPIntegrador
                                             .Select(g => new
                                             {
                                                 Producto = g.First(),
-                                                Cantidad = g.Sum(p => p.cantidadVendida) 
+                                                Cantidad = g.Sum(p => p.cantidadVendida)
                                             }).ToList();
 
             double totalSinDescuentos = productosAgrupados.Sum(p => p.Producto.precio * p.Cantidad);
             double descuentoPrimeraCompra = ventaNegocio.PromoPrimeraCompra(totalSinDescuentos);
             double descuentoElectroHogar = ventaNegocio.PromoElectroHogar(carrito);
             double totalConDescuento = totalSinDescuentos - descuentoElectroHogar - descuentoPrimeraCompra;
-            
+
             foreach (var item in productosAgrupados)
             {
                 var producto = item.Producto;
@@ -268,7 +263,7 @@ namespace TemplateTPIntegrador
                 };
                 listViewItem.SubItems.Add(producto.precio.ToString("C"));
                 listViewItem.SubItems.Add(cantidad.ToString());
-                lvCarrito.Items.Add(listViewItem); 
+                lvCarrito.Items.Add(listViewItem);
             }
 
             lblTotal.Text = $"Total: {totalConDescuento:C}";
@@ -307,12 +302,9 @@ namespace TemplateTPIntegrador
         {
             dgvProductos.Refresh();
         }
-
-
         private void btnRegistrarVenta_Click(object sender, EventArgs e)
-
         {
-            
+
             if (carrito.Count == 0)
             {
                 lblClienteNuevo.Visible = true;
@@ -367,4 +359,3 @@ namespace TemplateTPIntegrador
         }
     }
 }
-
