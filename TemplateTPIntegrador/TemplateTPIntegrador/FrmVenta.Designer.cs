@@ -46,7 +46,7 @@
             this.lblPrimeraCompra = new System.Windows.Forms.Label();
             this.btnVolveraMenu = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.lblAlertadecuentoCatElectroHogar = new System.Windows.Forms.Label();
+            this.lblAlertadescuentoCatElectroHogar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.SuspendLayout();
@@ -196,9 +196,10 @@
             this.lblClienteNuevo.ForeColor = System.Drawing.Color.Green;
             this.lblClienteNuevo.Location = new System.Drawing.Point(234, 97);
             this.lblClienteNuevo.Name = "lblClienteNuevo";
-            this.lblClienteNuevo.Size = new System.Drawing.Size(57, 21);
+            this.lblClienteNuevo.Size = new System.Drawing.Size(135, 21);
             this.lblClienteNuevo.TabIndex = 16;
-            this.lblClienteNuevo.Text = "label6";
+            this.lblClienteNuevo.Text = "lblClienteNuevo";
+            this.lblClienteNuevo.Visible = false;
             // 
             // lblMensajes
             // 
@@ -206,11 +207,12 @@
             this.lblMensajes.BackColor = System.Drawing.SystemColors.Control;
             this.lblMensajes.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.lblMensajes.ForeColor = System.Drawing.Color.Green;
-            this.lblMensajes.Location = new System.Drawing.Point(342, 373);
+            this.lblMensajes.Location = new System.Drawing.Point(493, 345);
             this.lblMensajes.Name = "lblMensajes";
-            this.lblMensajes.Size = new System.Drawing.Size(57, 21);
+            this.lblMensajes.Size = new System.Drawing.Size(98, 21);
             this.lblMensajes.TabIndex = 17;
-            this.lblMensajes.Text = "label6";
+            this.lblMensajes.Text = "lblMensajes";
+            this.lblMensajes.Visible = false;
             // 
             // lblPrimeraCompra
             // 
@@ -220,9 +222,10 @@
             this.lblPrimeraCompra.ForeColor = System.Drawing.Color.Green;
             this.lblPrimeraCompra.Location = new System.Drawing.Point(234, 125);
             this.lblPrimeraCompra.Name = "lblPrimeraCompra";
-            this.lblPrimeraCompra.Size = new System.Drawing.Size(57, 21);
+            this.lblPrimeraCompra.Size = new System.Drawing.Size(150, 21);
             this.lblPrimeraCompra.TabIndex = 18;
-            this.lblPrimeraCompra.Text = "label6";
+            this.lblPrimeraCompra.Text = "lblPrimeraCompra";
+            this.lblPrimeraCompra.Visible = false;
             // 
             // btnVolveraMenu
             // 
@@ -246,17 +249,18 @@
             this.label6.TabIndex = 36;
             this.label6.Text = "label6";
             // 
-            // lblAlertadecuentoCatElectroHogar
+            // lblAlertadescuentoCatElectroHogar
             // 
-            this.lblAlertadecuentoCatElectroHogar.AutoSize = true;
-            this.lblAlertadecuentoCatElectroHogar.BackColor = System.Drawing.SystemColors.Control;
-            this.lblAlertadecuentoCatElectroHogar.Font = new System.Drawing.Font("Century Gothic", 8F);
-            this.lblAlertadecuentoCatElectroHogar.ForeColor = System.Drawing.Color.Green;
-            this.lblAlertadecuentoCatElectroHogar.Location = new System.Drawing.Point(493, 365);
-            this.lblAlertadecuentoCatElectroHogar.Name = "lblAlertadecuentoCatElectroHogar";
-            this.lblAlertadecuentoCatElectroHogar.Size = new System.Drawing.Size(57, 21);
-            this.lblAlertadecuentoCatElectroHogar.TabIndex = 37;
-            this.lblAlertadecuentoCatElectroHogar.Text = "label6";
+            this.lblAlertadescuentoCatElectroHogar.AutoSize = true;
+            this.lblAlertadescuentoCatElectroHogar.BackColor = System.Drawing.SystemColors.Control;
+            this.lblAlertadescuentoCatElectroHogar.Font = new System.Drawing.Font("Century Gothic", 8F);
+            this.lblAlertadescuentoCatElectroHogar.ForeColor = System.Drawing.Color.Green;
+            this.lblAlertadescuentoCatElectroHogar.Location = new System.Drawing.Point(493, 379);
+            this.lblAlertadescuentoCatElectroHogar.Name = "lblAlertadescuentoCatElectroHogar";
+            this.lblAlertadescuentoCatElectroHogar.Size = new System.Drawing.Size(142, 21);
+            this.lblAlertadescuentoCatElectroHogar.TabIndex = 37;
+            this.lblAlertadescuentoCatElectroHogar.Text = "lbldescuentoCat";
+            this.lblAlertadescuentoCatElectroHogar.Visible = false;
             // 
             // FrmVenta
             // 
@@ -264,7 +268,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblAlertadecuentoCatElectroHogar);
+            this.Controls.Add(this.lblAlertadescuentoCatElectroHogar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnVolveraMenu);
             this.Controls.Add(this.lblPrimeraCompra);
@@ -285,6 +289,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmVenta";
             this.Text = " Registrar Venta";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).EndInit();
@@ -313,6 +318,6 @@
         private System.Windows.Forms.Label lblPrimeraCompra;
         private System.Windows.Forms.Button btnVolveraMenu;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblAlertadecuentoCatElectroHogar;
+        private System.Windows.Forms.Label lblAlertadescuentoCatElectroHogar;
     }
 }
