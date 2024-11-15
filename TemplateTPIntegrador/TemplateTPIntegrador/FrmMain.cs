@@ -90,8 +90,8 @@ namespace Presentacion
         public void btnLogOut_Click(object sender, EventArgs e) => AbrirFormulario(new FrmLogin());
         public void strpNuevaVenta_Click(object sender, EventArgs e)
         {
-            FrmComprobante frmComprobante = new FrmComprobante();
-            AbrirFormulario(new FrmVenta(frmComprobante));
+           FrmComprobante frmComprobante = new FrmComprobante();
+           AbrirFormulario(new FrmVenta(perfilUsuario, frmComprobante));
         }
         public void strpDevolucionVenta_Click(object sender, EventArgs e) => AbrirFormulario(new FrmDevolverVenta(perfilUsuario));
         private void FrmMain_Load(object sender, EventArgs e)

@@ -220,5 +220,35 @@ namespace Persistencia
             catch (Exception e) { throw new Exception("Error al reactivar el producto en forma local.\n", e); }
 
         }
+
+        //Metodo que no esta funcionando por problema en el foreach
+        /*public void PoblarProductosLocales()
+        {
+            try
+            {
+                if (!File.Exists(productosPath) || new FileInfo(productosPath).Length == 0)
+                {
+                    var productos = new List<Producto>();
+
+                    foreach (int Categoria in Categorias.categoriasProducto.Keys)
+                    {
+                        var productosPorCategoria = ProductoWS.GetProductosporCategoria((int)categoria);
+
+                        if (productosPorCategoria != null && productosPorCategoria.Any())
+                        {
+                            productos.AddRange(productosPorCategoria);
+                        }
+                    }
+                    var serializedData = JsonConvert.SerializeObject(productos, Formatting.Indented);
+
+                    File.WriteAllText(productosPath, serializedData);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al cargar los productos desde en forma local");
+            }
+        }*/
+
     }
 }
