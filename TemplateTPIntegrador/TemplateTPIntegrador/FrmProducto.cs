@@ -37,10 +37,8 @@ namespace TemplateTPIntegrador
 
         private void FrmProducto_Load(object sender, EventArgs e)
         {
-            //ProductoPersistente.PoblarproductoLocal();
             cargarProductos();
             cargarProveedores();
-            //cargarCategorias();
         }
         
 
@@ -94,16 +92,6 @@ namespace TemplateTPIntegrador
             chkSmartTV.Checked = false;
 
         }
-        //Eliminar?
-       /* private Producto ObtenerProductoSeleccionado()
-        {
-            if (dgwProductoAMostrar.CurrentRow == null)
-            {
-                MostrarMensajeAlerta("Seleccione un producto antes de continuar.", Color.Red);
-                return null;
-            }
-            return (Producto)dgwProductoAMostrar.CurrentRow.DataBoundItem;
-        }*/
 
         private void cargarProductos()
         {
@@ -166,7 +154,7 @@ namespace TemplateTPIntegrador
 
                 if (cantidadCategorias == 0 || cantidadCategorias > 1)
                 {
-                    MostrarMensajeAlerta(cantidadCategorias == 0 ? "Seleccione una categoría." : "Solo puede elegir una categoría.", Color.Red);
+                    MostrarMensajeAlerta(cantidadCategorias == 0 ? "Por favor, seleccione una categoría." : "Solo puede elegir una categoría.", Color.Red);
                     return;
                 }
 
@@ -196,8 +184,9 @@ namespace TemplateTPIntegrador
             }
             catch (Exception ex)
             {
-                //MostrarMensajeAlerta("Se ha producido un error. Contacte a su administrador del sistema.", Color.Red);
-                MostrarMensajeAlerta(ex.Message, Color.Red);
+                MostrarMensajeAlerta("No se ha podido agregar el producto.", Color.Red);
+
+
             }
         }
 
@@ -220,60 +209,11 @@ namespace TemplateTPIntegrador
         
         }
 
-        /*private void cargarCategorias()
-        {
-            var categorias = new Categorias().categoriasProducto.Select(c => new { Name = c.Value, Value = c.Key }).ToList();
-            cbCategoriasdeProductos.DataSource = categorias;
-            cbCategoriasdeProductos.DisplayMember = "Name";
-            cbCategoriasdeProductos.ValueMember = "Value";
-            cbCategoriasdeProductos.SelectedIndex = -1;
-            cbCategoriasdeProductos.SelectedIndexChanged += cbCategoriasdeProductos_SelectedIndexChanged;
-        }*/
-
-
-
-        /*private void dataGridViewProductoporCategoria_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dgvProductoporCategoria.Columns[e.ColumnIndex].Name == "Precio" && e.Value != null && double.TryParse(e.Value.ToString(), out double precio))
-            {
-                e.Value = precio.ToString("C");
-                e.FormattingApplied = true;
-            }
-        }*/
-
         private void numericUpDownStock_ValueChanged(object sender, EventArgs e)
         {
             stockModificado = true;
         }
 
-
-
-        //Para sacar?
-        /*
-         * 
-         *private void numericUpDownStock_ValueChanged(object sender, EventArgs e)
-            {
-                stockModificado = true;
-            }
-
-         * private void linkLabelProductosporCategoria_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            MostrarGroupBox(groupBoxProdporCategoria);
-        }
-
-        private void linkLabelStock_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            MostrarGroupBox(groupBoxStock);
-        }
-
-        private void MostrarGroupBox(GroupBox groupBoxToShow)
-        {
-            groupBoxProductosBaja.Visible = false;
-            groupBoxProdporCategoria.Visible = false;
-            groupBoxStock.Visible = false;
-            groupBoxToShow.Visible = true;
-        }
-        */
 
     }
 }

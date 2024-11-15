@@ -232,7 +232,7 @@ namespace TemplateTPIntegrador
             this.btnVolveraMenu.BackColor = System.Drawing.SystemColors.Control;
             this.btnVolveraMenu.Font = new System.Drawing.Font("Century Gothic", 10.75F, System.Drawing.FontStyle.Bold);
             this.btnVolveraMenu.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnVolveraMenu.Location = new System.Drawing.Point(1395, 33);
+            this.btnVolveraMenu.Location = new System.Drawing.Point(1022, 29);
             this.btnVolveraMenu.Name = "btnVolveraMenu";
             this.btnVolveraMenu.Size = new System.Drawing.Size(160, 76);
             this.btnVolveraMenu.TabIndex = 34;
@@ -256,7 +256,7 @@ namespace TemplateTPIntegrador
             this.dgvProdProveedor.ReadOnly = true;
             this.dgvProdProveedor.RowHeadersWidth = 62;
             this.dgvProdProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProdProveedor.Size = new System.Drawing.Size(819, 193);
+            this.dgvProdProveedor.Size = new System.Drawing.Size(449, 193);
             this.dgvProdProveedor.TabIndex = 35;
             // 
             // dgvProductosenStock
@@ -271,7 +271,7 @@ namespace TemplateTPIntegrador
             this.dgvProductosenStock.ReadOnly = true;
             this.dgvProductosenStock.RowHeadersWidth = 62;
             this.dgvProductosenStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductosenStock.Size = new System.Drawing.Size(819, 193);
+            this.dgvProductosenStock.Size = new System.Drawing.Size(449, 193);
             this.dgvProductosenStock.TabIndex = 37;
             // 
             // label1
@@ -291,7 +291,7 @@ namespace TemplateTPIntegrador
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1593, 640);
+            this.ClientSize = new System.Drawing.Size(1194, 637);
             this.Controls.Add(this.dgvProductosenStock);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvProdProveedor);
@@ -317,6 +317,7 @@ namespace TemplateTPIntegrador
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FrmProducto";
             this.Text = "Registrar Producto";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresNegocioBindingSource)).EndInit();
