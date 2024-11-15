@@ -11,7 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace TemplateTPIntegrador
 {
@@ -20,26 +19,24 @@ namespace TemplateTPIntegrador
         private ClienteNegocio clienteNegocio = new ClienteNegocio();
         private UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
         private ProductoNegocio productoNegocio = new ProductoNegocio();
-        private int perfildelusuario;
+        private int perfilUsuario;
         private string DNIcliente;
-        private Guid idusuario;
+        private Guid idUsuario;
         string userLogueado = UsuarioLogueado.nombreUsuario;
-        public FrmCliente(int perfiluser)
+
+        public FrmCliente(int perfilUsuario)
         {
             InitializeComponent();
-            this.perfildelusuario = perfiluser;
+            this.perfilUsuario = perfilUsuario;
             this.FormClosing += FrmCliente_cerrar;
-
         }
+
         private void FrmCliente_Load(object sender, EventArgs e)
         {
-            alertacliente.Visible = false;
+            lblAlertaClientes.Visible = false;
             cargarClientes();
-
-
         }
 
-     
         private void cargarClientes()
         {
             List<Cliente> clientes = clienteNegocio.ObtenerClientes();
@@ -49,20 +46,24 @@ namespace TemplateTPIntegrador
             var bindingList = new BindingList<Cliente>(clientes);
             var source = new BindingSource(bindingList, null);
             listaclientes.DataSource = source;
+
+            // Se ocultan las columnas no necesarias
             listaclientes.Columns["id"].Visible = false;
             listaclientes.Columns["fechaBaja"].Visible = false;
-            listaclientes.Columns["NombreCompleto"].Visible = false;
-
+            listaclientes.Columns["idusuario"].Visible = false;
+            listaclientes.Columns["fechaNacimiento"].Visible = false;
+            listaclientes.Columns["fechaAlta"].Visible = false;
         }
+
         private void listacliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Cliente cliente = (Cliente)listaclientes.Rows[listaclientes.CurrentCell.RowIndex].DataBoundItem;
-            textnombrecliente.Text = cliente.nombre;
-            Textapellido.Text = cliente.apellido;
-            texDNI.Text = cliente.dni.ToString();
-            texdireccioncliente.Text = cliente.direccion;
-            textelcliente.Text = cliente.telefono;
-            texemailcliente.Text = cliente.email;
+            txtNombreCliente.Text = cliente.nombre;
+            txtApellido.Text = cliente.apellido;
+            txtDNI.Text = cliente.dni.ToString();
+            txtDireccionCliente.Text = cliente.direccion;
+            txtTelCliente.Text = cliente.telefono;
+            txtEmailCliente.Text = cliente.email;
             fechanaccampo.Value = cliente.fechaNacimiento;
         }
 
@@ -74,40 +75,43 @@ namespace TemplateTPIntegrador
             }
         }
 
-
-
-        private void botondardebajacliente_Click(object sender, EventArgs e)
+        private void btnVolverInicio_Click(object sender, EventArgs e)
         {
+            FrmMain frmMain = new FrmMain(perfilUsuario, usuarioNegocio, productoNegocio);
+            frmMain.Show();
+            this.Hide();
+        }
 
+        private void btnDarBajaCliente_Click(object sender, EventArgs e)
+        {
             try
             {
                 Cliente cliente = (Cliente)listaclientes.Rows[listaclientes.CurrentCell.RowIndex].DataBoundItem;
                 if (cliente == null)
                 {
-                    alertacliente.Visible = true;
-                    alertacliente.ForeColor = Color.Red;
-                    alertacliente.Text = "Seleccione un cliente para eliminar.";
+                    lblAlertaClientes.Visible = true;
+                    lblAlertaClientes.ForeColor = Color.Red;
+                    lblAlertaClientes.Text = "Seleccione un cliente para eliminar.";
                     return;
                 }
 
-                BajaCliente clienteaborrar = new BajaCliente(idusuario);
+                BajaCliente clienteaborrar = new BajaCliente(idUsuario);
                 clienteNegocio.BajaCliente(clienteaborrar);
-                alertacliente.Visible = true;
-                alertacliente.ForeColor = Color.Green;
-                alertacliente.Text = $"El cliente {cliente.nombre} \n {cliente.apellido}\n ha sido dado de baja";
-                cargarClientes();
 
+                lblAlertaClientes.Visible = true;
+                lblAlertaClientes.ForeColor = Color.Green;
+                lblAlertaClientes.Text = $"El cliente {cliente.nombre} {cliente.apellido} ha sido dado de baja";
+                cargarClientes();
             }
             catch (Exception ex)
             {
-                alertacliente.Visible = true;
-                alertacliente.ForeColor = Color.Red;
-                alertacliente.Text = "Se ha detectado un error. Vuelva a intentarlo, \nsi persiste contacte a su administrador.";
+                lblAlertaClientes.Visible = true;
+                lblAlertaClientes.ForeColor = Color.Red;
+                lblAlertaClientes.Text = "Se ha detectado un error. Vuelva a intentarlo, si persiste contacte a su administrador.";
             }
-
         }
 
-        private void Botonmodificarcliente_Click(object sender, EventArgs e)
+        private void btnModificarCliente_Click(object sender, EventArgs e)
         {
             try
             {
@@ -115,170 +119,200 @@ namespace TemplateTPIntegrador
 
                 if (cliente == null)
                 {
-                    alertacliente.Visible = true;
-                    alertacliente.ForeColor = Color.Red;
-                    alertacliente.Text = "Seleccione un cliente para modificar.";
+                    lblAlertaClientes.Visible = true;
+                    lblAlertaClientes.ForeColor = Color.Red;
+                    lblAlertaClientes.Text = "Seleccione un cliente para modificar.";
                     return;
                 }
 
                 string nombreActual = cliente.nombre;
                 string apellidoActual = cliente.apellido;
-                string nombreNuevo = textnombrecliente.Text;
-                string apellidoNuevo = Textapellido.Text;
+                string nombreNuevo = txtNombreCliente.Text;
+                string apellidoNuevo = txtApellido.Text;
 
                 if (nombreActual != nombreNuevo || apellidoActual != apellidoNuevo)
                 {
-                    alertacliente.Visible = true;
-                    alertacliente.ForeColor = Color.Red;
-                    alertacliente.Text = "No se puede modificar Nombre o Apellido.";
+                    lblAlertaClientes.Visible = true;
+                    lblAlertaClientes.ForeColor = Color.Red;
+                    lblAlertaClientes.Text = "No se puede modificar Nombre o Apellido.";
                     return;
                 }
 
                 Guid idCliente = cliente.id;
-                String direccion = texdireccioncliente.Text;
-                String telefono = textelcliente.Text;
-                String email = texemailcliente.Text;
+                String direccion = txtDireccionCliente.Text;
+                String telefono = txtTelCliente.Text;
+                String email = txtEmailCliente.Text;
                 ModificarCliente clienteamodificar = new ModificarCliente(idCliente, direccion, telefono, email);
-                idusuario = cliente.id;
+                idUsuario = cliente.id;
 
-
-                int DNIcliente = int.Parse(texDNI.Text);
+                int DNIcliente = int.Parse(txtDNI.Text);
 
                 clienteNegocio.ModificarCliente(clienteamodificar, DNIcliente);
 
-                alertacliente.Visible = true;
-                alertacliente.ForeColor = Color.Green;
-                alertacliente.Text = $"El cliente {cliente.nombre} \n{cliente.apellido} \nha sido modificado correctamente";
+                lblAlertaClientes.Visible = true;
+                lblAlertaClientes.ForeColor = Color.Green;
+                lblAlertaClientes.Text = $"El cliente {cliente.nombre} {cliente.apellido} ha sido modificado correctamente";
 
                 cargarClientes();
             }
             catch (Exception ex)
             {
-                alertacliente.Visible = true;
-                alertacliente.ForeColor = Color.Red;
-                alertacliente.Text = "Se ha detectado un error. Vuelva a intentarlo, \nsi persiste contacte a su administrador.";
+                lblAlertaClientes.Visible = true;
+                lblAlertaClientes.ForeColor = Color.Red;
+                lblAlertaClientes.Text = "Se ha detectado un error. Vuelva a intentarlo, si persiste contacte a su administrador.";
             }
         }
 
-
-
-        private void Reactivarboton_Click(object sender, EventArgs e)
+        private void btnReactivarCliente_Click(object sender, EventArgs e)
         {
-
             try
             {
                 Cliente cliente = (Cliente)listaclientes.Rows[listaclientes.CurrentCell.RowIndex].DataBoundItem;
                 if (cliente == null)
                 {
-                    alertacliente.Visible = true;
-                    alertacliente.ForeColor = Color.Red;
-                    alertacliente.Text = "Seleccione un cliente para reactivar.";
+                    lblAlertaClientes.Visible = true;
+                    lblAlertaClientes.ForeColor = Color.Red;
+                    lblAlertaClientes.Text = "Seleccione un cliente para reactivar.";
                     return;
                 }
 
-                ReactivarCliente clienteareactivar = new ReactivarCliente(idusuario);
+                ReactivarCliente clienteareactivar = new ReactivarCliente(idUsuario);
                 clienteNegocio.ReactivarCliente(clienteareactivar);
-                alertacliente.Visible = true;
-                alertacliente.ForeColor = Color.Green;
-                alertacliente.Text = $"El cliente {cliente.nombre} \n {cliente.apellido}\n ha sido dado de reactivado";
-                cargarClientes();
 
+                lblAlertaClientes.Visible = true;
+                lblAlertaClientes.ForeColor = Color.Green;
+                lblAlertaClientes.Text = $"El cliente {cliente.nombre} {cliente.apellido} ha sido reactivado";
+                cargarClientes();
             }
             catch (Exception ex)
             {
-                alertacliente.Visible = true;
-                alertacliente.ForeColor = Color.Red;
-                alertacliente.Text = "Se ha detectado un error. Vuelva a intentarlo, \nsi persiste contacte a su administrador.";
+                lblAlertaClientes.Visible = true;
+                lblAlertaClientes.ForeColor = Color.Red;
+                lblAlertaClientes.Text = "Se ha detectado un error. Vuelva a intentarlo, si persiste contacte a su administrador.";
             }
-
         }
 
-        private void Registrarusuarioboton_Click(object sender, EventArgs e)
+        // Métodos de Validación
+        private bool ValidarCamposRequeridos(Dictionary<Control, string> controlEtiquetaMap)
+        {
+            ValidadorUtilis validador = new ValidadorUtilis();
+            string errorCamposIncompletos = validador.ValidarCamposCompletos(this, controlEtiquetaMap);
+
+            if (!string.IsNullOrEmpty(errorCamposIncompletos))
+            {
+                MostrarMensaje(errorCamposIncompletos, Color.Red);
+                return false;
+            }
+            return true;
+        }
+
+        private bool ValidarDNI(string dniTexto)
+        {
+            if (!int.TryParse(dniTexto, out int dni))
+            {
+                MostrarMensaje("El campo 'DNI' debe ser un número válido.", Color.Red);
+                return false;
+            }
+            if (dni < 1000000 || dni > 99999999)
+            {
+                MostrarMensaje("El 'DNI' debe ser entre 1.000.000 y 99.999.999.", Color.Red);
+                return false;
+            }
+            return true;
+        }
+
+        private bool ValidarEmail(string email)
+        {
+            if (!email.Contains("@"))
+            {
+                MostrarMensaje("El campo 'Email' debe contener un '@'.", Color.Red);
+                return false;
+            }
+            return true;
+        }
+
+        private bool ValidarEdad(DateTime fechaNacimiento)
+        {
+            int edad = DateTime.Now.Year - fechaNacimiento.Year;
+            if (fechaNacimiento > DateTime.Now.AddYears(-edad)) edad--;
+            if (edad < 18)
+            {
+                MostrarMensaje("El cliente debe tener al menos 18 años.", Color.Red);
+                return false;
+            }
+            return true;
+        }
+
+        // Método para mostrar mensajes en el label de alerta
+        private void MostrarMensaje(string mensaje, Color color)
+        {
+            lblAlertaClientes.Visible = true;
+            lblAlertaClientes.ForeColor = color;
+            lblAlertaClientes.Text = mensaje;
+        }
+
+        // Método para limpiar los campos
+        private void LimpiarCampos()
+        {
+            txtNombreCliente.Text = "";
+            txtApellido.Text = "";
+            txtDNI.Text = "";
+            txtDireccionCliente.Text = "";
+            txtTelCliente.Text = "";
+            txtEmailCliente.Text = "";
+            fechanaccampo.Value = fechanaccampo.MaxDate;
+        }
+
+        private void btnAltaCliente_Click_1(object sender, EventArgs e)
         {
             try
             {
-                
+                // Map de controles y etiquetas
+                var controlEtiquetaMap = new Dictionary<Control, string>
+        {
+            { txtNombreCliente, "Nombre" },
+            { txtApellido, "Apellido" },
+            { txtDNI, "DNI" },
+            { txtDireccionCliente, "Dirección" },
+            { txtTelCliente, "Teléfono" },
+            { txtEmailCliente, "Email" }
+        };
 
-                string nombre = textnombrecliente.Text;
-                string apellido = Textapellido.Text;
+                // Validación de campos
+                if (!ValidarCamposRequeridos(controlEtiquetaMap)) return;
 
-                int dni = int.Parse(texDNI.Text);
+                // Validación de DNI
+                if (!ValidarDNI(txtDNI.Text)) return;
 
-                if (dni < 1000000 || dni > 99999999)
-                {
-                    alertacliente.Visible = true;
-                    alertacliente.ForeColor = Color.Red;
-                    alertacliente.Text = "El 'DNI' debe ser entre 1.000.000 y 99.999.999.";
-                    return;
-                }
+                // Validación de Email
+                if (!ValidarEmail(txtEmailCliente.Text)) return;
 
-                string direccion = texdireccioncliente.Text;
-                string telefono = textelcliente.Text;
-                string email = texemailcliente.Text;
-                if (!email.Contains("@"))
-                {
-                    alertacliente.Visible = true;
-                    alertacliente.ForeColor = Color.Red;
-                    alertacliente.Text = "El campo 'Email' debe contener un '@'.";
-                    return;
-                }
-                if (int.TryParse(texDNI.Text, out dni))
-                {
-                    alertacliente.Visible = true;
-                    alertacliente.ForeColor = Color.Red;
-                    alertacliente.Text = "El campo 'DNI' debe ser un número válido.";
-                    return;
-                }
+                // Validación de Edad
+                if (!ValidarEdad(fechanaccampo.Value)) return;
 
-                DateTime fechaNacimiento = fechanaccampo.Value;
+                // Registro de Cliente
+                int dni = int.Parse(txtDNI.Text);
+                DateTime fechaNacimiento = fechanaccampo.Value;  // Agregado para almacenar la fecha de nacimiento
 
-                int edad = DateTime.Now.Year - fechaNacimiento.Year;
-                if (fechaNacimiento > DateTime.Now.AddYears(-edad)) edad--;
-                if (edad < 18)
-                {
-                    alertacliente.Visible = true;
-                    alertacliente.ForeColor = Color.Red;
-                    alertacliente.Text = "El cliente debe tener al menos 18 años.";
-                    return;
-                }
+                // Creación del GUID para idUsuario
+                Guid idUsuario = Guid.NewGuid();  // Generación de un GUID único
 
+                // Creación de la instancia de AltaCliente con el GUID
+                AltaCliente clienteNuevo = new AltaCliente(idUsuario, txtNombreCliente.Text, txtApellido.Text, dni, txtDireccionCliente.Text, txtTelCliente.Text, txtEmailCliente.Text, fechaNacimiento);
 
+                clienteNegocio.AltaCliente(clienteNuevo);
 
-                List<Usuario> usuarios = usuarioNegocio.listarUsuarios();
-                Usuario usuario = usuarios.FirstOrDefault(user => user.nombreUsuario == userLogueado);
-                AltaCliente clientearegistrar = new AltaCliente(idusuario,nombre,apellido, dni, direccion, telefono, email,fechaNacimiento,"Grupo 2");
-
-             
-
-
-                alertacliente.Visible = true;
-                alertacliente.ForeColor = Color.Green;
-                alertacliente.Text = "Cliente agregado correctamente";
-
-                textnombrecliente.Text = "";
-                Textapellido.Text = "";
-                texDNI.Text = "";
-                texdireccioncliente.Text = "";
-                textelcliente.Text = "";
-                texemailcliente.Text = "";
-                fechanaccampo.Value = fechanaccampo.MaxDate;
-
+                LimpiarCampos();
                 cargarClientes();
+
+                MostrarMensaje("Cliente agregado correctamente", Color.Green);
             }
             catch (Exception ex)
             {
-                alertacliente.Visible = true;
-                alertacliente.ForeColor = Color.Red;
-                alertacliente.Text = "Se ha producido un error. Vuelva a intentarlo, \nsi persiste contacte a su administrador.";
+                MessageBox.Show("Ocurrió un error al agregar el cliente: " + ex.Message + "\n\n" + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void Volverainicioboton_Click(object sender, EventArgs e)
-        {
-            FrmMain frmMain = new FrmMain(perfildelusuario,usuarioNegocio, productoNegocio);
-            frmMain.Show();
-            this.Hide();
-        }
-    } 
-    }
 
+    }
+}
