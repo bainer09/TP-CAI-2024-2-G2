@@ -17,12 +17,6 @@ namespace TemplateTPIntegrador
     public partial class FrmProducto : Form
     {
         private int perfilUsuario;
-        public FrmProducto(int perfilUsuario)
-        {
-            InitializeComponent();
-            this.perfilUsuario = perfilUsuario;
-        }
-        private int perfilUsuario;
         private int idCategoria;
         private string idProveedor;
         private string nombreProveedor;

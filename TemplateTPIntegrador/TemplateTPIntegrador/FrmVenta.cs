@@ -19,7 +19,7 @@ namespace TemplateTPIntegrador
 
             private int perfilUsuario;
             private Guid guidUsuario;
-            private string userLogueado = UsuarioLogueado.NombreUsuario;
+            private string userLogueado = UsuarioLogueado.nombreUsuario;
             private ProductoNegocio productoNegocio = new ProductoNegocio();
             private ClienteNegocio clienteNegocio = new ClienteNegocio();
             private VentaNegocio ventaNegocio = new VentaNegocio();
