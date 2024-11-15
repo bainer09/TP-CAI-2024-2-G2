@@ -20,6 +20,7 @@ namespace TemplateTPIntegrador
         public FrmProducto(int perfilUsuario)
         {
             InitializeComponent();
+            this.FormClosing += FrmProducto_FormClosing;
             this.perfilUsuario = perfilUsuario;
         }
         private int idCategoria;
@@ -37,18 +38,10 @@ namespace TemplateTPIntegrador
         private void FrmProducto_Load(object sender, EventArgs e)
         {
             //ProductoPersistente.PoblarproductoLocal();
-            //cargarProductos();
+            cargarProductos();
             cargarProveedores();
             //cargarCategorias();
         }
-
-        public FrmProducto(int perfilUsuario)
-        {
-            InitializeComponent();
-            this.FormClosing += FrmProducto_FormClosing;
-            this.perfilUsuario = perfilUsuario;
-        }
-
         
 
         private void FrmProducto_FormClosing(object sender, FormClosingEventArgs e)

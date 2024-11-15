@@ -38,9 +38,6 @@ namespace TemplateTPIntegrador
             lvCarrito.View = View.Details;
             lvCarrito.FullRowSelect = true;
             lvCarrito.GridLines = true;
-
-            //BELU a SACAR?
-            /*cmbCliente.SelectedIndexChanged += cbCliente_SelectedIndexChanged;*/
             lvCarrito.Columns.Add("Producto", 400);
             lvCarrito.Columns.Add("Precio", 100);
             lvCarrito.Columns.Add("Cantidad", 100);
@@ -64,7 +61,7 @@ namespace TemplateTPIntegrador
         private void FrmVenta_Load(object sender, EventArgs e)
         {
             lblMensajes.Visible = false;
-            lblMensajeVentas.Visible = false;
+            lblClienteNuevo.Visible = false;
             cargarProductos();
             cargarClientes();
         }
@@ -176,7 +173,7 @@ namespace TemplateTPIntegrador
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            lblMensajeVentas.Visible = false;
+            lblClienteNuevo.Visible = false;
 
             if (cmbCliente.SelectedItem == null)
             {
@@ -252,13 +249,16 @@ namespace TemplateTPIntegrador
                 };
                 listViewItem.SubItems.Add(producto.precio.ToString("C"));
                 listViewItem.SubItems.Add(cantidad.ToString());
-                lstCarrito.Items.Add(listViewItem); // Belén
+                lvCarrito.Items.Add(listViewItem); 
             }
 
             lblTotal.Text = $"Total: {totalConDescuento:C}";
 
-            // Belén
-            /*
+            Cliente clienteSeleccionado = cmbCliente.SelectedItem as Cliente;
+            Guid idCliente = clienteSeleccionado.id;
+
+            bool esPrimeraCompra = ventaNegocio.EsPrimeraCompra(idCliente);
+
             if (esPrimeraCompra)
             {
                 lblClienteNuevo.Visible = true;
@@ -268,10 +268,10 @@ namespace TemplateTPIntegrador
             {
                 lblClienteNuevo.Visible = false;
             }
-            */
+
             if (descuentoElectroHogar > 0)
             {
-                lblAlertadecuentoCatElectroHogar.Visible = true;
+                lblMensajes.Visible = true;
                 lblAlertadecuentoCatElectroHogar.Text = $"Descuento 5% en productos de Electro Hogar: {descuentoElectroHogar:C}";
             }
             else
@@ -289,14 +289,14 @@ namespace TemplateTPIntegrador
         {
             if (carrito.Count == 0)
             {
-                lblMensajeVentas.Text = "El carrito está vacío. No puedes completar la venta.";
+                lblClienteNuevo.Text = "El carrito está vacío. No puedes completar la venta.";
                 return;
             }
 
             Cliente clienteSeleccionado = cmbCliente.SelectedItem as Cliente;
             if (clienteSeleccionado == null)
             {
-                lblMensajeVentas.Text = "Por favor, selecciona un cliente.";
+                lblClienteNuevo.Text = "Por favor, selecciona un cliente.";
                 return;
             }
             Guid idCliente = clienteSeleccionado.id;
@@ -328,7 +328,7 @@ namespace TemplateTPIntegrador
             double descuentoPrimeraCompra = esPrimeraCompra ? totalSinDescuentos * 0.05 : 0;
 
 
-            lblMensajeVentas.Text = "Venta completada con éxito.";
+            lblClienteNuevo.Text = "Venta completada con éxito.";
 
             //GenerarComprobante(clienteSeleccionado, productosListos, descuentoPrimeraCompra);
 
