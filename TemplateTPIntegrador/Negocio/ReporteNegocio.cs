@@ -11,9 +11,10 @@ namespace Negocio
 {
     public class ReporteNegocio
     {
-        private const string ventasPath = @"/TemplateTPIntegrador/Persistencia/Data/Ventas.json";
         private UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
         private ProductoNegocio productoNegocio = new ProductoNegocio();
+        private string dir = AppDomain.CurrentDomain.BaseDirectory;
+
 
         private readonly Dictionary<int, string> categorias = new Dictionary<int, string>
         {
@@ -103,6 +104,8 @@ namespace Negocio
 
         private List<Venta> LeerVentasDesdeJson()
         {
+            string ventasPath = dir + "Ventas.json";
+
             if (File.Exists(ventasPath))
             {
                 var json = File.ReadAllText(ventasPath);
