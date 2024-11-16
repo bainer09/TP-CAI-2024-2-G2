@@ -76,36 +76,29 @@ namespace Persistencia
 
     public class VentaPersistente
     {
-        private const string ventasPath = @"/TemplateTPIntegrador/Persistencia/Data/Ventas.json";
+        string dir = AppDomain.CurrentDomain.BaseDirectory;
 
         public void AgregarVentaLocal(AgregarVenta venta)
         {
             List<AgregarVenta> ventas;
+            string ventasPath = dir + "Ventas.json";
 
-            if (File.Exists(ventasPath))
+            if (!File.Exists(ventasPath))
             {
-                string json = File.ReadAllText(ventasPath);
-                ventas = JsonConvert.DeserializeObject<List<AgregarVenta>>(json);
+                File.Create(ventasPath).Close();
             }
-            else
-            {
-                ventas = new List<AgregarVenta>();
-            }
-            ventas.Add(venta);
 
+            
             try
             {
-                string nuevaData = JsonConvert.SerializeObject(ventas, Formatting.Indented);
-                File.WriteAllText(ventasPath, nuevaData);
+                var json = File.ReadAllText(ventasPath);
+                ventas = JsonConvert.DeserializeObject<List<AgregarVenta>>(json) ?? new List<AgregarVenta>();
+                ventas.Add(venta);
+
+                var serializedData = JsonConvert.SerializeObject(ventas, Formatting.Indented);
+                File.WriteAllText(ventasPath, serializedData);
             } catch (Exception e) { throw new Exception("Error al agregar la venta en forma local.\n", e); }
         }
-        public List<AgregarVenta> LeerVentasLocal()
-        {
-            if (!File.Exists(ventasPath)) { throw new FileNotFoundException("Archivo no encontrado."); }
-            string json = File.ReadAllText(ventasPath);
-            List<AgregarVenta> ventas = JsonConvert.DeserializeObject<List<AgregarVenta>>(json);
-
-            return ventas;
-        }
+        
     }
 }
