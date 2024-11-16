@@ -64,7 +64,7 @@ namespace TemplateTPIntegrador
             // 
             this.txtNombre.Location = new System.Drawing.Point(75, 98);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(199, 32);
+            this.txtNombre.Size = new System.Drawing.Size(199, 24);
             this.txtNombre.TabIndex = 1;
             // 
             // lblNombreProducto
@@ -74,7 +74,7 @@ namespace TemplateTPIntegrador
             this.lblNombreProducto.ForeColor = System.Drawing.Color.DarkCyan;
             this.lblNombreProducto.Location = new System.Drawing.Point(76, 72);
             this.lblNombreProducto.Name = "lblNombreProducto";
-            this.lblNombreProducto.Size = new System.Drawing.Size(89, 23);
+            this.lblNombreProducto.Size = new System.Drawing.Size(63, 17);
             this.lblNombreProducto.TabIndex = 2;
             this.lblNombreProducto.Text = "Nombre";
             // 
@@ -85,7 +85,7 @@ namespace TemplateTPIntegrador
             this.lblPrecioProducto.ForeColor = System.Drawing.Color.DarkCyan;
             this.lblPrecioProducto.Location = new System.Drawing.Point(290, 72);
             this.lblPrecioProducto.Name = "lblPrecioProducto";
-            this.lblPrecioProducto.Size = new System.Drawing.Size(71, 23);
+            this.lblPrecioProducto.Size = new System.Drawing.Size(51, 17);
             this.lblPrecioProducto.TabIndex = 4;
             this.lblPrecioProducto.Text = "Precio";
             // 
@@ -94,7 +94,7 @@ namespace TemplateTPIntegrador
             this.txtPrecio.ForeColor = System.Drawing.Color.Black;
             this.txtPrecio.Location = new System.Drawing.Point(294, 98);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(199, 32);
+            this.txtPrecio.Size = new System.Drawing.Size(199, 24);
             this.txtPrecio.TabIndex = 3;
             // 
             // label2
@@ -104,7 +104,7 @@ namespace TemplateTPIntegrador
             this.label2.ForeColor = System.Drawing.Color.DarkCyan;
             this.label2.Location = new System.Drawing.Point(71, 161);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 23);
+            this.label2.Size = new System.Drawing.Size(76, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "Categoria";
             // 
@@ -116,7 +116,7 @@ namespace TemplateTPIntegrador
             this.label3.ForeColor = System.Drawing.Color.DarkCyan;
             this.label3.Location = new System.Drawing.Point(522, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(251, 23);
+            this.label3.Size = new System.Drawing.Size(175, 17);
             this.label3.TabIndex = 11;
             this.label3.Text = "Seleccione el proveedor";
             // 
@@ -137,7 +137,7 @@ namespace TemplateTPIntegrador
             // 
             this.numericUpDownStock.Location = new System.Drawing.Point(75, 341);
             this.numericUpDownStock.Name = "numericUpDownStock";
-            this.numericUpDownStock.Size = new System.Drawing.Size(199, 32);
+            this.numericUpDownStock.Size = new System.Drawing.Size(199, 24);
             this.numericUpDownStock.TabIndex = 20;
             // 
             // label4
@@ -147,7 +147,7 @@ namespace TemplateTPIntegrador
             this.label4.ForeColor = System.Drawing.Color.DarkCyan;
             this.label4.Location = new System.Drawing.Point(71, 321);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 23);
+            this.label4.Size = new System.Drawing.Size(45, 17);
             this.label4.TabIndex = 19;
             this.label4.Text = "Stock";
             // 
@@ -171,7 +171,7 @@ namespace TemplateTPIntegrador
             this.lblalertaProductos.ForeColor = System.Drawing.Color.Red;
             this.lblalertaProductos.Location = new System.Drawing.Point(173, 580);
             this.lblalertaProductos.Name = "lblalertaProductos";
-            this.lblalertaProductos.Size = new System.Drawing.Size(174, 23);
+            this.lblalertaProductos.Size = new System.Drawing.Size(121, 19);
             this.lblalertaProductos.TabIndex = 28;
             this.lblalertaProductos.Text = "Alerta Productos";
             this.lblalertaProductos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -182,7 +182,7 @@ namespace TemplateTPIntegrador
             this.chkAudio.AutoSize = true;
             this.chkAudio.Location = new System.Drawing.Point(75, 198);
             this.chkAudio.Name = "chkAudio";
-            this.chkAudio.Size = new System.Drawing.Size(93, 27);
+            this.chkAudio.Size = new System.Drawing.Size(68, 23);
             this.chkAudio.TabIndex = 29;
             this.chkAudio.Text = "Audio";
             this.chkAudio.UseVisualStyleBackColor = true;
@@ -192,7 +192,7 @@ namespace TemplateTPIntegrador
             this.chkCelulares.AutoSize = true;
             this.chkCelulares.Location = new System.Drawing.Point(75, 231);
             this.chkCelulares.Name = "chkCelulares";
-            this.chkCelulares.Size = new System.Drawing.Size(128, 27);
+            this.chkCelulares.Size = new System.Drawing.Size(91, 23);
             this.chkCelulares.TabIndex = 30;
             this.chkCelulares.Text = "Celulares";
             this.chkCelulares.UseVisualStyleBackColor = true;
@@ -202,7 +202,7 @@ namespace TemplateTPIntegrador
             this.chkElectroHogar.AutoSize = true;
             this.chkElectroHogar.Location = new System.Drawing.Point(75, 264);
             this.chkElectroHogar.Name = "chkElectroHogar";
-            this.chkElectroHogar.Size = new System.Drawing.Size(170, 27);
+            this.chkElectroHogar.Size = new System.Drawing.Size(121, 23);
             this.chkElectroHogar.TabIndex = 31;
             this.chkElectroHogar.Text = "Electro Hogar";
             this.chkElectroHogar.UseVisualStyleBackColor = true;
@@ -212,7 +212,7 @@ namespace TemplateTPIntegrador
             this.chkInformatica.AutoSize = true;
             this.chkInformatica.Location = new System.Drawing.Point(294, 198);
             this.chkInformatica.Name = "chkInformatica";
-            this.chkInformatica.Size = new System.Drawing.Size(148, 27);
+            this.chkInformatica.Size = new System.Drawing.Size(107, 23);
             this.chkInformatica.TabIndex = 32;
             this.chkInformatica.Text = "Informática";
             this.chkInformatica.UseVisualStyleBackColor = true;
@@ -222,7 +222,7 @@ namespace TemplateTPIntegrador
             this.chkSmartTV.AutoSize = true;
             this.chkSmartTV.Location = new System.Drawing.Point(294, 231);
             this.chkSmartTV.Name = "chkSmartTV";
-            this.chkSmartTV.Size = new System.Drawing.Size(121, 27);
+            this.chkSmartTV.Size = new System.Drawing.Size(85, 23);
             this.chkSmartTV.TabIndex = 33;
             this.chkSmartTV.Text = "Smart TV";
             this.chkSmartTV.UseVisualStyleBackColor = true;
@@ -282,13 +282,13 @@ namespace TemplateTPIntegrador
             this.label1.ForeColor = System.Drawing.Color.DarkCyan;
             this.label1.Location = new System.Drawing.Point(522, 321);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(197, 23);
+            this.label1.Size = new System.Drawing.Size(136, 17);
             this.label1.TabIndex = 36;
             this.label1.Text = "Productos en Stock";
             // 
             // FrmProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1194, 637);
@@ -317,7 +317,6 @@ namespace TemplateTPIntegrador
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FrmProducto";
             this.Text = "Registrar Producto";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresNegocioBindingSource)).EndInit();

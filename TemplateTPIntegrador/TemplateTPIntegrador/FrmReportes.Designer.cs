@@ -91,7 +91,6 @@
             this.Controls.Add(this.cmbReportes);
             this.Name = "FrmReportes";
             this.Text = "Reportes";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmReportes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportes)).EndInit();
             this.ResumeLayout(false);

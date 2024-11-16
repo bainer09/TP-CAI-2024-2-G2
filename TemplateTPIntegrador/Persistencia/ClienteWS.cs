@@ -52,9 +52,10 @@ namespace Persistencia
                     throw new Exception($"Error: {response.StatusCode} - {response.ReasonPhrase}");
                 }
             }
-            catch (Exception e) { throw new Exception("Error: ", e); }
-        }
-        public void ModificarCliente(ModificarCliente cliente)
+            catch (Exception e) { throw new Exception($"Error al hacer la solicitud a la API: {e.Message}\n{e.StackTrace}", e); }
+            //{ throw new Exception("Error: ", e); }
+            }
+            public void ModificarCliente(ModificarCliente cliente)
         {
             string apiPath = "Cliente/PatchCliente";
             var request = JsonConvert.SerializeObject(cliente);

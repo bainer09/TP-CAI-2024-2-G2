@@ -20,6 +20,7 @@ namespace Datos
         public DateTime? fechaBaja { get; set; }
         public Guid idUsuario { get; set; }
         public string host { get; set; }
+        public string NombreCompleto => $"{nombre} {apellido}";
 
         public Cliente(Guid id, string nombre, string apellido, string direccion, string telefono, string email, int dNI, DateTime fechaNacimiento, DateTime fechaAlta, DateTime? fechaBaja, Guid idUsuario, string host = "Grupo 2")
         {

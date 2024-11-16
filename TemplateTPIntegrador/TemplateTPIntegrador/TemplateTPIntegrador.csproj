@@ -140,6 +140,9 @@
     <EmbeddedResource Include="FrmAltaUsuario.resx">
       <DependentUpon>FrmAltaUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmComprobante.resx">
+      <DependentUpon>FrmComprobante.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmContrasenia.resx">
       <DependentUpon>FrmContrasenia.cs</DependentUpon>
     </EmbeddedResource>
