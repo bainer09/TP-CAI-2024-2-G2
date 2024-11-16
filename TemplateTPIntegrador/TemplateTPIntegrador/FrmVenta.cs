@@ -118,7 +118,10 @@ namespace TemplateTPIntegrador
             cmbCliente.DisplayMember = "NombreCompleto"; // Mostramos el nombre completo en el ComboBox
             cmbCliente.ValueMember = "id"; // El id es el valor asociado con la selección
 
-            cmbCliente.SelectedIndex = -1; // No seleccionar ninguno al inicio
+            cmbCliente.SelectedIndex = -1; // No seleccionar ninguno al inicio         
+            cmbCliente.DisplayMember = "NombreCompleto";
+            cmbCliente.ValueMember = "id";                     
+            cmbCliente.SelectedIndex = -1;
         }
 
         private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
@@ -272,7 +275,6 @@ namespace TemplateTPIntegrador
             Guid idCliente = clienteSeleccionado.id;
             */
 
-            Cliente clienteSeleccionado = cmbCliente.SelectedItem as Cliente;
             Guid idCliente = (Guid)cmbCliente.SelectedValue;
 
             bool esPrimeraCompra = ventaNegocio.EsPrimeraCompra(idCliente);
