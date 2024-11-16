@@ -329,6 +329,9 @@ namespace TemplateTPIntegrador
 
             bool esPrimeraCompra = ventaNegocio.EsPrimeraCompra(clienteSeleccionado.id);
             DateTime fechaVenta = DateTime.Now;
+            List<Usuario> usuarios = usuarioNegocio.ListarUsuarios();
+            Usuario usuario = usuarios.FirstOrDefault(u => u.nombreUsuario == userLogueado);
+            guidUsuario = usuario.id;
             foreach (var item in productosAgrupados)
             {
                 var producto = item.Producto;

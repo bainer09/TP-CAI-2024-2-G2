@@ -39,6 +39,8 @@ namespace Datos
             this.fechaVenta = fechaVenta;
 
         }
+
+        public Venta() { }
         
     }
     public class AgregarVenta
