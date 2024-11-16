@@ -118,8 +118,7 @@ namespace TemplateTPIntegrador
             cmbCliente.DisplayMember = "NombreCompleto"; // Mostramos el nombre completo en el ComboBox
             cmbCliente.ValueMember = "id"; // El id es el valor asociado con la selección
 
-            cmbCliente.SelectedIndex = -1; // No seleccionar ninguno al inicio
-            cmbCliente.DataSource = listaAMostrarClientes;          
+            cmbCliente.SelectedIndex = -1; // No seleccionar ninguno al inicio         
             cmbCliente.DisplayMember = "NombreCompleto";
             cmbCliente.ValueMember = "id";                     
             cmbCliente.SelectedIndex = -1;
